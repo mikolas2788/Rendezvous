@@ -1,1 +1,1 @@
-Hello World
+json.extract! @user, :id, :email
