@@ -1,3 +1,8 @@
-<div id="root">
-    Hello, this is root
-</div>
+<% if logged_in? %>
+    <script>
+        window.currentUser = <%= render("/api/users/user.json.jbuilder",
+            user: current_user).html_safe %>
+    </script>
+<% end %>
+
+<main id="root"></main>

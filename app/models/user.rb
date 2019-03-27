@@ -6,14 +6,13 @@
 #  email               :string           not null
 #  password_digest     :string           not null
 #  session_token       :string           not null
-#  first_name          :string
-#  last_name           :string
 #  profile_picture_url :string
 #  bio                 :text
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #  longitude           :float
 #  latitude            :float
+#  name                :string
 #
 
 class User < ApplicationRecord
@@ -23,10 +22,10 @@ class User < ApplicationRecord
 
     attr_reader :password
 
-    after_initialize :ensure_session_token 
+    after_initialize :ensure_token 
 
-    def self.find_by_credentials(username, password)
-        user = User.find_by(username: username)
+    def self.find_by_credentials(email, password)
+        user = User.find_by(email: email)
         user && user.is_password?(password) ? user : nil
     end 
 
@@ -48,7 +47,7 @@ class User < ApplicationRecord
         self.session_token ||= User.generate_token
     end 
 
-    def generate_token 
+    def self.generate_token 
         SecureRandom::urlsafe_base64
     end 
 

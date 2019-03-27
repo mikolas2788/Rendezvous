@@ -1,4 +1,4 @@
-export const signUp = (user) => {
+export const signup = (user) => {
     return (
         $.ajax({
             method: 'post', 
@@ -8,7 +8,7 @@ export const signUp = (user) => {
     );
 }; 
 
-export const logIn = (user) => {
+export const login = (user) => {
     return (
         $.ajax({
             method: 'post', 
@@ -18,7 +18,7 @@ export const logIn = (user) => {
     );
 }; 
 
-export const logOut = () => {
+export const logout = () => {
     return (
         $.ajax({
             method: 'delete', 
