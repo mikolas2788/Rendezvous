@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; 
 
-class Signup extends React.Component {
+class SignupForm extends React.Component {
 
     constructor(props) {
         super(props); 
         this.state = {
+            name: "", 
             email: "",
             password: "", 
         }; 
@@ -26,22 +27,24 @@ class Signup extends React.Component {
     render () {
         return (
             <div>
-                <h1>Sign Up</h1>
+                <h2>Sign Up</h2>
                 <form onSubmit={this.handleSubmit}>
                     <label> 
                         Your name
                         <input type="text" onChange={this.handleUpdate("name")} value={this.state.name}/>
                     </label>
-
+                    <br/>
                     <label> 
                         Email address
                         <input type="text" onChange={this.handleUpdate("email")} value={this.state.email}/>
                     </label>
-
+                    <br/>
                     <label> 
                         Password
                         <input type="password" onChange={this.handleUpdate("password")} value={this.state.password}/>
                     </label>
+                    <br/>
+                    <input type="submit" value="Continue"/>
 
                 </form>
             </div>
@@ -49,3 +52,4 @@ class Signup extends React.Component {
     }
 }
 
+export default SignupForm; 
