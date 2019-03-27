@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { login, logout, signup } from './util/session_api_util'; 
 import configureStore from './store/store'; 
+import Root from './component/root'; 
 
 document.addEventListener("DOMContentLoaded", () => {
     const store = configureStore();  
@@ -15,5 +16,5 @@ document.addEventListener("DOMContentLoaded", () => {
     window.dispatch = store.dispatch; 
     //test
 
-    ReactDOM.render(<h1>Welcome to Rendezvous</h1>, root); 
+    ReactDOM.render(<Root store={store}/>, root); 
 }); 
