@@ -10,9 +10,7 @@ import Video from './video/video';
 
 const App = () => (
     <div>
-        <h1>
-            Welcome to Rendezvous
-        </h1>
+        
         <NavBarContainer /> 
         <Route exact path="/" component={Video}/> 
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
