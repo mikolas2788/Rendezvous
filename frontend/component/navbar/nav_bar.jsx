@@ -23,7 +23,7 @@ class NavBar extends React.Component {
 
         return (
         <>
-            <div>Logo</div> 
+            <Link to='/'>Logo</Link>
             <br/>
             <Link to='/doesnt exist yet'>Start a new group</Link>
             <br/>

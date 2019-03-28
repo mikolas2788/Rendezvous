@@ -6,6 +6,7 @@ import NavBarContainer from './navbar/nav_bar_container';
 import {
     Route, Redirect, Switch, Link, HashRouter
 } from 'react-router-dom'; 
+import Video from './video/video'; 
 
 const App = () => (
     <div>
@@ -13,6 +14,7 @@ const App = () => (
             Welcome to Rendezvous
         </h1>
         <NavBarContainer /> 
+        <Route exact path="/" component={Video}/> 
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
         <AuthRoute exact path="/login" component={LoginFormContainer} />
     </div>
