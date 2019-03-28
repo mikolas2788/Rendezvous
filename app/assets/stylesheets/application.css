@@ -52,10 +52,10 @@ button {
   Get rid of native styling. Read more here:
   http://css-tricks.com/almanac/properties/a/appearance/
   */
-  -webkit-appearance: none;
+  /* -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-} */
+} */ 
 
 button,
 input[type="submit"] {
