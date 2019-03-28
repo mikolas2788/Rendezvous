@@ -10,6 +10,7 @@ class LoginForm extends React.Component {
             password: "",
         }; 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemo = this.handleDemo.bind(this);
     }
 
     handleUpdate(field) {
@@ -23,24 +24,48 @@ class LoginForm extends React.Component {
         this.props.login(this.state);
     }
 
+    handleDemo (event) {
+        event.preventDefault(); 
+        this.props.login({email: "DemoUser@gmail.com", password: "asdfasdf"}); 
+    }
+
     render() {
         return (
-            <div>
-                <h2>Log In</h2>
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                        Email address:
-                        <input type="text" onChange={this.handleUpdate("email")} value={this.state.email} />
-                    </label>
-                    <br />
-                    <label>
-                        Password: 
-                        <input type="password" onChange={this.handleUpdate("password")} value={this.state.password} />
-                    </label>
-                    <br />
-                    <input type="submit" value="Log in" />
-
-                </form>
+            <div className="login-strip">
+                <div className='login-form-box'>
+                    <form className='login-form' onSubmit={this.handleSubmit}>
+                        <h1>Log In</h1>
+                        <p>
+                            Not registered with us yet? <Link to="/signup">Sign Up</Link>
+                        </p>
+                        <div className='login-inputs'>
+                            <label>
+                                Email address:
+                                <input 
+                                    className='input'
+                                    type="text" 
+                                    onChange={this.handleUpdate("email")} 
+                                    value={this.state.email} />
+                            </label>
+                            <label>
+                                Password: 
+                                <input 
+                                    className='input'
+                                    type="password" 
+                                    onChange={this.handleUpdate("password")} 
+                                    value={this.state.password} />
+                            </label>
+                                <input 
+                                    className='login-button'
+                                    type="submit" 
+                                    value="Log in" />
+                                <button 
+                                    className='demo-login'
+                                    onClick={this.handleDemo}>Demo Log In
+                                </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         )
     }

@@ -1,0 +1,32 @@
+.nav-bar {
+    display: flex; 
+    justify-content: space-between; 
+    padding: 20px 20px; 
+}
+
+.nav-left {
+    display: flex; 
+}
+
+.nav-right {
+    display: flex; 
+    flex-direction: row; 
+    flex-wrap: nowrap; 
+}
+
+.nav-group {
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.nav-auth {
+    width: 500px;
+    display: flex;
+    flex-wrap: nowrap; 
+    justify-content: space-around;
+    padding: 20px 20px; 
+}

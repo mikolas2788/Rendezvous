@@ -3,9 +3,6 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store'; 
 import { login, logout, signup } from './util/session_api_util'; 
 import Root from './component/root'; 
-import { 
-    Route, Redirect, Switch, Link, HashRouter
-} from 'react-router-dom'; 
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;

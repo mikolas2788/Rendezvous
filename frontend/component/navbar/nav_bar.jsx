@@ -7,28 +7,29 @@ class NavBar extends React.Component {
         let NavAuth; 
         if (this.props.currentUser) {
             NavAuth = (
-                <div>
-                    <button onClick={this.props.logout}>Log out</button>
-                </div>
+                <button onClick={this.props.logout}>Log out</button>
             )
         } else {
             NavAuth = (
-                <div>
+                <>
                     <Link to='/login'>Log in</Link>
-                    <br/>
                     <Link to='/signup'>Sign up</Link>
-                </div>
+                </>
             )
         }
-
+ 
         return (
-        <>
-            <div>Logo</div> 
-            <br/>
-            <Link to='/doesnt exist yet'>Start a new group</Link>
-            <br/>
-            <div>{NavAuth}</div>
-        </>
+            <>
+                <div className='nav-bar'>
+                    <div className='nav-left'>
+                        <Link to='/'>Logo</Link>
+                    </div>
+                    <div className='nav-right'>
+                            <Link to='/doesnt exist yet'>Start a new group</Link>
+                        <div classname='nav-auth'>{NavAuth}</div>
+                    </div>
+                </div>
+            </>
         )
     }
 }

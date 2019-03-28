@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; 
 
 class SignupForm extends React.Component {
 
@@ -17,6 +16,7 @@ class SignupForm extends React.Component {
         return (event) => {
             this.setState({ [field]: event.target.value }); 
         }; 
+        // hello
     }
     
     handleSubmit (event) {
@@ -26,27 +26,42 @@ class SignupForm extends React.Component {
 
     render () {
         return (
-            <div>
-                <h2>Sign Up</h2>
-                <form onSubmit={this.handleSubmit}>
-                    <label> 
-                        Your name
-                        <input type="text" onChange={this.handleUpdate("name")} value={this.state.name}/>
-                    </label>
-                    <br/>
-                    <label> 
-                        Email address
-                        <input type="text" onChange={this.handleUpdate("email")} value={this.state.email}/>
-                    </label>
-                    <br/>
-                    <label> 
-                        Password
-                        <input type="password" onChange={this.handleUpdate("password")} value={this.state.password}/>
-                    </label>
-                    <br/>
-                    <input type="submit" value="Continue"/>
-
-                </form>
+            <div className='signup-strip'>
+                <div className='signup-form-box'>
+                    <form className='signup-form' onSubmit={this.handleSubmit}>
+                        <h1>Sign up</h1>
+                        <div class='signup-inputs'>
+                            <label> 
+                                Your name
+                                <input 
+                                    className='input'
+                                    type="text" 
+                                    onChange={this.handleUpdate("name")} 
+                                    value={this.state.name}/>
+                            </label>
+                            <label> 
+                                Email address
+                                <input 
+                                    className='input'
+                                    type="text" 
+                                    onChange={this.handleUpdate("email")} 
+                                    value={this.state.email}/>
+                            </label>
+                            <label> 
+                                Password
+                                <input 
+                                    className='input'
+                                    type="password" 
+                                    onChange={this.handleUpdate("password")} 
+                                    value={this.state.password}/>
+                            </label>
+                                <input 
+                                    className='signup-button'
+                                    type="submit" 
+                                    value="Continue"/>
+                        </div>
+                    </form>
+                </div>
             </div>
         )
     }
