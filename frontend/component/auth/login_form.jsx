@@ -32,9 +32,10 @@ class LoginForm extends React.Component {
     render() {
         return (
             <div className="login-strip">
+            <div className='boundary'></div>
                 <div className='login-form-box'>
                     <form className='login-form' onSubmit={this.handleSubmit}>
-                        <h1>Log In</h1>
+                        <h1 className='h1'>Log In</h1>
                         <p>
                             Not registered with us yet? <Link to="/signup">Sign Up</Link>
                         </p>
