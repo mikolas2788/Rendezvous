@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 
 class NavBar extends React.Component {
 
-    
-
     render () {
         let NavAuth; 
         if (this.props.currentUser) {
@@ -32,7 +30,7 @@ class NavBar extends React.Component {
                         <div className='nav-group-create'>
                             <Link className='create-group' to='/doesnt exist yet'>Start a new group</Link>
                         </div>
-                            <div className='nav-auth'>{NavAuth}</div>
+                        <div className='nav-auth'>{NavAuth}</div>
                     </div>
                 </div>
             </>

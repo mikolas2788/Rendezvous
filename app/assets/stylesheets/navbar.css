@@ -17,15 +17,12 @@
     font-family: fantasy; 
     font-weight: bold; 
     padding-left: 20px; 
-    font-size: 35px; 
+    font-size: 40px; 
 }
 
 .nav-group-create {
     font-family: Arial, Helvetica, sans-serif;
     text-align: right; 
-    /* align-items: center;
-    display: flex;
-    justify-content: space-between; */
 }
 
 .nav-right {
