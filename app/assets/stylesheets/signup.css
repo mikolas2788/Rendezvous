@@ -1,47 +1,94 @@
 .signup-strip {
     width: 100%; 
+    height: 644px; 
     display: flex; 
     justify-content: center; 
-    background-color: rgb(202, 191, 191);
+    align-items: center; 
+    flex-direction: column; 
+    background-color: #fafafa; 
 }
 
-.signup-form-box {
-    width: 524px; 
-    height: 596px; 
-    background-color: white; 
-    border: 1px solid rgba(0,0,0,.15)
-}
+/* .boundary {
+    width: 100px; 
+    height: 50px; 
+    padding: 0 25px; 
+} */
 
 .signup-form {
-    width: auto; 
+    background-color: white; 
+    font-family: "Graphik Meetup",helvetica,arial,sans-serif;
+    width: 458px; 
+    margin: 20px; 
     position: relative; 
     display: flex; 
     align-items: center; 
     justify-content: center; 
     flex-direction: column; 
-
+    border: 1px solid rgba(0,0,0,.15);
 }
 
-.signup-form h1 {
-    font-size: 35px; 
+/* top */
+
+.signup-top {
+    width: 100%; 
+    border-bottom: 1px solid rgba(0,0,0,.15); 
 }
 
+.signup-header {
+    margin-top: 16px; 
+    margin-left: 16px; 
+    display: flex; 
+    align-items: baseline; 
+    font-size: 34px; 
+}
+
+.signup-header h1 {
+    font-weight: bold; 
+}
+
+.signup-header img {
+    height: 21px; 
+    width: 16px; 
+}
+
+.login-instead {
+    display: flex;
+    flex-direction: row; 
+}
+
+.login-instead-link {
+    color: #1f24cc;
+}
+
+.signup-form p {
+    margin-left: 16px; 
+    padding-bottom: 16px; 
+}
+
+/* mid */
 .signup-inputs {
-    font-size: 15px; 
+    margin: 20px;
+    height: 100%;  
+    width: 90%; 
 }
 
 .input {
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    font-size: 15px;  
+    width: 100%; 
+    color: rgba(0,0,0,.87); 
+    border: 1px solid rgba(0,0,0,.12);
+    background-color: #fafafa; 
+    font-size: 16px; 
+    line-height: 1.45px; 
+    padding: 5px; 
+    border: 1px solid rgba(0,0,0,.12); 
+    border-radius: 5px; 
 }
 
 .signup-button {
     color: white; 
     background: #e22e4c;
     font-size: 16px; 
-    font-weight: 600; 
+    font-weight: 600;  
     padding: 0px 16px;
     box-sizing: border-box; 
     border-radius: 3px; 
@@ -51,3 +98,15 @@
     margin-bottom: 16px; 
 }
 
+/* bottom */
+
+.signup-bottom {
+    background-color: #D8DFEA;
+    border-top: 1px solid #627AAD; 
+    width: 100%; 
+    height: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    padding: 20px 0px; 
+}

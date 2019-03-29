@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; 
 
 class SignupForm extends React.Component {
 
@@ -26,41 +27,55 @@ class SignupForm extends React.Component {
     render () {
         return (
             <div className='signup-strip'>
-                <div className='signup-form-box'>
-                    <form className='signup-form' onSubmit={this.handleSubmit}>
-                        <h1>Sign up</h1>
-                        <div class='signup-inputs'>
-                            <label> 
-                                Your name
-                                <input 
-                                    className='input'
-                                    type="text" 
-                                    onChange={this.handleUpdate("name")} 
-                                    value={this.state.name}/>
-                            </label>
-                            <label> 
-                                Email address
-                                <input 
-                                    className='input'
-                                    type="text" 
-                                    onChange={this.handleUpdate("email")} 
-                                    value={this.state.email}/>
-                            </label>
-                            <label> 
-                                Password
-                                <input 
-                                    className='input'
-                                    type="password" 
-                                    onChange={this.handleUpdate("password")} 
-                                    value={this.state.password}/>
-                            </label>
-                                <input 
-                                    className='signup-button'
-                                    type="submit" 
-                                    value="Continue"/>
+            <div className='boundary'></div>
+                <form className='signup-form' onSubmit={this.handleSubmit}>
+                    <div className='signup-top'>
+                        <div className='signup-header'>
+                            <h1>Sign Up</h1>
+                            <img src="https://bit.ly/2JOaXoD" />
                         </div>
-                    </form>
-                </div>
+                        <br />
+                        <div className='login-instead'>
+                            <p>
+                                Already a member? <Link className='login-instead-link' to="/login">Log In</Link>
+                            </p>
+                        </div>
+                    </div>
+                    <br />
+                    <div className='signup-inputs'>
+                        <label> 
+                            Your name
+                            <input 
+                                className='input'
+                                type="text" 
+                                onChange={this.handleUpdate("name")} 
+                                value={this.state.name}/>
+                        </label>
+                        <br /><br />   
+                        <label> 
+                            Email address
+                            <input 
+                                className='input'
+                                type="text" 
+                                onChange={this.handleUpdate("email")} 
+                                value={this.state.email}/>
+                        </label>
+                        <br /><br />   
+                        <label> 
+                            Password
+                            <input 
+                                className='input'
+                                type="password" 
+                                onChange={this.handleUpdate("password")} 
+                                value={this.state.password}/>
+                        </label>
+                        <br/><br/>
+                            <input 
+                                className='signup-button'
+                                type="submit" 
+                                value="Continue"/>
+                    </div>
+                </form>
             </div>
         )
     }

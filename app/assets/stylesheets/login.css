@@ -14,46 +14,74 @@
     padding: 0 25px; 
 }
 
-.login-form-box {
-    background-color: #fafafa; 
-    width: 524px; 
-    height: 596px; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center;
-
-}
-
 .login-form {
     background-color: white; 
+    font-family: "Graphik Meetup",helvetica,arial,sans-serif;
     width: 458px; 
-    height: 532px; 
+    margin: 20px; 
     position: relative; 
     display: flex; 
     align-items: center; 
     justify-content: center; 
     flex-direction: column; 
-    border: 1px solid rgba(0,0,0,.15)
+    border: 1px solid rgba(0,0,0,.15);
 }
 
-.h1 {   
-    font-size: 35px; 
-    text-align: left; 
+/* top */
+
+.login-top {
+    width: 100%; 
+    border-bottom: 1px solid rgba(0,0,0,.15); 
+}
+
+.login-header {
+    margin-top: 16px; 
+    margin-left: 16px; 
+    display: flex; 
+    align-items: baseline; 
+    font-size: 34px; 
+}
+
+.login-header h1 {
+    font-weight: bold; 
+}
+
+.login-header img {
+    height: 21px; 
+    width: 16px; 
+}
+
+.signup-instead {
+    display: flex;
+    flex-direction: row; 
+}
+
+.signup-instead-link {
+    color: #1f24cc;
 }
 
 .login-form p {
-    font-size: 15px; 
+    margin-left: 16px; 
+    padding-bottom: 16px; 
 }
 
+/* mid */
 .login-inputs {
-    font-size: 15px; 
+    margin: 20px;
+    height: 100%;  
+    width: 90%; 
 }
 
 .input {
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    font-size: 15px;  
+    width: 100%; 
+    color: rgba(0,0,0,.87); 
+    border: 1px solid rgba(0,0,0,.12);
+    background-color: #fafafa; 
+    font-size: 16px; 
+    line-height: 1.45px; 
+    padding: 5px; 
+    border: 1px solid rgba(0,0,0,.12); 
+    border-radius: 5px; 
 }
 
 .login-button {
@@ -70,16 +98,48 @@
     margin-bottom: 16px; 
 }
 
-.demo-login { 
-    color: white; 
-    background: #e22e4c;
+/* bottom */
+
+.login-bottom {
+    background-color: #D8DFEA;
+    border-top: 1px solid #627AAD; 
+    width: 100%; 
+    height: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    padding: 20px 0px; 
+}
+
+.or-option {
+    display: flex; 
+    height: 15px; 
+    align-items: center; 
+    justify-content: center; 
+    /* margin-bottom: 10px;  */
+}
+
+.or-option p {
+    margin: 0; 
+    padding: 0; 
+    margin-bottom: 60px; 
+    background-color: #fff; 
+    width: 32px; 
     font-size: 16px; 
-    font-weight: 600; 
-    padding: 0px 16px;
-    box-sizing: border-box; 
-    border-radius: 3px; 
-    width: auto; 
+    font-weight: bold; 
+    text-align: center; 
+}
+
+.demo-button { 
+    color: white; 
+    background: #3b5998;
+    font-size: 16px; 
+    font-weight: 600;
+    text-align: center; 
+    border-radius: 5px; 
     min-height: 36px; 
+    width: 90%; 
+    height: 50px; 
     text-decoration: none; 
     margin-bottom: 16px; 
 }

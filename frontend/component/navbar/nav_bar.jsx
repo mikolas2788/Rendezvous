@@ -10,7 +10,7 @@ class NavBar extends React.Component {
         if (this.props.currentUser) {
             NavAuth = (
                 <button 
-                    className='logout'
+                    className='navlogout'
                     onClick={this.props.logout}>Log out</button>
             )
         } else {
@@ -32,7 +32,7 @@ class NavBar extends React.Component {
                         <div className='nav-group-create'>
                             <Link className='create-group' to='/doesnt exist yet'>Start a new group</Link>
                         </div>
-                            <div classname='nav-auth'>{NavAuth}</div>
+                            <div className='nav-auth'>{NavAuth}</div>
                     </div>
                 </div>
             </>
