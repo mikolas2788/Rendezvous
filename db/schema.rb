@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_27_182904) do
+ActiveRecord::Schema.define(version: 2019_03_29_235300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,12 +38,12 @@ ActiveRecord::Schema.define(version: 2019_03_27_182904) do
     t.string "title", null: false
     t.integer "creator_id", null: false
     t.string "group_picture_url"
-    t.float "longitude", null: false
-    t.float "latitude", null: false
     t.text "about", null: false
     t.boolean "public", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "longitude"
+    t.float "latitude"
     t.index ["creator_id"], name: "index_groups_on_creator_id"
     t.index ["title"], name: "index_groups_on_title"
   end

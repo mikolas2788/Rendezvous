@@ -42,12 +42,16 @@
 
 .splash-button {
     color: white; 
-    background: #e22e4c;
+    background: #f14b67;
     font-size: 20px; 
     font-weight: 600; 
     padding: 18px 80px;
     width: auto; 
     border-radius: 5px; 
     text-decoration: none; 
+}
+
+.splash-button:hover {
+    background: #e22e4c;
 }
 
