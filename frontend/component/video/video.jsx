@@ -15,7 +15,7 @@ class Video extends React.Component {
                 </div>
                 <div className='splash-content'>
                     <h1>Your world, right here</h1>
-                    <h3>Find and meet new people, try new things, drink lots, live life</h3>
+                    <h3>Meet. Explore. Eat. Dance. Live.</h3>
                     <div className="splash-button-div">
                         <Link className='splash-button' to={'/signup'}>Join Rendezvous</Link>
                     </div>
