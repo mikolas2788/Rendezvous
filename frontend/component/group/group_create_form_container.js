@@ -4,7 +4,7 @@ import GroupCreateForm from './group_create_form';
 
 const msp = (state) => {
     return {
-        creatorId: state.entities.users[state.session.id]
+        creatorId: state.session.id
     };
 };
 

@@ -5,6 +5,7 @@ import LoginFormContainer from './auth/login_form_container';
 import NavBarContainer from './navbar/nav_bar_container'; 
 import Video from './video/video'; 
 import MainBody from './main/main'; 
+import HomePage from './home/home_page'; 
 import Footer from './footer/footer_container'; 
 import GroupCreateFormContainer from '../component/group/group_create_form_container'
 import {
@@ -13,15 +14,16 @@ import {
 
 const App = () => (
     <div>
+        <NavBarContainer /> 
         {/* <Switch>             */}
-            <NavBarContainer /> 
-            <Route exact path='/' component={Video}/> 
             <Route exact path='/groups/new' component={GroupCreateFormContainer}/>
-            <AuthRoute exact path='/signup' component={SignupFormContainer} />
+            <ProtectedRoute exact path='/home' component={HomePage} />
+            <AuthRoute exact path='/' component={Video}/> 
             <AuthRoute exact path='/login' component={LoginFormContainer} />
+            <AuthRoute exact path='/signup' component={SignupFormContainer} />
+        {/* </Switch> */}
             <Route exact path='/' component={MainBody} />
             <Footer />
-        {/* </Switch> */}
     </div>
 ); 
 

@@ -6,12 +6,12 @@ class CreateGroupForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            creatorId: this.props.creatorId, 
+            creator_id: this.props.creatorId, 
             title: '',
             about: '',
-            hometown: '', 
-            longitude: '',
-            latitude: ''
+            location: '', 
+            // longitude: '',
+            // latitude: ''
         }; 
         this.handleSubmit = this.handleSubmit.bind(this);
 
@@ -35,7 +35,7 @@ class CreateGroupForm extends React.Component {
                     <div className='cg-splash'>
                         <img 
                             className='cg-splash-banner'
-                            src='https://secure.meetupstatic.com/img/start_v2/dweb_hero.jpg'
+                            src='https://bit.ly/2UfQMny'
                             />
                     </div>
                     <div className='cg-splash-content'>
@@ -46,25 +46,29 @@ class CreateGroupForm extends React.Component {
                 <div className='cg-form-strip'>
                     <form className='cg-form' onSubmit={this.handleSubmit}>
                         <div className='cg-inputs'>
+                            {/* <div className='cg-icon'> */}
+                            {/* </div> */}
                             <div className='cg-input'>
-                                <img className='cg-icon'/>   
+                                <img className='cg-icon' src='https://bit.ly/2JS4HvT'/>   
                                 <p className='cg-step'>Step 1 of 4</p>
                                 <label>
                                     What's your new Rendezvous Group's hometown?
                                     <input 
-                                        onChange={this.handleUpdate('hometown')}
+                                        className='cg-input-box'
+                                        onChange={this.handleUpdate('location')}
                                         placeholder='Search for a city'
-                                        value={this.state.hometown}
+                                        value={this.state.location}
                                     />
                                 </label>
                                 {/* must figure out how to extract data to location API */}
                             </div>
                             <div className='cg-input'>
-                                <img className='cg-icon'/>   
+                                <img className='cg-icon' src='https://bit.ly/2uE5q9A'/>   
                                 <p className='cg-step'>Step 2 of 4</p>
                                 <label>
                                     What will your Rendezvous name be?
                                     <input 
+                                        className='cg-input-box'
                                         onChange={this.handleUpdate('title')}
                                         placeholder='example: New York Hiking Rendezvous'
                                         value={this.state.title}
@@ -72,21 +76,23 @@ class CreateGroupForm extends React.Component {
                                 </label>
                             </div>
                             <div className='cg-input'>
-                                <img className='cg-icon'/>   
+                                <img className='cg-icon' src='https://bit.ly/2UnZEaE'/>   
                                 <p className='cg-step'>Step 3 of 4</p>
                                 <label>
                                     Describe who should join, and what your Rendezvous will do. 
                                     <textarea 
+                                        className='cg-input-big-box'
                                         onChange={this.handleUpdate('about')}
+                                        placeholder='example: This group is for passionate programmers, we welcome all'
                                         value={this.state.about}/>
                                 </label>
                             </div>
                             <div className='cg-input'>
-                                <img className='cg-icon'/>   
+                                <img className='cg-icon' src='https://bit.ly/2WAG1JQ'/>   
                                 <p className='cg-step'>Step 4 of 4</p>
                                 <label>
                                     What it means to be a Rendezvous. 
-                                    <ul>
+                                    <ul className='cg-rules'>
                                         <li>Real, in person conversations</li>
                                         <li>Open and honest intentions</li>
                                         <li>Always safe and respectful</li>

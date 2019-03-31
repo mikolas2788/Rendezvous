@@ -2,7 +2,7 @@
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
-    height: 80px; 
+    height: 70px; 
     border-bottom: 1px solid rgba(0,0,0,.12); 
     text-decoration: none; 
 }
@@ -14,8 +14,8 @@
 
 .logo {
     color: #00a2c7; 
-    font-family: fantasy; 
-    font-weight: bold; 
+    font-family: Impact, 'Arial Narrow Bold', sans-serif; 
+    font-weight: 600;  
     padding-left: 20px; 
     font-size: 40px; 
 }

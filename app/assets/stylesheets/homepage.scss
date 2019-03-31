@@ -1,0 +1,43 @@
+.home-page-strip {
+    height: 1000px; 
+    width: 100%; 
+}
+
+.home-page-banner {
+    height: 153px; 
+    color: #ffffff; 
+    background-color: #00455d; 
+    font-size: 34px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+.home-page-banner p {
+    margin-top: 20px; 
+    font-size: 16px; 
+}
+
+.home-page-search-bar {
+
+}
+
+.home-page-main {
+    height: 70%; 
+    width: 70%; 
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    background-image: image_url('Tidus.jpg'); 
+    background-position: center;
+    background-size: cover; 
+}
+
+.home-page-events {
+
+}
+
+.home-page-calendar {
+
+}

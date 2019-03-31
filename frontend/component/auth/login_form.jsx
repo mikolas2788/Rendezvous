@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class LoginForm extends React.Component {
 
@@ -11,17 +11,18 @@ class LoginForm extends React.Component {
         }; 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDemo = this.handleDemo.bind(this);
+        // this.goToHome = this.goToHome.bind(this);
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        this.props.login(this.state).then(() => this.props.history.push('/home')); 
     }
 
     handleUpdate(field) {
         return (event) => {
             this.setState({ [field]: event.target.value });
         };
-    }
-
-    handleSubmit(event) {
-        event.preventDefault();
-        this.props.login(this.state);
     }
 
     handleDemo (event) {
@@ -105,4 +106,4 @@ class LoginForm extends React.Component {
     }
 }
 
-export default LoginForm; 
+export default withRouter(LoginForm); 

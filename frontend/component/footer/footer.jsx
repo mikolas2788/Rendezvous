@@ -20,16 +20,24 @@ class Footer extends React.Component {
             )
         }
 
+        let createGroup;
+        if (this.props.currentUser) {
+            createGroup = (
+                <Link className='footer-create-group' to='/groups/new'>Start a new group</Link>
+            )
+        } else {
+            createGroup = (
+                <Link className='footer-create-group' to='/login'>Start a new group</Link>
+            )
+        }
+
         return (
             <>
                 <div className='footer-strip'>
                     <div className='footer-content'>
                         <div className='footer-top'>
                             <div className='footer-group-create'>
-                                <Link
-                                    className='footer create-link'
-                                    to='/doesnt exist yet'>Start a new group
-                                </Link>
+                                {createGroup}
                             </div>
                             <div className='footer-auth'>{FooterAuth}</div>
                         </div>

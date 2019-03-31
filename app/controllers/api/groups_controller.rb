@@ -37,9 +37,10 @@ class Api::GroupsController < ApplicationController
 
     def group_params 
         params.require(:group).permit(
+            :creator_id,
             :title,
             :about,
-            :creator_id
+            :location
         )
     end 
 
