@@ -49,7 +49,6 @@ class LoginForm extends React.Component {
     render() {
 
         return (
-            
             <div className="login-strip">
             <div className='boundary'></div>
                 <form className='login-form' onSubmit={this.handleSubmit}>

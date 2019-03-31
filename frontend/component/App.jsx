@@ -6,18 +6,22 @@ import NavBarContainer from './navbar/nav_bar_container';
 import Video from './video/video'; 
 import MainBody from './main/main'; 
 import Footer from './footer/footer_container'; 
+import GroupCreateFormContainer from '../component/group/group_create_form_container'
 import {
     Route, Redirect, Switch, Link, HashRouter
 } from 'react-router-dom'; 
 
 const App = () => (
     <div>
-        <NavBarContainer /> 
-        <Route exact path="/" component={Video}/> 
-        <AuthRoute exact path="/signup" component={SignupFormContainer} />
-        <AuthRoute exact path="/login" component={LoginFormContainer} />
-        <Route exact path='/' component={MainBody} />
-        <Footer />
+        {/* <Switch>             */}
+            <NavBarContainer /> 
+            <Route exact path='/' component={Video}/> 
+            <Route exact path='/groups/new' component={GroupCreateFormContainer}/>
+            <AuthRoute exact path='/signup' component={SignupFormContainer} />
+            <AuthRoute exact path='/login' component={LoginFormContainer} />
+            <Route exact path='/' component={MainBody} />
+            <Footer />
+        {/* </Switch> */}
     </div>
 ); 
 

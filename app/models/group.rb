@@ -6,21 +6,20 @@
 #  title             :string           not null
 #  creator_id        :integer          not null
 #  group_picture_url :string
-#  longitude         :float            not null
-#  latitude          :float            not null
 #  about             :text             not null
 #  public            :boolean          default(TRUE)
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  longitude         :float
+#  latitude          :float
 #
 
 class Group < ApplicationRecord
+    
     validates :title, :about, :creator_id, presence: true
 
     belongs_to :user,
         class_name: :User, 
         foreign_key: :creator_id 
-
-    
     
 end

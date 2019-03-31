@@ -1,14 +1,14 @@
 .splash-main {
     height: 460px;
     width: 100%; 
+    display: flex; 
     position: relative; 
     overflow: hidden; 
-    display: flex; 
 }
 
 .splash-video video {
-    width: 100%; 
     min-height: 460px; 
+    width: 100%; 
     position: absolute; 
     filter: brightness(0.9); 
 }
@@ -18,12 +18,12 @@
     z-index: 1; 
     width: 100%; 
     height: 460px; 
-    text-align: center; 
-    position: absolute; 
     display: flex; 
-    flex-direction: column; 
-    align-items: center; 
+    position: absolute; 
     justify-content: center; 
+    flex-direction: column; 
+    text-align: center; 
+    align-items: center; 
 }
 
 .splash-content h1 {

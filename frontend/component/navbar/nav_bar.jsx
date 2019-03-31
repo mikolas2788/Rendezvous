@@ -19,6 +19,17 @@ class NavBar extends React.Component {
                 </>
             )
         }
+        
+        let createGroup; 
+        if (this.props.currentUser) {
+            createGroup = (
+                <Link className='create-group' to='/groups/new'>Start a new group</Link>
+            )
+        } else {
+            createGroup = (
+                <Link className='create-group' to='/login'>Start a new group</Link>
+            )
+        }
  
         return (
             <>
@@ -28,7 +39,7 @@ class NavBar extends React.Component {
                     </div>
                     <div className="nav-right">
                         <div className='nav-group-create'>
-                            <Link className='create-group' to='/doesnt exist yet'>Start a new group</Link>
+                            {createGroup}
                         </div>
                         <div className='nav-auth'>{NavAuth}</div>
                     </div>

@@ -1,0 +1,57 @@
+.cg-strip {
+    width: 100%;
+    height: 100%; 
+}
+
+.cg-splash-strip {
+    height: 251px; 
+    display: flex; 
+    position: relative;
+    overflow: hidden; 
+}
+
+.cg-splash-banner {
+    min-height: 251px; 
+    position: absolute; 
+}
+
+.cg-splash-content {
+    color: white; 
+    z-index: 1; 
+    height: 251px; 
+    width: 100%; 
+    display: flex; 
+    position: absolute; 
+    justify-content: center; 
+    flex-direction: column; 
+    align-items: center; 
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600; 
+}
+
+.cg-splash-content h1 {
+    font-size: 34px;
+}
+
+.cg-splash-content h3 {
+    font-size: 20px; 
+}
+
+.cg-form-strip {
+    width: 100%; 
+    display: flex; 
+    justify-content: center; 
+    flex-direction: column; 
+    align-items: center; 
+}
+.cg-inputs {
+    width: 840px; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column; 
+}
+
+.cg-input {
+
+}
