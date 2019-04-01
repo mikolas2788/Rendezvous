@@ -13,8 +13,13 @@ class GroupShow extends React.Component {
                 <div className='group-pic'>
 
                 </div>
-                <div className='group-main'>
-
+                <div className='group-info'>
+                    <h1>{group.title}</h1>
+                    {/* need icons */}
+                    <p>{group.location}</p>
+                    {/* <p>{group.members.length}</p> */}
+                    {/* <p>public status</p> */}
+                    {/* creator_id */}
                 </div>
             </div>
             <div className='group-mid'>
