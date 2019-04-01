@@ -23,10 +23,14 @@ class GroupShow extends React.Component {
                 </div>
             </div>
             <div className='group-mid'>
-            
+                <div className='group-tabs'>
+
+                </div>
             </div>
             <div className='group-bottom'>
-
+                <div>
+                    
+                </div>
             </div>
 
         </div>

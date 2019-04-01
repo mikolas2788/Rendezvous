@@ -1,5 +1,8 @@
 .group-show-strip {
-
+    background-color: #ffffff; 
+    height: 500px; 
+    width: 100%; 
+    
 }
 
 .group-top {
@@ -14,10 +17,16 @@
 
 }
 
+
+
 .group-mid {
 
 }
 
+.group-tabs {
+
+}
+
 .group-bottom {
-    
+
 }
