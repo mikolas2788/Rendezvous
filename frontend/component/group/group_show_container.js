@@ -6,12 +6,12 @@ const msp = (state, ownProps) => {
     return {
         group: state.entities.groups[ownProps.match.params.groupId]
     }
-} 
+}
 
 const mdp = (dispatch) => {
     return {
         fetchGroup: (id) => dispatch(fetchGroup(id))
     }
-} 
+}
 
 export default connect (msp, mdp) (GroupShow); 
