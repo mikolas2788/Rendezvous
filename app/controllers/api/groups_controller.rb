@@ -16,7 +16,7 @@ class Api::GroupsController < ApplicationController
     def create
         @group = Group.new(group_params)
         if @group.save
-            render "api/groups/show"
+            render :show
         else 
             render json: @group.errors.full_messages
         end 
@@ -25,7 +25,7 @@ class Api::GroupsController < ApplicationController
     def update 
         @group = Group.find_by(id: params[:id])
         if @group.save 
-            render "api/groups/show"
+            render :show
         else 
             render json: @group.errors.full_messages
         end
@@ -42,6 +42,6 @@ class Api::GroupsController < ApplicationController
             :about,
             :location
         )
-    end 
+    end
 
 end

@@ -12,14 +12,18 @@
 #  updated_at        :datetime         not null
 #  longitude         :float
 #  latitude          :float
+#  location          :string
 #
 
 class Group < ApplicationRecord
     
     validates :title, :about, :creator_id, presence: true
 
-    belongs_to :user,
+    belongs_to :organizer,
         class_name: :User, 
         foreign_key: :creator_id 
+
+    # has_many :members,
+    #     class_name: :
     
 end

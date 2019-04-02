@@ -23,7 +23,7 @@ const App = () => (
             <AuthRoute exact path='/login' component={LoginFormContainer} />
             <AuthRoute exact path='/signup' component={SignupFormContainer} />
         {/* </Switch> */}
-            <Route path='groups/:groupId' component={GroupShowContainer}/>
+            <Route exact path='groups/:groupId' component={GroupShowContainer}/>
             <Route exact path='/' component={MainBody} />
             <Footer />
     </div>

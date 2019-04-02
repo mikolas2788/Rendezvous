@@ -12,6 +12,7 @@
 #  updated_at        :datetime         not null
 #  longitude         :float
 #  latitude          :float
+#  location          :string
 #
 
 require 'test_helper'
