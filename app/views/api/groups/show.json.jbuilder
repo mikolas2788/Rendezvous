@@ -1,3 +1,3 @@
 json.group do
-    json.partial! 'group', group: @group
+    json.partial! 'api/groups/group', group: @group
 end
