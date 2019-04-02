@@ -4,10 +4,10 @@ class Api::GroupsController < ApplicationController
         @group = Group.new 
     end 
     
-    def index 
-        @groups = Group.all 
-        render :index 
-    end 
+    # def index 
+    #     @groups = Group.all 
+    #     render :index 
+    # end 
 
     def show 
         @group = Group.find_by(id: params[:id])

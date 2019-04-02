@@ -33,7 +33,7 @@ export const fetchGroups = () => dispatch => {
 
 export const fetchGroup = (id) => dispatch => {
     return (
-        GroupAPIUtil.fetchGroups(id).then(group => dispatch(receiveGroup(group)))
+        GroupAPIUtil.fetchGroup(id).then(group => dispatch(receiveGroup(group)))
     );
 };
 

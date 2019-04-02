@@ -10,13 +10,13 @@ class Api::UsersController < ApplicationController
         end 
     end 
 
-    def show
+    # def show
 
-    end 
+    # end 
 
-    def index 
+    # def index 
 
-    end 
+    # end 
 
     private 
 

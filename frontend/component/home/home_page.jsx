@@ -6,19 +6,32 @@ class HomePage extends React.Component {
     render () {
 
         return (
-            <div className='home-page-strip'>
-                <div className='home-page-banner'>
+            <div className='homepage-strip'>
+                <div className='homepage-banner'>
                     <h1>Find your next event</h1>
                     <p> 4 events in your groups * 4,639 events near you</p>
                 </div>
-                <div className='home-page-search-bar'>
-                    
+                <div className='homepage-search-strip'>
+                    <div className='homepage-search-filter'>
+                        <div className='homepage-search-bar'>
+                            <input 
+                                className='homepage-search-input'
+                                type='text'
+                                placeholder="It's a trap"
+                                />
+                            within 10 miles of Elmhurst, NY
+                        </div>
+                        <div className='homepage-filter-tabs'>
+                            <button className='homepage-group-button'>Groups</button>
+                            <button className='homepage-group-button'>Calendar</button>
+                        </div>
+                    </div>
                 </div>
-                <div className='home-page-main'>
-                    <div className='home-page-events'>
+                <div className='homepage-main'>
+                    <div className='homepage-events'>
 
                     </div>
-                    <div className='home-page-calendar'>
+                    <div className='homepage-calendar'>
 
                     </div>
                 </div>

@@ -8,8 +8,9 @@ import MainBody from './main/main';
 import HomePage from './home/home_page'; 
 import Footer from './footer/footer_container'; 
 import GroupCreateFormContainer from '../component/group/group_create_form_container';
-import GroupShowContainer from '../component/group/group_show_container';
-import GroupIndexContainer from '../component/group/group_index_container'; 
+import GroupShowContainer from "../component/group/group_show_container";
+
+// import GroupIndexContainer from '../component/group/group_index_container'; 
 import {
     Route, Redirect, Switch, Link, HashRouter
 } from 'react-router-dom'; 
@@ -17,16 +18,14 @@ import {
 const App = () => (
     <div>
         <NavBarContainer /> 
-        {/* <Switch>             */}
-            <Route exact path='/groups/new' component={GroupCreateFormContainer}/>
-            <ProtectedRoute exact path='/home' component={HomePage} />
-            <AuthRoute exact path='/' component={Video}/> 
-            <AuthRoute exact path='/login' component={LoginFormContainer} />
-            <AuthRoute exact path='/signup' component={SignupFormContainer} />
-        {/* </Switch> */}
-            <Route path='groups/:groupId' component={GroupShowContainer}/>
-            <Route exact path='/' component={MainBody} />
-            <Footer />
+        <ProtectedRoute exact path='/home' component={HomePage} />
+        <AuthRoute exact path='/' component={Video}/> 
+        <AuthRoute exact path='/login' component={LoginFormContainer} />
+        <AuthRoute exact path='/signup' component={SignupFormContainer} />
+        <Route exact path='/' component={MainBody} />
+        <Route path='/groups/:groupId' component={GroupShowContainer}/>
+        <Route path='/groups/new' component={GroupCreateFormContainer}/>
+        <Footer />
     </div>
 ); 
 

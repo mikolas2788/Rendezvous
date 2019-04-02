@@ -1,9 +1,9 @@
-.home-page-strip {
+.homepage-strip {
     height: 1000px; 
     width: 100%; 
 }
 
-.home-page-banner {
+.homepage-banner {
     height: 153px; 
     color: #ffffff; 
     background-color: #00455d; 
@@ -12,32 +12,89 @@
     flex-direction: column; 
     align-items: center; 
     justify-content: center; 
+    overflow: hidden; 
 }
 
-.home-page-banner p {
+.homepage-banner p {
     margin-top: 20px; 
     font-size: 16px; 
 }
 
-.home-page-search-bar {
-
+.homepage-search-strip {
+    height: 69px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    z-index: 2; 
+    font-size: 16px; 
 }
 
-.home-page-main {
+.homepage-search-filter {
+    background-color: #0f1721;
+    color: #ffffff; 
+    width: 80%; 
+    height: 100%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+}
+
+.homepage-search-bar {
+    display: flex; 
+    align-items: center; 
+    flex-direction: row; 
+}
+
+.homepage-search-input {
+    background-color: #ffffff; 
+    color: #353e48; 
+    height: 43px; 
+    width: 280px; 
+    margin: 0 3px; 
+    border-radius: 3px; 
+    padding: 2px; 
+    border: 1px solid #000; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    margin-left: 10px; 
+}
+
+.homepage-filter-tabs {
+    color: #ffffff;
+    padding: 12px; 
+    display: flex; 
+    flex-direction: row; 
+}
+
+.homepage-group-button {
+    color: white; 
+    background: #f14b67;
+    font-size: 16px; 
+    font-weight: 600; 
+    padding: 0px 16px;
+    box-sizing: border-box; 
+    border-radius: 3px; 
+    width: auto; 
+    height: 43px; 
+    text-decoration: none; 
+}
+
+.homepage-main {
     height: 70%; 
     width: 70%; 
     display: flex; 
     justify-content: center;
     align-items: center; 
-    background-image: image_url('Tidus.jpg'); 
+    background-image: image_url('tidus.jpg'); 
     background-position: center;
     background-size: cover; 
 }
 
-.home-page-events {
-
+.homepage-events {
+    
 }
 
-.home-page-calendar {
+.homepage-calendar {
 
 }

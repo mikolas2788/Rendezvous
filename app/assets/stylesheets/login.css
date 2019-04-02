@@ -112,8 +112,8 @@
 }
 
 .or-option {
-    display: flex; 
     height: 15px; 
+    display: flex; 
     align-items: center; 
     justify-content: center; 
     /* margin-bottom: 10px;  */
