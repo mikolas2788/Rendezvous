@@ -1,5 +1,5 @@
 .homepage-strip {
-    height: 1000px; 
+    height: auto; 
     width: 100%; 
 }
 
@@ -69,7 +69,7 @@
 
 .homepage-group-button {
     color: white; 
-    background: #f14b67;
+    background: rgba(255,255,255,.2); 
     font-size: 16px; 
     font-weight: 600; 
     padding: 0px 16px;
@@ -81,18 +81,33 @@
 }
 
 .homepage-main {
-    height: 70%; 
-    width: 70%; 
+    height: auto; 
+    width: 100%; 
     display: flex; 
-    justify-content: center;
+    flex-direction: column; 
+    justify-content: center; 
     align-items: center; 
-    background-image: image_url('tidus.jpg'); 
-    background-position: center;
-    background-size: cover; 
+
+    h1 {
+        margin-top: 40px; 
+        font-size: 20px; 
+        font-weight: 600; 
+        margin-bottom: 20px; 
+    }
 }
 
-.homepage-events {
-    
+// .homepage-buffer {
+//     width: 70%; 
+// }
+
+.homepage-groups-index {
+    width: 80%; 
+    display: flex; 
+    flex-wrap: wrap; 
+    flex-direction: row; 
+    align-items: center; 
+    border-radius: 3px; 
+    margin-bottom: 20px; 
 }
 
 .homepage-calendar {

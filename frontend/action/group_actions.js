@@ -12,10 +12,11 @@ const receiveGroups = (groups) => {
     });
 }; 
 
-const receiveGroup = ({group}) => {
+const receiveGroup = ({group, users}) => {
     return ({
         type: RECEIVE_GROUP, 
-        group
+        group, 
+        users
     });
 }; 
 

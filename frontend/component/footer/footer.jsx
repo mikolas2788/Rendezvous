@@ -42,20 +42,26 @@ class Footer extends React.Component {
                             <div className='footer-auth'>{FooterAuth}</div>
                         </div>
                         <div className='footer-middle'>
-                            <div className='footer-links'>
-                                <a href='https://github.com/mikolas2788'>
-                                    <i className='fab fa-github'></i> Myron's Github
-                                </a>
-                                <a href='#'>
-                                    <i className='fab fa-linkedin'></i> Myron's Linkedin
-                                </a>
-                                <a href='#'>
-                                    <i className='fab fa-facebook'></i> Myron's Facebook 
-                                </a>
-                                <a href='https://www.meetup.com/'>
-                                    <i className='fab fa-meetup'></i> The Real Meetup 
-                                </a>
-                            </div>
+                            <Link 
+                                className='footer-links' 
+                                to='https://github.com/mikolas2788'>
+                                <i className='fab fa-github'></i> Myron's Github
+                            </Link>
+                            <Link 
+                                className='footer-links' 
+                                to='#'>
+                                <i className='fab fa-linkedin'></i> Myron's Linkedin
+                            </Link>
+                            <Link 
+                                className='footer-links' 
+                                to='#'>
+                                <i className='fab fa-facebook'></i> Myron's Facebook 
+                            </Link>
+                            <Link 
+                                className='footer-links' 
+                                to='https://www.meetup.com/'>
+                                <i className='fab fa-meetup'></i> The Real Meetup 
+                            </Link>
                         </div>
                     </div>
                         <div className='footer-bottom'>

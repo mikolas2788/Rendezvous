@@ -116,11 +116,15 @@
 
 .cg-submit {
     color: #ffffff;
-    background-color: #ed1c40;
+    background-color: #f14b67;
     border-color: #ed1c40;
     font-size: 16px;
     font-weight: 600; 
     margin-top: 16px; 
     padding: 8px 16px;
     border-radius: 3px;
+
+    &:hover {
+        background: #e22e4c;
+    }
 }

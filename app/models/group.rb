@@ -28,5 +28,9 @@ class Group < ApplicationRecord
     has_many :members, 
         through: :memberships, 
         source: :member 
+
+    # def organizer
+    #     self.members.select { |member| member.id == self.creator_id }
+    # end
     
 end

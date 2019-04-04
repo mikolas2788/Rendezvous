@@ -15,6 +15,7 @@ class GroupShow extends React.Component {
 
     componentDidMount () {
         this.props.fetchGroup(this.props.match.params.groupId); 
+
     }
 
     componentDidUpdate (oldProps) {
@@ -40,18 +41,20 @@ class GroupShow extends React.Component {
  
     groupButton () {
         let button; 
-        if (this.props.currentUser.id === this.props.group.creator_id) {
+        // if (this.props.currentUser.id === this.props.group.creator_id) {
+        //     button = <button 
+        //                 className='group-button' 
+        //                 onClick={this.deleteGroup}>
+        //                 Delete your group
+        //             </button>
+        // } else 
+        
+        if (!this.props.group.member_ids.includes(this.props.currentUser.id)) {
             button = <button 
-                        className='group-button' 
-                        onClick={this.deleteGroup}>
-                        Delete your group
-                    </button>
-        } else if (!this.props.group.members.includes(this.props.currentUser.id)) {
-            button = <button 
-                        className='group-button'
+                        className='group-button'    
                         onClick={this.joinGroup}>
                         Join this group</button>
-        } else if (this.props.group.members.includes(this.props.currentUser.id)) {
+        } else if (this.props.group.member_ids.includes(this.props.currentUser.id)) {
             button = <button 
                         className='group-button'
                         onClick={this.leaveGroup}>
@@ -62,8 +65,12 @@ class GroupShow extends React.Component {
         return button; 
     }
 
+    organizer () {
+        return this.props.group.organizer_id
+    }
+
     memberCount () {
-        return this.props.group.members.length
+        return this.props.group.member_ids.length
     }
 
     render () {
@@ -71,30 +78,58 @@ class GroupShow extends React.Component {
         return (
             <div className='group-show-strip'>
                 <div className='group-top'>
-                    <img className='group-pic' src="" alt=""/>
-                    <div className='group-info'>
-                        <h1>{this.props.group.title}</h1>
-                        {/* need icons */}
-                        <p>{this.props.group.location}</p>
-                        <p>{ this.memberCount() } members</p>
-                        {/* <p>public status</p> */}
-                        {/* creator_id */}
+                    <div className='group-buffer'>
+                        <img className='group-pic' src={"https://picsum.photos/600/340/?random"} alt=""/>
+                        <div className='group-info'>
+                            <h1>{this.props.group.title}</h1>
+                            <div>
+                                <i className="far fa-compass"></i>
+                                <p>{this.props.group.location}</p>
+                            </div>
+                            <div>
+                                <i className="fas fa-user-friends"></i>
+                                <p>{ this.memberCount() } members</p>
+                            </div>
+                            {/* <p>public status</p> */}
+                            <div>
+                                <i className="fas fa-poo"></i>
+                                <p>Organized by {this.props.group.organizer_id}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className='group-mid'>
-                    <div className='group-tabs'>
-                        <Link className='group-item'>About</Link>
-                        <Link className='group-item'>Events</Link>
-                        <Link className='group-item'>Members</Link>
-                        <Link className='group-item'>Photos</Link>
-                        <Link className='group-item'>Discussions</Link>
-                        <Link className='group-item'>More</Link>
+                    <div className='group-buffer'>
+                        <div className='group-tabs'>
+                            <Link className='group-item'>About</Link>
+                            <Link className='group-item'>Events</Link>
+                            <Link className='group-item'>Members</Link>
+                            <Link className='group-item'>Photos</Link>
+                            <Link className='group-item'>Discussions</Link>
+                            <Link className='group-item'>More</Link>
+                        </div>
+                            { this.groupButton() }
                     </div>
-                        { this.groupButton() }
                 </div>
                 <div className='group-bottom'>
-                    <div>
+                    <div className='group-buffer'>
+                        <div className='group-bottom-left'>
+                            <div className='left-content'>
+                                <h1>What we're about</h1>
+                                {this.props.group.about}
+                            </div>
+                        </div>
+                        <div className='group-bottom-right'>
+                            <div className='group-organizer'>
+                                <h1>Organizer</h1>
+                            </div>
+                            <div className='group-members'>
+                                <h1>Members {this.memberCount()}</h1>
+                                <ul>
 
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

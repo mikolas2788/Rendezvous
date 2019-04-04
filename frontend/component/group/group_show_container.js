@@ -7,7 +7,8 @@ import {
 const msp = (state, ownProps) => {
     return {
         group: state.entities.groups[ownProps.match.params.groupId], 
-        currentUser: state.entities.users[state.session.id]
+        currentUser: state.entities.users[state.session.id], 
+        // organizer: state.entities.users[group.organizer_id]
     };
 };
 

@@ -8,7 +8,7 @@ const msp = state => {
     });
 };
 
-const mdp = dispatch => {
+const mdp = dispatch => { 
     return ({
         fetchGroups: () => dispatch(fetchGroups()),
         deleteGroup: (id) => dispatch(deleteGroup(id))

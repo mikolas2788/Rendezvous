@@ -26,6 +26,10 @@
 
 .footer-group-create {
     padding-left: 20px; 
+
+    &:hover {
+        color: #00a2c7
+    }
 }
 
 .footer-auth {
@@ -36,15 +40,27 @@
 .footer-login {
     padding-left: 20px; 
     padding-right: 20px; 
+
+    &:hover {
+        color: #00a2c7
+    }
 }
 
 .footer-signup {
     padding-right: 20px; 
+
+    &:hover {
+        color: #00a2c7
+    }
 }
 
 .footer-logout {
     padding-left: 20px; 
     padding-right: 20px; 
+
+    &:hover {
+        color: #00a2c7
+    }
 }
 
 .footer-middle {
@@ -55,7 +71,12 @@
     width: 100%; 
     font-size: 20px; 
     font-weight: bold; 
-    border-top: 1px solid rgba(255,255,255,0.12)
+    border-top: 1px solid rgba(255,255,255,0.12); 
+
+}
+
+.footer-links:hover {
+    color: #00a2c7
 }
 
 .footer-middle a {

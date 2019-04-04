@@ -18,6 +18,10 @@
     font-weight: 600;  
     padding-left: 20px; 
     font-size: 40px; 
+
+    &:hover {
+        color: #56cee9
+    }
 }
 
 .nav-group-create {
@@ -39,6 +43,9 @@
     padding-right: 20px; 
     height: auto; 
     
+    &:hover {
+        color: #56cee9
+    }
 }
 
 .nav-auth {

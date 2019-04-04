@@ -1,0 +1,27 @@
+.group-single-item {
+    height: 250px; 
+    width: 350px; 
+    border: 1px solid rgba(0,0,0,.12);
+    border-radius: 3px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    background-position: center 40%; 
+    background-size: cover; 
+    background-image: image_url('tidus.jpg');
+    margin-right: 20px; 
+    margin-bottom: 20px; 
+}
+
+.group-photo {
+}
+
+.group-item-link-content {
+    color: #ffffff; 
+    font-size: 20px; 
+    font-weight: 600; 
+}
+
+.group-item-link { 
+
+}
