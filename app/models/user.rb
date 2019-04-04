@@ -24,6 +24,16 @@ class User < ApplicationRecord
 
     after_initialize :ensure_token 
 
+    has_many :memberships 
+
+    has_many :groups, 
+        through: :memberships,
+        source: :group
+
+    has_many :owned_groups,
+        class_name: :Group, 
+        foreign_key: :creator_id
+
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)
         user && user.is_password?(password) ? user : nil

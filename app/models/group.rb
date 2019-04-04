@@ -23,7 +23,10 @@ class Group < ApplicationRecord
         class_name: :User, 
         foreign_key: :creator_id 
 
-    # has_many :members,
-    #     class_name: :
+    has_many :memberships 
+
+    has_many :members, 
+        through: :memberships, 
+        source: :member 
     
 end

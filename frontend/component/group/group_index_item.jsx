@@ -1,23 +1,23 @@
-// import React from 'react'; 
-// import { Link } from 'react-router-dom'; 
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-// class GroupIndexItem extends React.Component {
+const GroupIndexItem = props => {
+    let photo = <img src={props.group.photo} />
 
-//     constructor(props) {
-//         super(props);
-        
-//     }
+    return (
+        <div className='group-item'>
+            <div className='group-photo'>
+                { photo }
+            </div>
+            <div className='group-item-link-content'>
+                <Link 
+                    className='group-item-link'
+                    to={`/groups/${props.group.id}`}>
+                    {props.group.title}
+                </Link>
+            </div>
+        </div>
+    );
+};
 
-//     render () {
-//         <div className='group-item'>
-//             <div>
-//                 <Link 
-//                     to={}>
-//                 </Link>
-//             </div>
-//         </div>
-//     }
-
-// }
-
-// export default GroupIndexItem; 
+export default GroupIndexItem;
