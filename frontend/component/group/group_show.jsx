@@ -80,7 +80,7 @@ class GroupShow extends React.Component {
     memberIconCreator () {
         const members = []; 
         for (let i = 0; i < this.memberCount(); i++) {
-            members.push(<img className='organizer-icon' src="https://picsum.photos/50/50/?random" alt="" />);
+            members.push(<img className='organizer-icon' key={i} src="https://picsum.photos/50/50/?random" alt="" />);
         }
         return members; 
     }
@@ -105,7 +105,7 @@ class GroupShow extends React.Component {
                             {/* <p>public status</p> */}
                             <div>
                                 <i className="fas fa-user-shield"></i>
-                                <p>Organized by {this.props.group.organizer_id}</p>
+                                <p>Organized by Myron Yook</p>
                             </div>
                         </div>
                     </div>
@@ -113,12 +113,12 @@ class GroupShow extends React.Component {
                 <div className='group-mid'>
                     <div className='group-buffer'>
                         <div className='group-tabs'>
-                            <Link className='group-item'>About</Link>
-                            <Link className='group-item'>Events</Link>
-                            <Link className='group-item'>Members</Link>
-                            <Link className='group-item'>Photos</Link>
-                            <Link className='group-item'>Discussions</Link>
-                            <Link className='group-item'>More</Link>
+                            <Link to='#' className='group-item'>About</Link>
+                            <Link to='#' className='group-item'>Events</Link>
+                            <Link to='#' className='group-item'>Members</Link>
+                            <Link to='#' className='group-item'>Photos</Link>
+                            <Link to='#' className='group-item'>Discussions</Link>
+                            <Link to='#' className='group-item'>More</Link>
                         </div>
                             { this.groupButton() }
                     </div>
