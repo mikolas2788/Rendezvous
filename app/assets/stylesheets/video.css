@@ -24,6 +24,7 @@
     flex-direction: column; 
     text-align: center; 
     align-items: center; 
+    font-family: sans-serif;
 }
 
 .splash-content h1 {
