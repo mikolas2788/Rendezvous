@@ -49,18 +49,22 @@ class GroupShow extends React.Component {
         //             </button>
         // } else 
         
-        if (!this.props.group.member_ids.includes(this.props.currentUser.id)) {
+        if ((this.props.currentUser) && (!this.props.group.member_ids.includes(this.props.currentUser.id))) {
             button = <button 
                         className='group-button'    
                         onClick={this.joinGroup}>
                         Join this group</button>
-        } else if (this.props.group.member_ids.includes(this.props.currentUser.id)) {
+        } else if ((this.props.currentUser) && (this.props.group.member_ids.includes(this.props.currentUser.id))) {
             button = <button 
                         className='group-button'
                         onClick={this.leaveGroup}>
                         Leave this group</button>
         } else {
-            button = <Link to='/login'>Join this group</Link>
+            button = <Link 
+                        className='group-link' 
+                        to='/login'>
+                        Join this group
+                    </Link>
         }
         return button; 
     }
@@ -73,13 +77,21 @@ class GroupShow extends React.Component {
         return this.props.group.member_ids.length
     }
 
+    memberIconCreator () {
+        const members = []; 
+        for (let i = 0; i < this.memberCount(); i++) {
+            members.push(<img className='organizer-icon' src="https://picsum.photos/50/50/?random" alt="" />);
+        }
+        return members; 
+    }
+
     render () {
         if (!this.props.group) {return null;}
         return (
             <div className='group-show-strip'>
                 <div className='group-top'>
                     <div className='group-buffer'>
-                        <img className='group-pic' src={"https://picsum.photos/600/340/?random"} alt=""/>
+                        <img className='group-pic' src='' alt=""/>
                         <div className='group-info'>
                             <h1>{this.props.group.title}</h1>
                             <div>
@@ -87,12 +99,12 @@ class GroupShow extends React.Component {
                                 <p>{this.props.group.location}</p>
                             </div>
                             <div>
-                                <i className="fas fa-user-friends"></i>
+                                <i className="fas fa-users"></i>
                                 <p>{ this.memberCount() } members</p>
                             </div>
                             {/* <p>public status</p> */}
                             <div>
-                                <i className="fas fa-poo"></i>
+                                <i className="fas fa-user-shield"></i>
                                 <p>Organized by {this.props.group.organizer_id}</p>
                             </div>
                         </div>
@@ -122,12 +134,13 @@ class GroupShow extends React.Component {
                         <div className='group-bottom-right'>
                             <div className='group-organizer'>
                                 <h1>Organizer</h1>
+                                <img className='organizer-icon' src="https://picsum.photos/50/50/?random" alt=""/>
                             </div>
                             <div className='group-members'>
-                                <h1>Members {this.memberCount()}</h1>
-                                <ul>
-
-                                </ul>
+                                <h1>Members ({this.memberCount()})</h1>
+                                <div className='member-icon'>
+                                    {this.memberIconCreator()}
+                                </div>
                             </div>
                         </div>
                     </div>

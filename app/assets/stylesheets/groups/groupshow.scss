@@ -1,4 +1,5 @@
 .group-show-strip {
+    font-family: sans-serif; 
     background-color: #ffffff; 
     color: #2e3e48; 
     width: 100%; 
@@ -10,7 +11,7 @@
 }
 
 .group-buffer {
-    width: 85%; 
+    width: 90%; 
     min-width: 600px;
     max-width: 1000px; 
     display: flex; 
@@ -121,6 +122,25 @@
     }
 }
 
+.group-link {
+    color: white; 
+    background: #f14b67;
+    font-size: 16px; 
+    font-weight: 600; 
+    padding: 0px 16px;
+    box-sizing: border-box; 
+    border-radius: 3px; 
+    width: auto; 
+    min-height: 36px; 
+    text-decoration: none; 
+    display: flex; 
+    align-items: center;
+
+    &:hover {
+        background: #e22e4c;
+    }
+}
+
 .group-bottom {
     background-color: #fafafa; 
     border-top: 1px solid rgba(25, 33, 38, 0.12);
@@ -130,7 +150,7 @@
     justify-content: center; 
     flex-direction: row; 
     padding-top: 40px; 
-    margin-bottom: 30px; 
+    padding-bottom: 30px; 
     
     .left-content {
         margin-left: 15px; 
@@ -153,6 +173,23 @@
 
 .group-bottom-right {
     margin-left: 20px; 
+}
+
+.organizer-icon {
+    height: 50px; 
+    width: 50px; 
+    border-radius: 50%; 
+    margin-bottom: 30px; 
+    margin-right: 10px; 
+}
+
+.member-icon {
+    display: flex; 
+    flex-direction: row; 
+    min-height: 50px; 
+    min-width: 50px; 
+    border-radius: 50%; 
+    margin-bottom: 30px; 
 }
 
 .group-organizer {
