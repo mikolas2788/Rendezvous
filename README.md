@@ -4,13 +4,15 @@
 
 Welcome to [Rendezvous](http://rendezvous-meetup.herokuapp.com/), a single-page clone of [Meetup](https://www.meetup.com/). Rendezvous is a social platform web application where people can find, join or create local groups based on their hobbies.
 
-##Technologies 
+![Main]()
+
+## Technologies 
 Rendezvous is a fullstack application utilizing React, Redux and ES6 for frontend, and Ruby on Rails for data management on the backend. 
 
-###User Authentication
+### User Authentication
 Users can securely sign up, log in, and log out using their email address and password. 
 
-###Structure
+### Structure
 Rendezvous' main components are as follows: 
 
 1. NavBar
@@ -24,7 +26,7 @@ Rendezvous' main components are as follows:
 * Creator of the group can host events 
 * Users can view an index of events or look up specific events 
 
-###Future Features
+### Future Features
 4. Calendar
 * Users can view upcoming events utilizing a convenient calendar 
 5. Search 
