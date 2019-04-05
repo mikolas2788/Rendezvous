@@ -185,9 +185,11 @@
 
 .member-icon {
     display: flex; 
+    flex-wrap: wrap; 
+    justify-content: flex-start; 
     flex-direction: row; 
     min-height: 50px; 
-    min-width: 50px; 
+    width: 180px; 
     border-radius: 50%; 
     margin-bottom: 30px; 
 }
