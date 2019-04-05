@@ -14,8 +14,8 @@ class GroupShow extends React.Component {
     }
 
     componentDidMount () {
+        window.scrollTo(0, 0);
         this.props.fetchGroup(this.props.match.params.groupId); 
-
     }
 
     componentDidUpdate (oldProps) {
