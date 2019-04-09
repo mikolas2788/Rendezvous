@@ -24,10 +24,28 @@ class SignupForm extends React.Component {
         this.props.signup(this.state); 
     }
 
+    componentWillUnmount() {
+        this.props.clearErrors();
+    }
+
+    renderErrors() {
+        if (this.props.errors.length > 0) {
+            return (
+                <div className='error-strip'>
+                    <div className='error-content'>
+                        {this.props.errors}
+                    </div>
+                </div>
+            )
+        }
+    }
+
     render () {
         return (
             <div className='signup-strip'>
-            <div className='boundary'></div>
+            <div className='signup-errors'>
+                {this.renderErrors()}
+            </div>
                 <form className='signup-form' onSubmit={this.handleSubmit}>
                     <div className='signup-top'>
                         <div className='signup-header'>

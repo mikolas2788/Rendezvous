@@ -9,13 +9,15 @@ class LoginForm extends React.Component {
             email: "",
             password: "",
         }; 
+
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDemo = this.handleDemo.bind(this);
     }
 
+
     handleSubmit(event) {
         event.preventDefault();
-        this.props.login(this.state).then(() => this.props.history.push('/home')); 
+        this.props.login(this.state); 
     }
 
     handleUpdate(field) {
@@ -29,15 +31,19 @@ class LoginForm extends React.Component {
         this.props.login({email: "DemoUser@gmail.com", password: "asdfasdf"}); 
     }
 
+    componentWillUnmount () {
+        this.props.clearErrors(); 
+    }
+
     renderErrors () {
-        if (this.props.errors) {
+        if (this.props.errors.length > 0) {
             return (
                 <div className='error-strip'>
-                    <div className='error-box'>
-                        <h2 className='error-message'>
+                    <div className='error-content'>
+                        <h1>
                             Your email or password was entered incorrectly. 
-                        </h2>
-                        <p className='error-supplemental'>
+                        </h1>
+                        <p>
                             Please try again. 
                         </p>
                     </div>
@@ -47,11 +53,14 @@ class LoginForm extends React.Component {
     }
 
     render() {
-
         return (
             <div className="login-strip">
-            <div className='boundary'></div>
+            <div className='login-errors'>
+                {this.renderErrors()}
+            </div>
+            <div>
                 <form className='login-form' onSubmit={this.handleSubmit}>
+
                     <div className='login-top'> 
                         <div className='login-header'>
                             <h1>Log In</h1>
@@ -100,6 +109,7 @@ class LoginForm extends React.Component {
                                 </button>
                         </div>
                 </form>
+            </div>
             </div>
         )
     }

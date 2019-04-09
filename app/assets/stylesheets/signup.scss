@@ -8,11 +8,28 @@
     background-color: #fafafa; 
 }
 
-/* .boundary {
-    width: 100px; 
-    height: 50px; 
-    padding: 0 25px; 
-} */
+.signup-errors {
+    min-height: 30px; 
+    width: 100%;
+}
+
+.error-strip {
+    margin-top: 10px; 
+    width: 100%;
+    display: flex; 
+    justify-content: center; 
+}
+
+.error-content {
+    width: 70%; 
+    border: 1px solid rgba(0,0,0,.12); 
+    background-color: #FBE1E3;
+    padding: 10px; 
+    font-family: sans-serif; 
+    color: #c00; 
+    font-size: 30px; 
+    margin-bottom: 5px; 
+}
 
 .signup-form {
     background-color: white; 
