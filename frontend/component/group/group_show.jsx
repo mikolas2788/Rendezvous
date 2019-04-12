@@ -6,11 +6,13 @@ class GroupShow extends React.Component {
     constructor(props) {
         super(props); 
 
+        this.updateGroup = this.updateGroup.bind(this); 
         this.deleteGroup = this.deleteGroup.bind(this);
         this.joinGroup = this.joinGroup.bind(this);
         this.leaveGroup = this.leaveGroup.bind(this);
         this.groupButton = this.groupButton.bind(this);
         this.memberCount = this.memberCount.bind(this);
+        this.organizer = this.organizer.bind(this); 
     }
 
     componentDidMount () {
@@ -24,9 +26,14 @@ class GroupShow extends React.Component {
         }
     }
     
+    updateGroup (e) {
+        e.preventDefault();
+        this.props.updateGroup(this.props.group).then(() => this.props.history.push(`/groups/${this.props.group.id}`)); 
+    }
+
     deleteGroup (e) {
         e.preventDefault();
-        this.props.deleteGroup(this.props.group.id); 
+        this.props.deleteGroup(this.props.group.id).then(() => this.props.history.push('/home')); 
     }
 
     joinGroup (e) {
@@ -40,21 +47,32 @@ class GroupShow extends React.Component {
     }
  
     groupButton () {
+        debugger 
         let button; 
-        // if (this.props.currentUser.id === this.props.group.creator_id) {
-        //     button = <button 
-        //                 className='group-button' 
-        //                 onClick={this.deleteGroup}>
-        //                 Delete your group
-        //             </button>
-        // } else 
-        
-        if ((this.props.currentUser) && (!this.props.group.member_ids.includes(this.props.currentUser.id))) {
+        if (this.props.currentUser.id === this.props.group.organizer_id) {
+            button = 
+                <>   
+                <div className='group-dropdown'>
+                    <button 
+                        className='group-button' 
+                        onClick={this.deleteGroup}>
+                        Delete your group
+                    </button>
+                    <Link
+                        className='group-link'
+                        to={`/groups/${this.props.group.id}/edit`}>
+                        Edit your group
+                    </Link>
+                </div>
+                </>
+        } else if ((this.props.currentUser) && 
+        (!this.props.group.member_ids.includes(this.props.currentUser.id))) {
             button = <button 
                         className='group-button'    
                         onClick={this.joinGroup}>
                         Join this group</button>
-        } else if ((this.props.currentUser) && (this.props.group.member_ids.includes(this.props.currentUser.id))) {
+        } else if ((this.props.currentUser) && 
+        (this.props.group.member_ids.includes(this.props.currentUser.id))) {
             button = <button 
                         className='group-button'
                         onClick={this.leaveGroup}>
@@ -66,11 +84,12 @@ class GroupShow extends React.Component {
                         Join this group
                     </Link>
         }
+        debugger 
         return button; 
     }
 
     organizer () {
-        return this.props.group.organizer_id
+        return this.props.organizer.name
     }
 
     memberCount () {
@@ -105,7 +124,7 @@ class GroupShow extends React.Component {
                             {/* <p>public status</p> */}
                             <div>
                                 <i className="fas fa-user-shield"></i>
-                                <p>Organized by Myron Yook</p>
+                                <p>Organized by { this.organizer() }</p>
                             </div>
                         </div>
                     </div>
@@ -113,12 +132,12 @@ class GroupShow extends React.Component {
                 <div className='group-mid'>
                     <div className='group-buffer'>
                         <div className='group-tabs'>
-                            <Link to='#' className='group-item'>About</Link>
-                            <Link to='#' className='group-item'>Events</Link>
-                            <Link to='#' className='group-item'>Members</Link>
-                            <Link to='#' className='group-item'>Photos</Link>
-                            <Link to='#' className='group-item'>Discussions</Link>
-                            <Link to='#' className='group-item'>More</Link>
+                            <Link to='#' className='group-tab'>About</Link>
+                            <Link to='#' className='group-tab'>Events</Link>
+                            <Link to='#' className='group-tab'>Members</Link>
+                            <Link to='#' className='group-tab'>Photos</Link>
+                            <Link to='#' className='group-tab'>Discussions</Link>
+                            <Link to='#' className='group-tab'>More</Link>
                         </div>
                             { this.groupButton() }
                     </div>
@@ -134,8 +153,12 @@ class GroupShow extends React.Component {
                         <div className='group-bottom-right'>
                             <div className='group-organizer'>
                                 <h1>Organizer</h1>
-                                <img className='organizer-icon' src="https://picsum.photos/50/50/?random" alt=""/>
+                                <div className='group-organizer-details'> 
+                                    <img className='organizer-icon' src="https://picsum.photos/50/50/?random" alt=""/>
+                                    <h2> { this.organizer() } </h2>
+                                </div>
                             </div>
+
                             <div className='group-members'>
                                 <h1>Members ({this.memberCount()})</h1>
                                 <div className='member-icon'>

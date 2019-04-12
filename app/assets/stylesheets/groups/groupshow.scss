@@ -74,7 +74,7 @@
 .group-mid {
     color: #2e3e48; 
     font-family: sans-serif; 
-    height: 66px; 
+    min-height: 66px; 
     width: 100%; 
     display: flex; 
     justify-content: center; 
@@ -97,7 +97,7 @@
     font-weight: 600; 
 }
 
-.group-item {
+.group-tab {
     padding-right: 40px; 
 
         &:hover {
@@ -179,7 +179,6 @@
     height: 50px; 
     width: 50px; 
     border-radius: 50%; 
-    margin-bottom: 30px; 
     margin-right: 10px; 
 }
 
@@ -194,8 +193,18 @@
     margin-bottom: 30px; 
 }
 
-.group-organizer {
+.group-organizer-details {
+    display: flex;
+    flex-direction: row; 
+    justify-content: center; 
+    align-content: center; 
+    margin-bottom: 30px; 
 
+    h2 {
+        display: flex;
+        justify-content: center; 
+        align-content: center;
+    }
 }
 
 .group-members {

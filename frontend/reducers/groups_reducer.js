@@ -16,7 +16,10 @@ const groupsReducer = (state = {}, action) => {
             newState = Object.assign({}, state, {[action.group.id]: action.group}); 
             // newState[action.group.id].members = action.group.members; 
             return newState; 
-        // case REMOVE_GROUP:
+        case REMOVE_GROUP:
+            newState = Object.assign({}, state)
+            delete newState[action.groupId]
+            return newState; 
         default: 
             return state; 
     }

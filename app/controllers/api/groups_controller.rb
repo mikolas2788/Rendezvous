@@ -16,23 +16,28 @@ class Api::GroupsController < ApplicationController
     def create
         @group = Group.new(group_params)
         if @group.save
+            Membership.create(  
+                user_id: params[:group][:creator_id], 
+                group_id: @group.id)
             render :show
         else 
-            render json: @group.errors.full_messages
+            render json: @group.errors.full_messages, status: 422
         end 
     end 
 
-    def update 
+    def update
         @group = Group.find_by(id: params[:id])
-        if @group.save 
+        if @group.update(group_params)
             render :show
         else 
-            render json: @group.errors.full_messages
+            render json: @group.errors.full_messages, status: 422
         end
     end
 
     def destroy 
         @group = Group.find_by(id: params[:id])
+        @group.destroy
+        render :show
     end 
 
     def group_params 

@@ -8,6 +8,7 @@ import MainBody from './main/main';
 // import HomePage from './home/home_page'; 
 import Footer from './footer/footer_container'; 
 import GroupCreateFormContainer from '../component/group/group_create_form_container';
+import GroupEditFormContainer from '../component/group/group_edit_form_container';
 import GroupShowContainer from "../component/group/group_show_container";
 import GroupIndexContainer from '../component/group/group_index_container'; 
 import {
@@ -23,8 +24,9 @@ const App = () => (
         <AuthRoute exact path='/signup' component={SignupFormContainer} />
         <Route exact path='/' component={MainBody} />
         <Switch>
-            <Route exact path='/groups/create' component={GroupCreateFormContainer}/>
-            <Route path='/groups/:groupId' component={GroupShowContainer}/>
+            <ProtectedRoute path="/groups/:groupId/edit" component={GroupEditFormContainer} />
+            <ProtectedRoute exact path='/groups/create' component={GroupCreateFormContainer}/>
+            <ProtectedRoute path='/groups/:groupId' component={GroupShowContainer}/>
         </Switch>
         <Footer />
     </div>

@@ -23,7 +23,7 @@ const receiveGroup = ({group, users}) => {
 const removeGroup = (group) => {
     return ({
         type: REMOVE_GROUP, 
-        groupID: group.id
+        groupId: group.id
     });
 }; 
 
@@ -54,7 +54,7 @@ export const updateGroup = (group) => dispatch => {
 
 export const deleteGroup = (id) => dispatch => {
     return (
-        GroupAPIUtil.deleteGroup(id).then(group => dispatch(removeGroup(group)))
+        GroupAPIUtil.deleteGroup(id).then((group) => dispatch(removeGroup(group)))
     );
 };
 

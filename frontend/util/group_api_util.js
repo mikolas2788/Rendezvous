@@ -30,7 +30,7 @@ export const updateGroup = (group) => {
     return (
         $.ajax({
             method: 'patch',
-            url: `/api/groups/${group.id}/edit`,
+            url: `/api/groups/${group.id}`,
             data: { group }
         })
     );
