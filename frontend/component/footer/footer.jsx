@@ -49,12 +49,12 @@ class Footer extends React.Component {
                             </a>
                             <a 
                                 className='footer-links' 
-                                href='https://imgur.com/a/MTXvfda'>
+                                href='https://www.linkedin.com/in/myron-yook-97368197/'>
                                 <i className='fab fa-linkedin'></i> Myron's Linkedin
                             </a>
                             <a 
                                 className='footer-links' 
-                                href='https://imgur.com/a/iePDsSV'>
+                                href='https://imgur.com/a/MTXvfda'>
                                 <i className='fab fa-facebook'></i> Myron's Facebook 
                             </a>
                             <a 

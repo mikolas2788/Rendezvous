@@ -77,7 +77,9 @@
 }
 
 .footer-links:hover {
-    color: #00a2c7
+    color: #00a2c7; 
+    transform: scale(1.1); 
+    transition: 0.5s;
 }
 
 .footer-middle a {
