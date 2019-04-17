@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     end 
 
     resources :events do 
+      resources :rsvps, only: [ :create ]
+      resource :rsvps, only: [ :destroy ]
     end   
   end 
   

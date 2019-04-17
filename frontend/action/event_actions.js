@@ -1,5 +1,5 @@
 import * as EventAPIUtil from '../util/event_api_util';
-import * as MembershipApiUtil from '../util/membership_api_util';
+import * as RSVPApiUtil from '../util/rsvp_api_util';
 
 export const RECEIVE_EVENTS = "RECEIVE_EVENTS";
 export const RECEIVE_EVENT = "RECEIVE_EVENT";
@@ -60,16 +60,16 @@ export const deleteEvent = (id) => dispatch => {
 
 //rsvps
 
-// export const addMembership = (id) => dispatch => {
-//     return (
-//         MembershipApiUtil.addMembership(id).then(group => dispatch(receiveGroup(group)))
-//     );
-// };
+export const addRSVP = (id) => dispatch => {
+    return (
+        RSVPApiUtil.addRSVP(id).then(event => dispatch(receiveEvent(event)))
+    );
+};
 
-// export const deleteMembership = (id) => dispatch => {
-//     return (
-//         MembershipApiUtil.deleteMembership(id).then(group => dispatch(receiveGroup(group)))
-//     );
-// };
+export const deleteRSVP = (id) => dispatch => {
+    return (
+        RSVPApiUtil.deleteRSVP(id).then(event => dispatch(receiveEvent(event)))
+    );
+};
 
 
