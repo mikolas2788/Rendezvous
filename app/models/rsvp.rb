@@ -1,0 +1,2 @@
+class Rsvp < ApplicationRecord
+end

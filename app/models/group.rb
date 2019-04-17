@@ -29,6 +29,10 @@ class Group < ApplicationRecord
         through: :memberships, 
         source: :member 
 
+    has_many :events,
+        class_name: :Event, 
+        foreign_key: :group_id
+
     # def organizer
     #     self.members.select { |member| member.id == self.creator_id }
     # end

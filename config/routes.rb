@@ -11,6 +11,9 @@ Rails.application.routes.draw do
       resources :memberships, only: [ :create ]
       resource :memberships, only: [ :destroy ]
     end 
+
+    resources :events do 
+    end   
   end 
   
   root "static_pages#root"
