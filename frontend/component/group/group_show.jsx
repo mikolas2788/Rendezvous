@@ -6,6 +6,8 @@ class GroupShow extends React.Component {
     constructor(props) {
         super(props); 
 
+        this.state = { dropdownMenu: false }
+
         this.updateGroup = this.updateGroup.bind(this); 
         this.deleteGroup = this.deleteGroup.bind(this);
         this.joinGroup = this.joinGroup.bind(this);
@@ -13,6 +15,8 @@ class GroupShow extends React.Component {
         this.groupButton = this.groupButton.bind(this);
         this.memberCount = this.memberCount.bind(this);
         this.organizer = this.organizer.bind(this); 
+        this.showDropdown = this.showDropdown.bind(this);
+        this.hideDropdown = this.hideDropdown.bind(this); 
     }
 
     componentDidMount () {
@@ -46,15 +50,25 @@ class GroupShow extends React.Component {
         this.props.leaveGroup(this.props.group.id); 
     }
  
-    groupButton () {
-        debugger 
-        let button; 
-        if (this.props.currentUser.id === this.props.group.organizer_id) {
-            button = 
-                <>   
-                <div className='group-dropdown'>
+    showDropdown (e) {
+        e.preventDefault(); 
+        this.setState({ dropdownMenu: true });
+        document.getElementById('dropdown-button').addEventListener('mouseleave', this.hideDropdown); 
+    }
+    
+    hideDropdown (e) {
+        e.preventDefault(); 
+        this.setState({
+            dropdownMenu: false
+        })
+    }
+    
+    displayDropdown () {
+        if (this.state.dropdownMenu) {
+            return (
+                <div className='dropdown-content'>
                     <button 
-                        className='group-button' 
+                        className='group-link' 
                         onClick={this.deleteGroup}>
                         Delete your group
                     </button>
@@ -62,9 +76,22 @@ class GroupShow extends React.Component {
                         className='group-link'
                         to={`/groups/${this.props.group.id}/edit`}>
                         Edit your group
-                    </Link>
+                    </Link>  
                 </div>
-                </>
+            )
+        }
+    }
+
+    groupButton () { 
+        let button; 
+        if (this.props.currentUser.id === this.props.group.organizer_id) {
+            button = <div 
+                        className='dropdown-button'
+                        id='dropdown-button'
+                        onMouseEnter={this.showDropdown}>
+                        Manage your group
+                        {this.displayDropdown()}
+                    </div>
         } else if ((this.props.currentUser) && 
         (!this.props.group.member_ids.includes(this.props.currentUser.id))) {
             button = <button 
@@ -84,7 +111,6 @@ class GroupShow extends React.Component {
                         Join this group
                     </Link>
         }
-        debugger 
         return button; 
     }
 
