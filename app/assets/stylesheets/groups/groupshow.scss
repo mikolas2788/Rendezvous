@@ -105,7 +105,8 @@
         }
 }
 
-.group-button {
+
+.dropdown-button {
     color: white; 
     background: #f14b67;
     font-size: 16px; 
@@ -116,27 +117,11 @@
     width: auto; 
     min-height: 36px; 
     text-decoration: none; 
-
-    &:hover {
-        background: #e22e4c;
-    }
-}
-
-.dropdown-button {
-    color: white; 
-    background: #f14b67;
-    font-size: 16px; 
-    font-weight: 600; 
-    padding: 0px 16px;
-    box-sizing: border-box; 
-    border-radius: 3px; 
-    width: 190px; 
-    min-height: 36px; 
-    text-decoration: none; 
     position: relative; 
     display: flex; 
     align-items: center; 
-
+    justify-content: center; 
+    
     &:hover {
         background: #e22e4c;
     }
@@ -152,7 +137,7 @@
     min-height: 36px;
 }
 
-.group-link {
+.group-button {
     color: white; 
     background: #f14b67;
     font-size: 16px; 
@@ -160,6 +145,7 @@
     padding: 0px 16px;
     box-sizing: border-box; 
     border-radius: 3px;  
+    width: 100%; 
     min-height: 36px; 
     text-decoration: none; 
     display: flex; 
@@ -197,7 +183,6 @@
     width: 60%; 
     display: flex; 
     flex-direction: column; 
-
 }
 
 .group-bottom-right {
@@ -236,7 +221,4 @@
     }
 }
 
-.group-members {
-
-}
 
