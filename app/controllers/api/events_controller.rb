@@ -22,18 +22,35 @@ class Api::EventsController < ApplicationController
             render :show 
         else 
             render json: @event.errors.full_messages, status: 422
+        end 
     end 
 
     def update 
-
+        @event = Event.find_by(id: params[:id])
+        if @event.update(event_params)
+            render :show
+        else 
+            render json: @event.errors.full_messages, status: 422
+        end
     end 
 
     def destroy
-
+        @group = Group.find_by(id: params[:id])
+        @group.destroy
+        render :show
     end 
 
     def event_params
-
+        params.require(:event).permit(
+            :creator_id,
+            :group_id, 
+            :title,
+            :details,
+            :start_time,
+            :end_time, 
+            :longitude,
+            :latitude
+        )
     end 
 
 end
