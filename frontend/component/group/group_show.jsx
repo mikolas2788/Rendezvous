@@ -115,7 +115,9 @@ class GroupShow extends React.Component {
     }
 
     organizer () {
-        return this.props.organizer.name
+        if (this.props.organizer) {
+            return this.props.organizer.name
+        }
     }
 
     memberCount () {
