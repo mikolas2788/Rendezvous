@@ -23,6 +23,9 @@ class CreateEventForm extends React.Component {
                         <h1>Create an event</h1>
                         <p>Group's Name goes here</p>
                     </div>
+                    <div>
+                    
+                    </div>
                 </div>
                 <div className='ec-strip-right'>
 

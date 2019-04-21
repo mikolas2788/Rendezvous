@@ -23,6 +23,9 @@ class Group < ApplicationRecord
         class_name: :User, 
         foreign_key: :creator_id 
 
+    has_one_attached :photo
+    #TODO remember to remove group_picture_url
+    
     has_many :memberships 
 
     has_many :members, 

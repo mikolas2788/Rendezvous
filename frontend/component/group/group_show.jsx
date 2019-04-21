@@ -136,7 +136,7 @@ class GroupShow extends React.Component {
             <div className='group-show-strip'>
                 <div className='group-top'>
                     <div className='group-buffer'>
-                        <img className='group-pic' src='' alt=""/>
+                        <img className='group-pic' src={this.props.group.photoUrl} />
                         <div className='group-info'>
                             <h1>{this.props.group.title}</h1>
                             <div>

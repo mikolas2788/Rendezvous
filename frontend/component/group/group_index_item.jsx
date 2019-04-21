@@ -7,7 +7,10 @@ const GroupIndexItem = props => {
         <Link 
             className='group-single-item'
             to={`/groups/${props.group.id}`}>
-            {props.group.title}
+            <img src={props.group.photoUrl} />
+            <div className='group-item-transparency'>
+                <h2>{props.group.title}</h2>
+            </div>
         </Link>
     );
 };
