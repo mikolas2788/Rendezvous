@@ -17,7 +17,7 @@ class GroupIndex extends React.Component {
             <div className='homepage-strip'>
                 <div className='homepage-banner'>
                     <h1>Find your next event</h1>
-                    <p> 4 events in your groups * 4,639 events near you</p>
+                    <p> 4 events in your groups • 4,639 events near you</p>
                 </div>
                 <div className='homepage-search-strip'>
                     <div className='homepage-search-filter'>
@@ -27,7 +27,9 @@ class GroupIndex extends React.Component {
                                 type='text'
                                 placeholder="It's a trap"
                             />
-                            within 10 miles of Elmhurst, NY
+                            <p>
+                                within 10 miles of Elmhurst, NY
+                            </p>
                         </div>
                         <div className='homepage-filter-tabs'>
                             <button className='homepage-group-button'>Groups</button>
@@ -36,12 +38,16 @@ class GroupIndex extends React.Component {
                     </div>
                 </div>
                 <div className='homepage-main'>
-                    <h1>Available Groups</h1>
-                    <div className='homepage-groups-index'>
-                        {groups}
-                    </div>
-                    <div className='homepage-calendar'>
-                        
+
+                    <div className='homepage-buffer'>
+                        <h1>AVAILABLE GROUPS</h1>
+                        <div className='homepage-groups-index'>
+                            {groups}
+                        </div>
+                        <div className='homepage-calendar'>
+                            
+                        </div>
+
                     </div>
                 </div>
             </div>

@@ -30,10 +30,14 @@ class SignupForm extends React.Component {
 
     renderErrors() {
         if (this.props.errors.length > 0) {
+            const errors = this.props.errors.map( error => {
+                return <h1>{error}</h1>
+            })
+
             return (
                 <div className='error-strip'>
                     <div className='error-content'>
-                        {this.props.errors}
+                        {errors}
                     </div>
                 </div>
             )

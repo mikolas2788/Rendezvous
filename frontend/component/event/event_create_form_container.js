@@ -13,6 +13,6 @@ const mdp = (dispatch) => {
     return {
         createEvent: (event) => dispatch(createEvent(event))
     };
-;}
+};
 
 export default connect (msp, mdp) (EventCreateForm);

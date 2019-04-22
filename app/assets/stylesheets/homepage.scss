@@ -2,38 +2,50 @@
     height: auto; 
     width: 100%; 
     font-family: sans-serif; 
+    position: relative;
 }
 
 .homepage-banner {
     height: 153px; 
     color: #ffffff; 
     background-color: #00455d; 
-    font-size: 34px; 
     display: flex; 
     flex-direction: column; 
     align-items: center; 
     justify-content: center; 
     overflow: hidden; 
+    padding-bottom: 30px; 
+    box-sizing: border-box; 
+    
+    h1 {
+        font-size: 34px; 
+        font-weight: bold; 
+    }
+
+    p {
+        color: #ccccdd; 
+        margin-top: 10px; 
+        font-size: 16px; 
+    }
 }
 
-.homepage-banner p {
-    margin-top: 20px; 
-    font-size: 16px; 
-}
 
 .homepage-search-strip {
+    width: 100%; 
+    top: 125px; 
     height: 69px; 
     display: flex; 
     align-items: center; 
     justify-content: center; 
     z-index: 2; 
     font-size: 16px; 
+    position: absolute; 
 }
 
 .homepage-search-filter {
     background-color: #0f1721;
     color: #ffffff; 
-    width: 80%; 
+    min-width: 900px; 
     height: 100%; 
     display: flex; 
     align-items: center; 
@@ -44,6 +56,10 @@
     display: flex; 
     align-items: center; 
     flex-direction: row; 
+
+    p {
+        margin-left: 5px; 
+    }
 }
 
 .homepage-search-input {
@@ -88,27 +104,32 @@
     flex-direction: column; 
     justify-content: center; 
     align-items: center; 
+    margin-top: 60px; 
 
-    h1 {
-        margin-top: 40px; 
-        font-size: 20px; 
-        font-weight: 600; 
-        margin-bottom: 20px; 
+    .homepage-buffer {
+        width: 930px; 
+        padding-left: 15px; 
+        box-sizing: border-box; 
+        
+        h1 {
+            font-size: 18px; 
+            font-weight: 600; 
+            margin-bottom: 20px; 
+        }
     }
+
 }
 
 // .homepage-buffer {
 //     width: 70%; 
 // }
 
-.homepage-groups-index {
-    width: 80%; 
+.homepage-groups-index { 
     display: flex; 
     flex-wrap: wrap; 
     flex-direction: row; 
     align-items: center; 
     border-radius: 3px; 
-    margin-bottom: 20px; 
 }
 
 .homepage-calendar {

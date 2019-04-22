@@ -9,7 +9,7 @@ class HomePage extends React.Component {
             <div className='homepage-strip'>
                 <div className='homepage-banner'>
                     <h1>Find your next event</h1>
-                    <p> 4 events in your groups * 4,639 events near you</p>
+                    <p> 4 events in your groups • 4,639 events near you</p>
                 </div>
                 <div className='homepage-search-strip'>
                     <div className='homepage-search-filter'>
@@ -19,7 +19,9 @@ class HomePage extends React.Component {
                                 type='text'
                                 placeholder="It's a trap"
                                 />
-                            within 10 miles of Elmhurst, NY
+                            <p>
+                                within 10 miles of Elmhurst, NY
+                            </p>
                         </div>
                         <div className='homepage-filter-tabs'>
                             <button className='homepage-group-button'>Groups</button>

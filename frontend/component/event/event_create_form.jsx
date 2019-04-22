@@ -1,4 +1,7 @@
 import React from 'react';
+import DateTimePicker from 'react-datetime-picker'
+// import DayPicker from 'react-day-picker';
+// import 'react-day-picker/lib/style.css';
 import { withRouter } from 'react-router-dom'; 
 
 class CreateEventForm extends React.Component {
@@ -15,6 +18,7 @@ class CreateEventForm extends React.Component {
         }
 
         this.handleSubmit = this.handleSubmit.bind(this); 
+        this.handleDayClick = this.handleDayClick.bind(this); 
     }
 
     handleSubmit(event) {
@@ -30,6 +34,12 @@ class CreateEventForm extends React.Component {
         return (event) => {
             this.setState({ [field]: event.target.value });
         };
+    }
+
+    handleDayClick(day, { selected }) {
+        this.setState({
+            start_time: selected ? undefined : day,
+        });
     }
 
     render () {
@@ -56,12 +66,10 @@ class CreateEventForm extends React.Component {
                                 </div>
                                 <div className='ec-input'>
                                     <label>
-                                        Date and Time
-                                        <input 
-                                            className='ec-input-box'
-                                            onChange={this.handleUpdate('start_time')}
-                                            type="date"
-                                            value={this.state.start_time}
+                                        Start
+                                        <DayPicker
+                                            start_time={this.state.start_time}
+                                            onDayClick={this.handleDayClick}
                                         />
                                         <input 
                                             className='ec-input-box'
@@ -73,12 +81,10 @@ class CreateEventForm extends React.Component {
                                 </div>
                                 <div className='ec-input'>
                                     <label>
-                                        Duration
-                                        <input 
-                                            className='ec-input-box'
-                                            onChange={this.handleUpdate('end_time')}
-                                            type="date"
-                                            value={this.state.end_time}
+                                        End
+                                        <DayPicker
+                                            end_time={this.state.end_time}
+                                            onDayClick={this.handleDayClick}
                                         />
                                     </label>
                                 </div>
