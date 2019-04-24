@@ -53,60 +53,76 @@ class CreateGroupForm extends React.Component {
                             {/* <div className='cg-icon'> */}
                             {/* </div> */}
                             <div className='cg-input'>
-                                <img className='cg-icon' src='https://bit.ly/2JS4HvT'/>   
-                                <p className='cg-step'>Step 1 of 4</p>
-                                <label>
-                                    What's your new Rendezvous Group's hometown?
-                                    <input 
-                                        className='cg-input-box'
-                                        onChange={this.handleUpdate('location')}
-                                        placeholder='Search for a city'
-                                        value={this.state.location}
-                                    />
-                                </label>
+                                <img className='cg-icon' src='https://bit.ly/2JS4HvT'/> 
+                                <div>
+                                    <p className='cg-step'>Step 1 of 4</p>
+                                    <label>
+                                        <h2>
+                                            What's your new Rendezvous Group's hometown?
+                                        </h2>
+                                        <input 
+                                            className='cg-input-box'
+                                            onChange={this.handleUpdate('location')}
+                                            placeholder='Search for a city'
+                                            value={this.state.location}
+                                        />
+                                    </label>
+                                </div>  
                                 {/* must figure out how to extract data to location API */}
                             </div>
                             <div className='cg-input'>
-                                <img className='cg-icon' src='https://bit.ly/2uE5q9A'/>   
-                                <p className='cg-step'>Step 2 of 4</p>
-                                <label>
-                                    What will your Rendezvous name be?
-                                    <input 
-                                        className='cg-input-box'
-                                        onChange={this.handleUpdate('title')}
-                                        placeholder='example: New York Hiking Rendezvous'
-                                        value={this.state.title}
-                                    />
-                                </label>
+                                <img className='cg-icon' src='https://bit.ly/2uE5q9A'/>  
+                                <div>
+                                    <p className='cg-step'>Step 2 of 4</p>
+                                    <label>
+                                        <h2>
+                                            What will your Rendezvous name be?
+                                        </h2>
+                                        <input 
+                                            className='cg-input-box'
+                                            onChange={this.handleUpdate('title')}
+                                            placeholder='example: New York Hiking Rendezvous'
+                                            value={this.state.title}
+                                        />
+                                    </label>
+                                </div> 
                             </div>
                             <div className='cg-input'>
-                                <img className='cg-icon' src='https://bit.ly/2UnZEaE'/>   
-                                <p className='cg-step'>Step 3 of 4</p>
-                                <label>
-                                    Describe who should join, and what your Rendezvous will do. 
-                                    <textarea 
-                                        className='cg-input-big-box'
-                                        onChange={this.handleUpdate('about')}
-                                        placeholder='example: This group is for passionate programmers, we welcome all'
-                                        value={this.state.about}/>
-                                </label>
+                                <img className='cg-icon' src='https://bit.ly/2UnZEaE'/>  
+                                <div>
+                                    <p className='cg-step'>Step 3 of 4</p>
+                                    <label>
+                                        <h2>
+                                            Describe who should join, and what your Rendezvous will do. 
+                                        </h2>
+                                        <textarea 
+                                            className='cg-input-big-box'
+                                            onChange={this.handleUpdate('about')}
+                                            placeholder='example: This group is for passionate programmers, we welcome all'
+                                            value={this.state.about}/>
+                                    </label>
+                                </div> 
                             </div>
                             <div className='cg-input'>
                                 <img className='cg-icon' src='https://bit.ly/2WAG1JQ'/>   
-                                <p className='cg-step'>Step 4 of 4</p>
-                                <label>
-                                    What it means to be a Rendezvous. 
-                                    <ul className='cg-rules'>
-                                        <li>Real, in person conversations</li>
-                                        <li>Open and honest intentions</li>
-                                        <li>Always safe and respectful</li>
-                                        <li>Put your members first</li>
-                                    </ul>
-                                </label>
-                                <input 
-                                    className='cg-submit'
-                                    type="submit"
-                                    value='Agree & Continue' />
+                                <div>
+                                    <p className='cg-step'>Step 4 of 4</p>
+                                    <label>
+                                        <h2>
+                                            What it means to be a Rendezvous. 
+                                        </h2>
+                                        <ul className='cg-rules'>
+                                            <li>Real, in person conversations</li>
+                                            <li>Open and honest intentions</li>
+                                            <li>Always safe and respectful</li>
+                                            <li>Put your members first</li>
+                                        </ul>
+                                    </label>
+                                    <input 
+                                        className='cg-submit'
+                                        type="submit"
+                                        value='Agree & Continue' />
+                                </div>
                             </div>
                         </div>
                     </form>

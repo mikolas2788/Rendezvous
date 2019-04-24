@@ -10,15 +10,6 @@
     border: 1px solid rgba(25, 33, 38, 0.12);
 }
 
-.group-buffer {
-    width: 90%; 
-    min-width: 600px;
-    max-width: 1000px; 
-    display: flex; 
-    flex-direction: row; 
-    justify-content: flex-start; 
-}
-
 .group-top {
     background-color: #ffffff; 
     width: 100%; 
@@ -29,14 +20,56 @@
     border-bottom: 1px solid rgba(25, 33, 38, 0.12);
 }
 
+.group-buffer {
+    width: 90%; 
+    min-width: 600px;
+    max-width: 1000px; 
+    display: flex; 
+    flex-direction: row; 
+    justify-content: flex-start; 
+
+    .group-photo-box {
+        position: relative;
+
+        .group-add-photo {
+            position: absolute;
+            left: 40px; 
+            top: 20px; 
+
+            label {
+                position: relative;
+                background-color: white; 
+                color: #00a2c7;  
+                padding: 10px; 
+                border-radius: 3px; 
+                width: 100px; 
+                cursor: pointer;
+                
+                input {
+                    position: absolute; 
+                    top: 0px; 
+                    left: 0px; 
+                    width: 100%;
+                    min-height: 100%; 
+                    color: red;
+                    opacity: 0; 
+                    overflow: hidden;
+                    cursor: inherit;
+                    // z-index: -1; 
+                }
+            }
+
+            
+        }
+    }
+}
+
 .group-pic {
-    max-width: 600px;
+    width: 600px;
     height: 340px; 
     border-radius: 15px; 
     margin: 20px; 
-    background-position: center 40%; 
-    background-size: cover; 
-    background-image: image-url('mochi.jpg');
+    object-fit: cover; 
     margin: 0px 20px; 
 }
 
@@ -57,7 +90,7 @@
         display: flex; 
         flex-direction: row; 
         align-items: center; 
-        margin-bottom: 10px; 
+        height: 43px; 
         
         i {
             display: flex; 
@@ -114,18 +147,17 @@
     padding: 0px 16px;
     box-sizing: border-box; 
     border-radius: 3px; 
-    width: auto; 
+    min-width: 184px; 
     min-height: 36px; 
     text-decoration: none; 
     position: relative; 
     display: flex; 
     align-items: center; 
-    justify-content: center; 
+    justify-content: flex-start; 
     
     &:hover {
         background: #e22e4c;
     }
-    
 }
 
 .dropdown-content {
@@ -133,7 +165,7 @@
     z-index: 1; 
     top: 36px; 
     right: 0px; 
-    width: 100%; 
+    min-width: 184px; 
     min-height: 36px;
     background-color: white; 
 }
@@ -146,7 +178,7 @@
     padding: 0px 16px;
     box-sizing: border-box; 
     border-radius: 3px;  
-    width: 100%; 
+    min-width: 184px; 
     min-height: 36px; 
     text-decoration: none; 
     display: flex; 

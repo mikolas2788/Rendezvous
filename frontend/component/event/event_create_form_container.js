@@ -5,7 +5,7 @@ import EventCreateForm from './event_create_form';
 const msp = (state, ownProps) => {
     return {
         creatorId: state.session.id,
-        currentGroup: state.entities.groups[ownProps.match.params.groupId]
+        group: state.entities.groups[ownProps.match.params.groupId]
     };
 };
 
@@ -13,6 +13,6 @@ const mdp = (dispatch) => {
     return {
         createEvent: (event) => dispatch(createEvent(event))
     };
-;}
+};
 
 export default connect (msp, mdp) (EventCreateForm);

@@ -2,40 +2,21 @@
     width: 100%; 
     height: 644px; 
     display: flex; 
-    justify-content: center; 
+    justify-content: flex-start; 
     align-items: center; 
     flex-direction: column; 
     background-color: #fafafa; 
 }
 
 .signup-errors {
-    min-height: 30px; 
     width: 100%;
-}
-
-.error-strip {
-    margin-top: 10px; 
-    width: 100%;
-    display: flex; 
-    justify-content: center; 
-}
-
-.error-content {
-    width: 70%; 
-    border: 1px solid rgba(0,0,0,.12); 
-    background-color: #FBE1E3;
-    padding: 10px; 
-    font-family: sans-serif; 
-    color: #c00; 
-    font-size: 30px; 
-    margin-bottom: 5px; 
+    padding: 25px; 
 }
 
 .signup-form {
     background-color: white; 
     font-family: sans-serif;
     width: 458px; 
-    margin: 20px; 
     position: relative; 
     display: flex; 
     align-items: center; 
@@ -113,6 +94,10 @@
     min-height: 36px; 
     text-decoration: none; 
     margin-bottom: 16px; 
+
+    &:hover {
+        background: #e22e4c;
+    }
 }
 
 /* bottom */

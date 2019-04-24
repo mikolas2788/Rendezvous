@@ -7,9 +7,8 @@ class GroupShow extends React.Component {
         super(props); 
 
         this.state = { dropdownMenu: false }
-
-        this.updateGroup = this.updateGroup.bind(this); 
         this.deleteGroup = this.deleteGroup.bind(this);
+        // this.updateGroupPhoto = this.updateGroupPhoto.bind(this); 
         this.joinGroup = this.joinGroup.bind(this);
         this.leaveGroup = this.leaveGroup.bind(this);
         this.groupButton = this.groupButton.bind(this);
@@ -30,10 +29,11 @@ class GroupShow extends React.Component {
         }
     }
     
-    updateGroup (e) {
-        e.preventDefault();
-        this.props.updateGroup(this.props.group).then(() => this.props.history.push(`/groups/${this.props.group.id}`)); 
-    }
+    // updateGroup (e) {
+    //     e.preventDefault();
+        // this.props.updateGroup(this.props.group).then(() => this.props.history.push(`/groups/${this.props.group.id}`));
+
+    // }
 
     deleteGroup (e) {
         e.preventDefault();
@@ -67,19 +67,31 @@ class GroupShow extends React.Component {
         if (this.state.dropdownMenu) {
             return (
                 <div className='dropdown-content'>
-                    <button 
-                        className='group-button' 
-                        onClick={this.deleteGroup}>
-                        Delete your group
-                    </button>
                     <Link
                         className='group-button'
                         to={`/groups/${this.props.group.id}/edit`}>
                         Edit your group
                     </Link>  
+                    <button 
+                        className='group-button' 
+                        onClick={this.deleteGroup}>
+                        Delete your group
+                    </button>
                 </div>
             )
         }
+    }
+
+    handlePhoto (e) {
+        const file = e.currentTarget.files[0];
+        // const fileReader = new FileReader(); 
+        // fileReader.onloadend = () => {
+        //     this.setState({ photoFile: file, photoUrl: fileReader.result })
+        // }; 
+        // fileReader.readAsDataURL(file); 
+        const formData = new FormData (); 
+        formData.append('group[photo]', file);
+        this.props.updateGroupPhoto(formData, this.props.group.id); 
     }
 
     groupButton () { 
@@ -132,13 +144,38 @@ class GroupShow extends React.Component {
         return members; 
     }
 
+    photoButton () {
+        if (this.props.currentUser.id === this.props.group.organizer_id) {
+            return ( 
+                <button className='group-add-photo'>
+                    <label htmlFor='file'>
+                        Upload a Photo
+                        <input
+                            type="file"
+                            onChange={this.handlePhoto.bind(this)}
+                        />
+                    </label>
+                </button>
+            )
+        } 
+    }
+
     render () {
-        if (!this.props.group) {return null;}
+        let photoUrl; 
+        if (!this.props.group) {
+            return null;
+        } else {
+            photoUrl = this.props.group.photoUrl || 'https://s3.amazonaws.com/rendezvous-meetup-dev/mxCCsykrJvfv7ucfX3f99Yh4'
+        }
+
         return (
             <div className='group-show-strip'>
                 <div className='group-top'>
                     <div className='group-buffer'>
-                        <img className='group-pic' src={this.props.group.photoUrl} />
+                        <div className='group-photo-box'>
+                            {this.photoButton()}
+                            <img className='group-pic' src={photoUrl} />
+                        </div>
                         <div className='group-info'>
                             <h1>{this.props.group.title}</h1>
                             <div>
