@@ -70,7 +70,7 @@ class EditGroupForm extends React.Component {
                                         <input
                                             className='cg-input-box'
                                             onChange={this.handleUpdate('location')}
-                                            placeholder={this.state.location}
+                                            value={this.state.location}
                                         />
                                     </label>
                                 </div>
@@ -85,7 +85,7 @@ class EditGroupForm extends React.Component {
                                         <input
                                             className='cg-input-box'
                                             onChange={this.handleUpdate('title')}
-                                            placeholder={this.state.title}
+                                            value={this.state.title}
                                         />
                                     </label>
                                 </div>
@@ -99,7 +99,7 @@ class EditGroupForm extends React.Component {
                                         <textarea
                                             className='cg-input-big-box'
                                             onChange={this.handleUpdate('about')}
-                                            placeholder={this.state.about} />
+                                            value={this.state.about} />
                                     </label>
                                 </div>
                             </div>

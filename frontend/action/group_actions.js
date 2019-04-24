@@ -52,6 +52,12 @@ export const updateGroup = (group) => dispatch => {
     );
 };
 
+export const updateGroupPhoto = (formData, groupId) => dispatch => {
+    return (
+        GroupAPIUtil.updateGroupPhoto(formData, groupId).then(group => dispatch(receiveGroup(group)))
+    );
+};
+
 export const deleteGroup = (id) => dispatch => {
     return (
         GroupAPIUtil.deleteGroup(id).then((group) => dispatch(removeGroup(group)))

@@ -36,6 +36,18 @@ export const updateGroup = (group) => {
     );
 };
 
+export const updateGroupPhoto = (formData, groupId) => {
+    return (
+        $.ajax({
+            method: 'patch',
+            url: `/api/groups/${groupId}`,
+            data: formData, 
+            contentType: false,
+            processData: false
+        })
+    )
+}
+
 export const deleteGroup = (id) => {
     return (
         $.ajax({

@@ -45,7 +45,8 @@ class Api::GroupsController < ApplicationController
             :creator_id,
             :title,
             :about,
-            :location
+            :location,
+            :photo
         )
     end
 
