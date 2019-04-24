@@ -153,6 +153,8 @@ class GroupShow extends React.Component {
                         <input
                             type="file"
                             onChange={this.handlePhoto.bind(this)}
+                            className='group-photo-input'
+                            style='cursor:pointer;'
                         />
                     </label>
                 </button>

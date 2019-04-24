@@ -34,7 +34,11 @@
         .group-add-photo {
             position: absolute;
             left: 40px; 
-            top: 20px; 
+            top: 30px; 
+
+            .group-add-photo:hover label input {
+                cursor: pointer;
+            }
 
             label {
                 position: relative;
@@ -44,7 +48,12 @@
                 border-radius: 3px; 
                 width: 100px; 
                 cursor: pointer;
+                font-weight: bold; 
                 
+                label:hover {
+                    cursor: pointer;
+                }
+
                 input {
                     position: absolute; 
                     top: 0px; 
@@ -53,9 +62,13 @@
                     min-height: 100%; 
                     color: red;
                     opacity: 0; 
-                    overflow: hidden;
                     cursor: inherit;
+                    overflow: hidden;
                     // z-index: -1; 
+                }
+
+                .group-photo-input:hover {
+                    cursor: pointer;
                 }
             }
 
