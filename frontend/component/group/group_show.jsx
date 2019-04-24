@@ -67,16 +67,16 @@ class GroupShow extends React.Component {
         if (this.state.dropdownMenu) {
             return (
                 <div className='dropdown-content'>
-                    <button 
-                        className='group-button' 
-                        onClick={this.deleteGroup}>
-                        Delete your group
-                    </button>
                     <Link
                         className='group-button'
                         to={`/groups/${this.props.group.id}/edit`}>
                         Edit your group
                     </Link>  
+                    <button 
+                        className='group-button' 
+                        onClick={this.deleteGroup}>
+                        Delete your group
+                    </button>
                 </div>
             )
         }
