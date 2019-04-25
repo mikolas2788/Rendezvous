@@ -8,7 +8,6 @@ class GroupShow extends React.Component {
 
         this.state = { dropdownMenu: false }
         this.deleteGroup = this.deleteGroup.bind(this);
-        // this.updateGroupPhoto = this.updateGroupPhoto.bind(this); 
         this.joinGroup = this.joinGroup.bind(this);
         this.leaveGroup = this.leaveGroup.bind(this);
         this.groupButton = this.groupButton.bind(this);
@@ -154,7 +153,6 @@ class GroupShow extends React.Component {
                             type="file"
                             onChange={this.handlePhoto.bind(this)}
                             className='group-photo-input'
-                            style='cursor:pointer;'
                         />
                     </label>
                 </button>
