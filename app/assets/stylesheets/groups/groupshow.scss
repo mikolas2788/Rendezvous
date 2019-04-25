@@ -190,7 +190,7 @@
     font-weight: 600; 
     padding: 0px 16px;
     box-sizing: border-box; 
-    border-radius: 3px;  
+    border-radius: 3px;
     min-width: 184px; 
     min-height: 36px; 
     text-decoration: none; 
@@ -240,6 +240,7 @@
     width: 50px; 
     border-radius: 50%; 
     margin-right: 10px; 
+    margin-bottom: 10px; 
 }
 
 .member-icon {
@@ -256,7 +257,7 @@
 .group-organizer-details {
     display: flex;
     flex-direction: row; 
-    justify-content: center; 
+    justify-content: flex-start; 
     align-content: center; 
     margin-bottom: 30px; 
 

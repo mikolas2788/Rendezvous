@@ -223,7 +223,6 @@ class GroupShow extends React.Component {
                                     <h2> { this.organizer() } </h2>
                                 </div>
                             </div>
-
                             <div className='group-members'>
                                 <h1>Members ({this.memberCount()})</h1>
                                 <div className='member-icon'>
