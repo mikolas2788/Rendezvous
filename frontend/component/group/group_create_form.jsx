@@ -50,8 +50,6 @@ class CreateGroupForm extends React.Component {
                 <div className='cg-form-strip'>
                     <form className='cg-form' onSubmit={this.handleSubmit}>
                         <div className='cg-inputs'>
-                            {/* <div className='cg-icon'> */}
-                            {/* </div> */}
                             <div className='cg-input'>
                                 <img className='cg-icon' src='https://bit.ly/2JS4HvT'/> 
                                 <div>
@@ -68,7 +66,6 @@ class CreateGroupForm extends React.Component {
                                         />
                                     </label>
                                 </div>  
-                                {/* must figure out how to extract data to location API */}
                             </div>
                             <div className='cg-input'>
                                 <img className='cg-icon' src='https://bit.ly/2uE5q9A'/>  
