@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'; 
-import { login, signup, clearErrors } from '../../action/session_actions';
+import { login, clearErrors } from '../../action/session_actions';
 import LoginForm from './login_form'; 
 
 const msp = ({ errors }) => {

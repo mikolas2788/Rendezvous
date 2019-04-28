@@ -10,8 +10,6 @@ class CreateGroupForm extends React.Component {
             title: '',
             about: '',
             location: '', 
-            // longitude: '',
-            // latitude: ''
         }; 
         this.handleSubmit = this.handleSubmit.bind(this);
 

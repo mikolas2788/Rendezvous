@@ -3,9 +3,8 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import SignupFormContainer from './auth/signup_form_container'; 
 import LoginFormContainer from './auth/login_form_container'; 
 import NavBarContainer from './navbar/nav_bar_container'; 
-import Video from './video/video'; 
+import Video from './main/video'; 
 import MainBody from './main/main'; 
-// import HomePage from './home/home_page'; 
 import Footer from './footer/footer_container'; 
 import GroupCreateFormContainer from '../component/group/group_create_form_container';
 import GroupEditFormContainer from '../component/group/group_edit_form_container';
@@ -23,7 +22,7 @@ const App = () => (
         <AuthRoute exact path='/' component={Video}/> 
         <AuthRoute exact path='/login' component={LoginFormContainer} />
         <AuthRoute exact path='/signup' component={SignupFormContainer} />
-        <Route exact path='/' component={MainBody} />
+        <AuthRoute exact path='/' component={MainBody} />
         <Switch>
             <ProtectedRoute path="/groups/:groupId/edit" component={GroupEditFormContainer} />
             <ProtectedRoute exact path='/groups/create' component={GroupCreateFormContainer}/>

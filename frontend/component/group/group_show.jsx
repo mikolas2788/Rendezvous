@@ -27,12 +27,6 @@ class GroupShow extends React.Component {
             this.props.fetchGroup(this.props.match.params.groupId); 
         }
     }
-    
-    // updateGroup (e) {
-    //     e.preventDefault();
-        // this.props.updateGroup(this.props.group).then(() => this.props.history.push(`/groups/${this.props.group.id}`));
-
-    // }
 
     deleteGroup (e) {
         e.preventDefault();
@@ -83,11 +77,6 @@ class GroupShow extends React.Component {
 
     handlePhoto (e) {
         const file = e.currentTarget.files[0];
-        // const fileReader = new FileReader(); 
-        // fileReader.onloadend = () => {
-        //     this.setState({ photoFile: file, photoUrl: fileReader.result })
-        // }; 
-        // fileReader.readAsDataURL(file); 
         const formData = new FormData (); 
         formData.append('group[photo]', file);
         this.props.updateGroupPhoto(formData, this.props.group.id); 
@@ -186,7 +175,6 @@ class GroupShow extends React.Component {
                                 <i className="fas fa-users"></i>
                                 <p>{ this.memberCount() } members</p>
                             </div>
-                            {/* <p>public status</p> */}
                             <div>
                                 <i className="fas fa-user-shield"></i>
                                 <p>Organized by { this.organizer() }</p>

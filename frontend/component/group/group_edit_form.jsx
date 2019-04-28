@@ -13,8 +13,6 @@ class EditGroupForm extends React.Component {
                 title: this.props.group.title,
                 about: this.props.group.about,
                 location: this.props.group.location,
-                // longitude: '',
-                // latitude: ''
             };
         }
         this.handleSubmit = this.handleSubmit.bind(this);
