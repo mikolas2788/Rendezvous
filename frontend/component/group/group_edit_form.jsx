@@ -43,7 +43,35 @@ class EditGroupForm extends React.Component {
         return (
             <div className='eg-main-strip'>
                 <div className='eg-banner'>
-                    <h1>{this.state.title}</h1>
+                    <h1 className='eg-banner-text'>{this.state.title}</h1>
+                </div>
+                <div className='eg-form-strip'>
+                    <form className='eg-form'>
+                        <div className='eg-inputs'>
+                            <h1 className='eg-input-header'>About This Rendezvous Group</h1>
+                            <div className='eg-input'>
+                                <label>
+                                    Rendezvous Group Name
+                                    <input 
+                                        className='eg-input-field'
+                                        onChange={this.handleUpdate('title')}
+                                        value={this.state.title}
+                                    />
+                                </label>
+                            </div>
+                            <div className='eg-input'>
+                                <label>
+                                    Rendezvous Group Description
+                                    <p>What is this Meetup's purpose? Who should join? Why?</p>
+                                    <textarea
+                                        className='eg-input-textarea'
+                                        onChange={this.handleUpdate('about')}
+                                        value={this.state.about}
+                                    />
+                                </label>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         //     <div className='cg-strip'>
