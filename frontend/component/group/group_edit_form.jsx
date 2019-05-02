@@ -46,12 +46,12 @@ class EditGroupForm extends React.Component {
                     <h1 className='eg-banner-text'>{this.state.title}</h1>
                 </div>
                 <div className='eg-form-strip'>
-                    <form className='eg-form'>
+                    <form className='eg-form' onSubmit={this.handleSubmit}>
                         <div className='eg-inputs'>
-                            <h1 className='eg-input-header'>About This Rendezvous Group</h1>
+                            <h1 className='eg-input-header'>About</h1>
                             <div className='eg-input'>
                                 <label>
-                                    Rendezvous Group Name
+                                    <h3>Rendezvous Group Name</h3>
                                     <input 
                                         className='eg-input-field'
                                         onChange={this.handleUpdate('title')}
@@ -61,7 +61,7 @@ class EditGroupForm extends React.Component {
                             </div>
                             <div className='eg-input'>
                                 <label>
-                                    Rendezvous Group Description
+                                    <h3>Rendezvous Group Description</h3>
                                     <p>What is this Meetup's purpose? Who should join? Why?</p>
                                     <textarea
                                         className='eg-input-textarea'
@@ -71,6 +71,40 @@ class EditGroupForm extends React.Component {
                                 </label>
                             </div>
                         </div>
+                        <div className='eg-inputs'>
+                            <h1 className='eg-input-header'>Location</h1>
+                            <div className='eg-input'>
+                                <label>
+                                    <h3>Zip Code</h3>
+                                    <input 
+                                        className='eg-input-zipcode'
+                                        onChange={this.handleUpdate('location')}
+                                        value={this.state.location}
+                                    />
+                                </label>
+                            </div>
+                        </div>
+                        <div className='eg-inputs'>
+                            <h1 className='eg-input-header'>Finishing Up</h1>
+                            <div className='eg-input'>
+                                <label>
+                                    <h3>What it means to be a Rendezvous.</h3>
+                                    <ul className='eg-rules'>
+                                        <li>Real, in person conversations</li>
+                                        <li>Open and honest intentions</li>
+                                        <li>Always safe and respectful</li>
+                                        <li>Put your members first</li>
+                                    </ul>
+                                </label>
+                                    <input
+                                        className='eg-submit'
+                                        type="submit"
+                                        value='Edit Group' 
+                                    />
+                            </div>
+                        </div>
+
+
                     </form>
                 </div>
             </div>
