@@ -28,14 +28,14 @@
     align-items: center; 
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 600; 
-}
 
-.cg-splash-content h1 {
-    font-size: 34px;
-}
+    h1 {
+        font-size: 34px;
+    }
 
-.cg-splash-content h3 {
-    font-size: 20px; 
+    h3 {
+        font-size: 20px; 
+    }
 }
 
 .cg-form-strip {
@@ -86,13 +86,13 @@
             }
         }
     }
-}
 
-.cg-inputs p {
-    color: rgba(0,0,0,.26); 
-    font-weight: 400; 
-    font-size: 15px; 
-    font-family: sans-serif;
+    p {
+        color: rgba(0,0,0,.26); 
+        font-weight: 400; 
+        font-size: 15px; 
+        font-family: sans-serif;
+    }
 }
 
 .cg-input-box {
