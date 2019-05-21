@@ -58,27 +58,27 @@
     color: grey; 
     margin-left: 20px; 
     margin-right: 20px; 
-}
 
-.navlogin:hover {
-    color: #00a2c7
+    &:hover {
+        color: #00a2c7
+    }
 }
 
 .navsignup {
     color: grey;  
     margin-right: 20px; 
-}
 
-.navsignup:hover {
-    color: #00a2c7
+    &:hover {
+        color: #00a2c7
+    }
 }
 
 .navlogout {
     color: grey; 
     padding-left: 20px; 
     padding-right: 20px; 
-}
 
-.navlogout:hover {
-    color: #00a2c7
+    &:hover {
+        color: #00a2c7
+    }
 }
