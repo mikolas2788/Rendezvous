@@ -97,13 +97,15 @@ class GroupShow extends React.Component {
             button = <button 
                         className='group-button'    
                         onClick={this.joinGroup}>
-                        Join this group</button>
+                        Join this group
+                    </button>
         } else if ((this.props.currentUser) && 
         (this.props.group.member_ids.includes(this.props.currentUser.id))) {
             button = <button 
                         className='group-button'
                         onClick={this.leaveGroup}>
-                        Leave this group</button>
+                        Leave this group
+                    </button>
         } else {
             button = <Link 
                         className='group-link' 
