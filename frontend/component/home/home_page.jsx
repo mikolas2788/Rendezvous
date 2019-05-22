@@ -19,9 +19,7 @@ class HomePage extends React.Component {
                                 type='text'
                                 placeholder="It's a trap"
                                 />
-                            <p>
-                                within 10 miles of Elmhurst, NY
-                            </p>
+                            <p> within 10 miles of Elmhurst, NY </p>
                         </div>
                         <div className='homepage-filter-tabs'>
                             <button className='homepage-group-button'>Groups</button>
