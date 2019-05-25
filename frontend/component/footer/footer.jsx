@@ -59,13 +59,13 @@ class Footer extends React.Component {
                             </a>
                             <a 
                                 className='footer-links' 
-                                href='https://www.meetup.com/'>
-                                <i className='fab fa-meetup'></i> The Real Meetup 
+                                href='https://angel.co/myron-yook'>
+                                <i className='fab fa-angellist'></i> Myron's AngelList 
                             </a>
                             <a 
                                 className='footer-links' 
-                                href='https://angel.co/myron-yook'>
-                                <i className='fab fa-angellist'></i> Myron's AngelList 
+                                href='https://www.meetup.com/'>
+                                <i className='fab fa-meetup'></i> The Real Meetup 
                             </a>
                         </div>
                     </div>
