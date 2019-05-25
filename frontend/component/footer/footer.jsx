@@ -42,6 +42,11 @@ class Footer extends React.Component {
                             <div className='footer-auth'>{FooterAuth}</div>
                         </div>
                         <div className='footer-middle'>
+                            <a 
+                                className='footer-links' 
+                                href='https://mikolas2788.github.io/'>
+                                <i className='fab fa-home'></i> Myron's Personal Site 
+                            </a>
                             <a  
                                 className='footer-links' 
                                 href='https://github.com/mikolas2788'>
@@ -54,13 +59,13 @@ class Footer extends React.Component {
                             </a>
                             <a 
                                 className='footer-links' 
-                                href='https://imgur.com/a/MTXvfda'>
-                                <i className='fab fa-facebook'></i> Myron's Facebook 
+                                href='https://www.meetup.com/'>
+                                <i className='fab fa-meetup'></i> The Real Meetup 
                             </a>
                             <a 
                                 className='footer-links' 
-                                href='https://www.meetup.com/'>
-                                <i className='fab fa-meetup'></i> The Real Meetup 
+                                href='https://angel.co/myron-yook'>
+                                <i className='fab fa-angellist'></i> Myron's AngelList 
                             </a>
                         </div>
                     </div>
