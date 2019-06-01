@@ -48,7 +48,7 @@ class EditGroupForm extends React.Component {
                 <div className='eg-form-strip'>
                     <form className='eg-form' onSubmit={this.handleSubmit}>
                         <div className='eg-inputs'>
-                            <h1 className='eg-input-header'>About</h1>
+                            <h1 className='eg-input-header'>About This Rendezvous Group</h1>
                             <div className='eg-input'>
                                 <label>
                                     <h3>Rendezvous Group Name</h3>

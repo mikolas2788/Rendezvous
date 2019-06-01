@@ -47,7 +47,7 @@ class CreateEventForm extends React.Component {
             <div className='ce-strip'>
                 <div className='ce-main'>
                     <div className='ce-left'>
-
+                        
                     </div>
                     <div className='ce-right'>
 
