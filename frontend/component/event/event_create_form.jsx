@@ -45,16 +45,20 @@ class CreateEventForm extends React.Component {
     render () {
         return (
             <div className='ce-strip'>
-                <div className='ce-main'>
-                    <div className='ce-left'>
-                        
-                    </div>
-                    <div className='ce-right'>
+                <div className='ce-form-strip'>
+                    <form className='ce-form' onSubmit={this.handleSubmit}>
+                        <div className='ce-left'>
+                            <h1 className='ce-header'>Create an Event</h1>
+                            <p>{this.props.group.title}</p>
+                        </div>
+                        <div className='ce-right'>
 
-                    </div>
-                    <div className='ce-footer'>
+                        </div>
+                        <div className='ce-footer'>
 
-                    </div>
+                        </div>
+
+                    </form>
                 </div>
             </div>
         ) 
