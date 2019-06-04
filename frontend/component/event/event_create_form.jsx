@@ -49,7 +49,7 @@ class CreateEventForm extends React.Component {
                     <form className='ce-form' onSubmit={this.handleSubmit}>
                         <div className='ce-left'>
                             <h1 className='ce-header'>Create an Event</h1>
-                            <p>{this.props.group.title}</p>
+                            <p></p>
                         </div>
                         <div className='ce-right'>
 
