@@ -50,9 +50,19 @@ class CreateEventForm extends React.Component {
                         <div className='ce-left'>
                             <h1 className='ce-header'>Create an Event</h1>
                             <p></p>
+                            <div className='ce-input'>
+                                <h1>Title (required)</h1>
+                                <input
+                                    className='ce-input-box'
+                                    onChange={this.handleUpdate('title')}
+                                    value={this.state.title}
+                                />
+                            </div>
                         </div>
                         <div className='ce-right'>
+                            <div className='ce-tips'>
 
+                            </div>
                         </div>
                         <div className='ce-footer'>
 
