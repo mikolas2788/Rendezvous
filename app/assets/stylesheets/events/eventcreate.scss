@@ -4,31 +4,49 @@
     background-color: #fafafa; 
 }
 
-.ce-main {
+.ce-form-strip {
+    font-family: sans-serif; 
+    color: #2e3e48; 
     height: 100%;
     margin: 0px 20px; 
 }
 
 .ce-form {
-    
-}
 
-.ce-left {
+    .ce-left {
 
-    h1 {
+        .ce-header {
+
+            h1 {
+                font-size: 30px; 
+                font-weight: 600; 
+                margin-top: 40px; 
+            }
+
+            p {
+                font-size: 16px; 
+                margin-bottom: 20px; 
+            }
+
+            border-bottom: 1px solid rgba(0,0,0,.12);
+        }
+
+        .ce-input {
+
+            margin-top: 40px; 
+
+            .ce-input-box {
+                border: 1px solid rgba(0,0,0,.12);
+            }
+        }
 
     }
 
-    p {
-        margin-bottom: 20px; 
-        border-bottom: 1px solid rgba(0,0,0,.12);
+    .ce-right {
+
     }
-}
 
-.ce-right {
+    .ce-footer {
 
-}
-
-.ce-footer {
-
-}
+    }
+} 
