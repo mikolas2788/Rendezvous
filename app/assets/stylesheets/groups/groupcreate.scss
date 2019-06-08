@@ -89,60 +89,62 @@
             }
 
             label {
+
                 h2 {
                     margin-bottom: 16px; 
                 }
+
+                .cg-input-box {
+                    width: 100%;
+                    line-height: 1.45;
+                    padding: 8px;
+                    border-radius: 5px;
+                    border: 1px solid rgba(0,0,0,.12);
+                    background-color: #fafafa;
+                    color: rgba(0,0,0,.87);
+                    font-size: 16px;
+                    font-family: sans-serif;
+                }
+                
+                .cg-input-big-box {
+                    width: 100%;
+                    height: 202px; 
+                    line-height: 1.45;
+                    padding: 5px;
+                    border-radius: 5px;
+                    border: 1px solid rgba(0,0,0,.12);
+                    background-color: #fafafa;
+                    color: rgba(0,0,0,.87);
+                    font-size: 16px;
+                    font-family: sans-serif;
+                }
+
+                .cg-rules {
+                    list-style-type: disc; 
+                    list-style-position: outside; 
+                    font-weight: 500; 
+                    font-size: 16px; 
+                    line-height: 1.45;
+                    padding-left: 1.33em; 
+                    font-family: sans-serif;
+                }
+                
             }
-        }
 
-        .cg-input-box {
-            width: 100%;
-            line-height: 1.45;
-            padding: 8px;
-            border-radius: 5px;
-            border: 1px solid rgba(0,0,0,.12);
-            background-color: #fafafa;
-            color: rgba(0,0,0,.87);
-            font-size: 16px;
-            font-family: sans-serif;
-        }
-        
-        .cg-input-big-box {
-            width: 100%;
-            height: 202px; 
-            line-height: 1.45;
-            padding: 5px;
-            border-radius: 5px;
-            border: 1px solid rgba(0,0,0,.12);
-            background-color: #fafafa;
-            color: rgba(0,0,0,.87);
-            font-size: 16px;
-            font-family: sans-serif;
-        }
-
-        .cg-rules {
-            list-style-type: disc; 
-            list-style-position: outside; 
-            font-weight: 500; 
-            font-size: 16px; 
-            line-height: 1.45;
-            padding-left: 1.33em; 
-            font-family: sans-serif;
-        }
-        
-        .cg-submit {
-            color: #ffffff;
-            background-color: #f14b67;
-            border-color: #ed1c40;
-            font-size: 16px;
-            font-weight: 600; 
-            font-family: sans-serif;
-            margin-top: 16px; 
-            padding: 8px 16px;
-            border-radius: 3px;
-        
-            &:hover {
-                background: #e22e4c;
+            .cg-submit {
+                color: #ffffff;
+                background-color: #f14b67;
+                border-color: #ed1c40;
+                font-size: 16px;
+                font-weight: 600; 
+                font-family: sans-serif;
+                margin-top: 16px; 
+                padding: 8px 16px;
+                border-radius: 3px;
+            
+                &:hover {
+                    background: #e22e4c;
+                }
             }
         }
     }

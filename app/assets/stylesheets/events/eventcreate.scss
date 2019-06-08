@@ -33,10 +33,13 @@
 
         .ce-input {
 
+            max-width: 600px;  
             margin-top: 40px; 
-
+            
             .ce-input-box {
+                padding: 16px; 
                 border: 1px solid rgba(0,0,0,.12);
+                border-radius: 3px; 
             }
         }
 
