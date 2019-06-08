@@ -67,8 +67,9 @@
         width: 840px; 
         box-sizing: border-box; 
     
-        img {
+        .cg-icon {
             padding: 0px 16px; 
+            width: 75px;
         }
     
         div {
@@ -80,23 +81,18 @@
             padding: 0px 16px;  
             box-sizing: border-box; 
     
+            p {
+                color: rgba(0,0,0,.26); 
+                font-weight: 400; 
+                font-size: 15px; 
+                font-family: sans-serif;
+            }
+
             label {
                 h2 {
                     margin-bottom: 16px; 
                 }
             }
-        }
-    
-        p {
-            color: rgba(0,0,0,.26); 
-            font-weight: 400; 
-            font-size: 15px; 
-            font-family: sans-serif;
-        }
-
-        .cg-icon {
-            width: 75px;  
-            padding-bottom: 5px; 
         }
 
         .cg-input-box {
@@ -123,7 +119,7 @@
             font-size: 16px;
             font-family: sans-serif;
         }
-        
+
         .cg-rules {
             list-style-type: disc; 
             list-style-position: outside; 
