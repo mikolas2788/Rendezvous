@@ -36,10 +36,17 @@
             max-width: 600px;  
             margin-top: 40px; 
             
+            h1 {
+                font-size: 16px; 
+                font-weight: 600; 
+                line-height: 1.5;
+            }
             .ce-input-box {
+                width: 100%; 
                 padding: 16px; 
-                border: 1px solid rgba(0,0,0,.12);
+                border: 1px solid #a2a2a2;
                 border-radius: 3px; 
+                background-color: white; 
             }
         }
 
