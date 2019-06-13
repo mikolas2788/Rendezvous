@@ -60,6 +60,14 @@ class CreateEventForm extends React.Component {
                                     value={this.state.title}
                                 />
                             </div>
+                            <div className='ce-input'>
+                                <h1>Date and Time</h1>
+                                <input
+                                    className='ce-input-box'
+                                    onChange={this.handleUpdate('date')}
+                                    value={this.state.date}
+                                />
+                            </div>
                         </div>
                         <div className='ce-right'>
                             <div className='ce-tips'>
