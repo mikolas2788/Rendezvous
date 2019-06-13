@@ -72,8 +72,17 @@ class CreateEventForm extends React.Component {
                                 <h1>Duration</h1>
                                 <input
                                     className='ce-input-box'
-                                    onChange={this.handleUpdate('date')}
-                                    value={this.state.date}
+                                    onChange={this.handleUpdate('time')}
+                                    value={this.state.time}
+                                />
+                            </div>
+                            <div className='ce-input'>
+                                <h1>Description</h1>
+                                <p>Let your attendees know what to expect, including the agenda, what they need to bring, and how to find the group.</p>
+                                <textarea
+                                    className='ce-input-big-box'
+                                    onChange={this.handleUpdate('description')}
+                                    value={this.state.description}
                                 />
                             </div>
                         </div>
