@@ -26,6 +26,7 @@ class Api::GroupsController < ApplicationController
     end 
 
     def update
+        debugger
         @group = Group.find_by(id: params[:id])
         if @group.update(group_params)
             render :show
@@ -51,3 +52,6 @@ class Api::GroupsController < ApplicationController
     end
 
 end
+
+# <ActionController::Parameters {"group"=><ActionController::Parameters {"id"=>"23", "creator_id"=>"1", "title"=>"Puppy lovers of NYC", "about"=>"We love puppiesasdf", "location"=>"NYC"} permitted: false>, "format"=>:json, "controller"=>"api/groups", "action"=>"update", "id"=>"23"} permitted: false>
+# <ActionController::Parameters {"group"=><ActionController::Parameters {"id"=>"23", "creator_id"=>"", "title"=>"Puppy lovers of NYC", "about"=>"We love puppies", "location"=>"NYC"} permitted: false>, "format"=>:json, "controller"=>"api/groups", "action"=>"update", "id"=>"23"} permitted: false>

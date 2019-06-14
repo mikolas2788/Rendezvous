@@ -5,7 +5,14 @@ class EditGroupForm extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {}; 
+        this.state = {
+            id: '',
+            creator_id: '',
+            title: '',
+            about: '',
+            location: ''
+        }; 
+        // console.log(this.props); 
         if (this.props.group) {
             this.state = {
                 id: this.props.group.id, 
@@ -21,7 +28,17 @@ class EditGroupForm extends React.Component {
 
     componentDidMount () { 
         window.scrollTo(0, 0);
-        this.props.fetchGroup(this.props.match.params.groupId);
+        // console.log(this.props); 
+        this.props.fetchGroup(this.props.match.params.groupId).then((payload) => {
+            this.setState({
+                id: payload.group.id,
+                creator_id: payload.group.organizer_id, 
+                title: payload.group.title,
+                about: payload.group.about,
+                location: payload.group.location,
+            }); 
+            console.log(payload);
+        });
     }
     
     handleSubmit(event) {
