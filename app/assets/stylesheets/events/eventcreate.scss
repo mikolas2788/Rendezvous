@@ -43,6 +43,8 @@
                 line-height: 1.5;
             }
 
+            
+
             .ce-input-box {
                 width: 100%; 
                 padding: 16px; 
@@ -53,6 +55,11 @@
 
             .ce-input-big-box {
                 height: 200px; 
+                width: 100%; 
+                padding: 16px; 
+                border: 1px solid #a2a2a2;
+                border-radius: 3px; 
+                background-color: white; 
             }
         }
     }
