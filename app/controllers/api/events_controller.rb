@@ -35,8 +35,8 @@ class Api::EventsController < ApplicationController
     end 
 
     def destroy
-        @group = Event.find_by(id: params[:id])
-        @group.destroy
+        @event = Event.find_by(id: params[:id])
+        @event.destroy
         render :show
     end 
 
