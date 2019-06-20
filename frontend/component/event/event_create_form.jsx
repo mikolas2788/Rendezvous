@@ -100,6 +100,12 @@ class CreateEventForm extends React.Component {
                             </div>
                         </div>
                         <div className='ce-footer'>
+                            <div className='ce-footer-left'>
+
+                            </div>
+                            <div className='ce-footer-right'>
+
+                            </div>
 
                         </div>
 
