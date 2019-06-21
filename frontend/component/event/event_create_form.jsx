@@ -96,7 +96,27 @@ class CreateEventForm extends React.Component {
                         </div>
                         <div className='ce-right'>
                             <div className='ce-tips'>
-
+                                <h1>
+                                    Tips for a great event
+                                </h1>
+                                <h3>
+                                    Be descriptive
+                                </h3>
+                                <p>
+                                    A good title immediately gives people an idea of what the event is about.
+                                </p>
+                                <h3>
+                                    Get organized
+                                </h3>
+                                <p>
+                                    Describe things in a clear order so it's easy to digest. Start with an overall description of the event and include a basic agenda, before you move into really specific details.
+                                </p>
+                                <h3>
+                                    Add an image
+                                </h3>
+                                <p>
+                                    Upload a photo or image to give members a better feel for the event.
+                                </p>
                             </div>
                         </div>
                         <div className='ce-footer'>
