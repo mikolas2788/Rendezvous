@@ -30,7 +30,7 @@ export const updateEvent = (event) => {
     return (
         $.ajax({
             method: 'patch',
-            url: `/api/events/${event.id}/edit`,
+            url: `/api/events/${event.id}`,
             data: { event }
         })
     );

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store'; 
 import { login, logout, signup } from './util/session_api_util'; 
 import Root from './component/root'; 
+import * as eventUtil from './action/event_actions'; 
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;
@@ -18,12 +19,14 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         store = configureStore();
     }
+    
     //test
     window.login = login; 
     window.logout = logout; 
     window.signup = signup; 
     window.getState = store.getState; 
     window.dispatch = store.dispatch; 
+    window.fetchEventUtil = eventUtil; 
     //test
     
     const root = document.getElementById("root");
