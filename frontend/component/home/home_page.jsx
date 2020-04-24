@@ -1,5 +1,4 @@
 import React from 'react'; 
-import { Link } from 'react-router-dom';
 
 class HomePage extends React.Component {
 
@@ -29,7 +28,7 @@ class HomePage extends React.Component {
                 </div>
                 <div className='homepage-main'>
                     <div className='homepage-events'>
-
+                        
                     </div>
                     <div className='homepage-calendar'>
 
