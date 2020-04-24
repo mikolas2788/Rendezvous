@@ -1,5 +1,6 @@
 import React from 'react';
 import GroupIndexItem from './group_index_item'; 
+import GroupSearch from './group_search';
 
 class GroupIndex extends React.Component {
 
@@ -15,7 +16,8 @@ class GroupIndex extends React.Component {
 
         return (
             <div className='homepage-strip'>
-                <div className='homepage-banner'>
+                <GroupSearch />
+                {/* <div className='homepage-banner'>
                     <h1>Find your next event</h1>
                     <p> 4 events in your groups • 4,639 events near you</p>
                 </div>
@@ -36,7 +38,7 @@ class GroupIndex extends React.Component {
                             <button className='homepage-group-button'>Calendar</button>
                         </div>
                     </div>
-                </div>
+                </div> */}
                 <div className='homepage-main'>
 
                     <div className='homepage-buffer'>
