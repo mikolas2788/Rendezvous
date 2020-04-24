@@ -1,6 +1,5 @@
 import React from 'react';
 import GroupIndexItem from './group_index_item'; 
-import GroupSearch from './group_search';
 
 class GroupIndex extends React.Component {
 
