@@ -64,23 +64,22 @@ class GroupIndex extends React.Component {
                                 within 10 miles of Elmhurst, NY
                             </p>
                         </div>
+                        {/* Optional Feature
                         <div className='homepage-filter-tabs'>
                             <button className='homepage-group-button'>Groups</button>
                             <button className='homepage-group-button'>Calendar</button>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div className='homepage-main'>
-
                     <div className='homepage-buffer'>
                         <h1>AVAILABLE GROUPS</h1>
                         <div className='homepage-groups-index'>
                             {groups}
                         </div>
                         <div className='homepage-calendar'>
-                            
-                        </div>
 
+                        </div>
                     </div>
                 </div>
             </div>

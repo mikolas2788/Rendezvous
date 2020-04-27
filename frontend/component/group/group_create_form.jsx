@@ -12,7 +12,6 @@ class CreateGroupForm extends React.Component {
             location: '', 
         }; 
         this.handleSubmit = this.handleSubmit.bind(this);
-
     }
 
     handleSubmit (event) {
