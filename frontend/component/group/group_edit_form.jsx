@@ -12,7 +12,6 @@ class EditGroupForm extends React.Component {
             about: '',
             location: ''
         }; 
-        // console.log(this.props); 
         if (this.props.group) {
             this.state = {
                 id: this.props.group.id, 
@@ -22,30 +21,30 @@ class EditGroupForm extends React.Component {
                 location: this.props.group.location,
             };
         }
+        
         this.handleSubmit = this.handleSubmit.bind(this);
 
     }
 
     componentDidMount () { 
         window.scrollTo(0, 0);
-        // console.log(this.props); 
-        this.props.fetchGroup(this.props.match.params.groupId).then((payload) => {
+        this.props.fetchGroup(this.props.match.params.groupId).then((promise) => {
             this.setState({
-                id: payload.group.id,
-                creator_id: payload.group.organizer_id, 
-                title: payload.group.title,
-                about: payload.group.about,
-                location: payload.group.location,
+                id: promise.group.id,
+                creator_id: promise.group.organizer_id, 
+                title: promise.group.title,
+                about: promise.group.about,
+                location: promise.group.location,
             }); 
-            console.log(payload);
+            console.log(promise);
         });
     }
     
     handleSubmit(event) {
         event.preventDefault();
-        this.props.updateGroup(this.state).then((payload) => {
+        this.props.updateGroup(this.state).then((promise) => {
             return (
-                this.props.history.push(`/groups/${payload.group.id}`)
+                this.props.history.push(`/groups/${promise.group.id}`)
             );
         });
     }

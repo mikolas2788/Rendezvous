@@ -16,9 +16,9 @@ class CreateGroupForm extends React.Component {
 
     handleSubmit (event) {
         event.preventDefault(); 
-        this.props.createGroup(this.state).then((payload) => {
+        this.props.createGroup(this.state).then((promise) => {
             return (
-                this.props.history.push(`/groups/${payload.group.id}`)
+                this.props.history.push(`/groups/${promise.group.id}`)
             );  
         }); 
     }

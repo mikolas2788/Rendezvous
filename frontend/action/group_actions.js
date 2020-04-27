@@ -27,7 +27,7 @@ const removeGroup = (group) => {
     });
 }; 
 
-
+// Groups
 export const fetchGroups = () => dispatch => {
     return (
         GroupAPIUtil.fetchGroups().then(groups => dispatch(receiveGroups(groups)))
@@ -64,8 +64,7 @@ export const deleteGroup = (id) => dispatch => {
     );
 };
 
-//membership
-
+// Memberships
 export const addMembership = (id) => dispatch => {
     return (
         MembershipApiUtil.addMembership(id).then(group => dispatch(receiveGroup(group)))

@@ -23,9 +23,9 @@ class CreateEventForm extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        this.props.createEvent(this.state).then((payload) => {
+        this.props.createEvent(this.state).then((promise) => {
             return (
-                this.props.history.push(`/groups/${payload.group.id}/events`)
+                this.props.history.push(`/groups/${promise.group.id}/events`)
             );
         });
     }

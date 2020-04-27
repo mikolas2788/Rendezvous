@@ -152,7 +152,6 @@ class GroupShow extends React.Component {
     }
 
     render () {
-        // console.log(this.props); 
         let photoUrl; 
         if (!this.props.group) {
             return null;
