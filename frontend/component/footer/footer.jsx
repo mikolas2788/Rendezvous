@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 class Footer extends React.Component {
  
@@ -45,7 +47,7 @@ class Footer extends React.Component {
                             <a 
                                 className='footer-links' 
                                 href='https://www.myronyook.com/'>
-                                <i className='fab fa-home'></i> Myron's Portfolio
+                                <i className='fas fa-home'></i> Myron's Portfolio
                             </a>
                             <a  
                                 className='footer-links' 
