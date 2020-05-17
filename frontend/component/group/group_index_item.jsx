@@ -14,7 +14,7 @@ const GroupIndexItem = ({ group }) => {
                     <h2>{group.title}</h2>
                 </div>
             </Link>
-    )
+        )
 }
 
 export default GroupIndexItem;
