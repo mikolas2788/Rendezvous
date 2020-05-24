@@ -4,7 +4,8 @@ import { fetchGroups, deleteGroup } from '../../action/group_actions';
 
 const msp = state => {
     return ({
-        groups: Object.values(state.entities.groups)
+        groups: Object.values(state.entities.groups),
+        currentUser: state.entities.users[state.session.id]
     });
 };
 

@@ -37,7 +37,7 @@ class GroupIndex extends React.Component {
         });
 
         return filteredGroups.map(group => {
-            return <GroupIndexItem key={group.id} group={group} />
+            return <GroupIndexItem key={group.id} group={group} currentUser={this.props.currentUser} />
         })
 
     }

@@ -31,6 +31,10 @@ class LoginForm extends React.Component {
         this.props.login({email: "DemoUser@gmail.com", password: "asdfasdf"}); 
     }
 
+    componentDidMount() {
+        window.scrollTo(0, 0)
+    }
+
     componentWillUnmount () {
         this.props.clearErrors(); 
     }

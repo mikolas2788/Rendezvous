@@ -24,6 +24,10 @@ class SignupForm extends React.Component {
         this.props.signup(this.state); 
     }
 
+    componentDidMount() {
+        window.scrollTo(0, 0)
+    }
+
     componentWillUnmount() {
         this.props.clearErrors();
     }
