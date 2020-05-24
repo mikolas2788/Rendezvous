@@ -1,5 +1,5 @@
-import { connect } from 'react-redux'; 
 import GroupShow from './group_show'; 
+import { connect } from 'react-redux'; 
 import { 
     fetchGroup, updateGroup, updateGroupPhoto, deleteGroup, addMembership, deleteMembership 
 } from '../../action/group_actions'; 

@@ -1,6 +1,6 @@
+import NavBar from './nav_bar';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'; 
-import NavBar from './nav_bar';
 import { logout } from '../../action/session_actions'; 
 
 const msp = (state) => {
@@ -15,4 +15,4 @@ const mdp = (dispatch) => {
     };
 }; 
 
-export default withRouter (connect (msp, mdp)(NavBar)); 
+export default withRouter (connect (msp, mdp) (NavBar)); 

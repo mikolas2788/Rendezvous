@@ -1,5 +1,5 @@
-import { connect } from 'react-redux';
 import { createGroup } from '../../action/group_actions';
+import { connect } from 'react-redux';
 import GroupCreateForm from './group_create_form';
 
 const msp = (state) => {

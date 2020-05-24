@@ -1,5 +1,5 @@
-import { connect } from 'react-redux'; 
 import GroupEditForm from './group_edit_form'; 
+import { connect } from 'react-redux'; 
 import { fetchGroup, updateGroup } from '../../action/group_actions'; 
 
 const msp = (state, ownProps) => {

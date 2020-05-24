@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-class Video extends React.Component {
+const Video = () => {
 
-    render () {
         return (
             <div className='splash-main'>
                 <div className='splash-video'>
@@ -22,7 +21,7 @@ class Video extends React.Component {
                 </div>
             </div>
         )
-    }
+
 }
 
 export default Video; 
