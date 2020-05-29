@@ -28,53 +28,37 @@ const removeGroup = (group) => {
 }; 
 
 // Groups
-export const fetchGroups = () => dispatch => {
-    return (
-        GroupAPIUtil.fetchGroups().then(groups => dispatch(receiveGroups(groups)))
-    );
-};
+export const fetchGroups = () => dispatch => (
+    GroupAPIUtil.fetchGroups().then(groups => dispatch(receiveGroups(groups)))
+);
 
-export const fetchGroup = (id) => dispatch => {
-    return (
-        GroupAPIUtil.fetchGroup(id).then(group => dispatch(receiveGroup(group)))
-    );
-};
+export const fetchGroup = (id) => dispatch => (
+    GroupAPIUtil.fetchGroup(id).then(group => dispatch(receiveGroup(group)))
+);
 
-export const createGroup = (group) => dispatch => {
-    return (
-        GroupAPIUtil.createGroup(group).then(group => dispatch(receiveGroup(group)))
-    );
-};
+export const createGroup = (group) => dispatch => (
+    GroupAPIUtil.createGroup(group).then(group => dispatch(receiveGroup(group)))
+);
 
-export const updateGroup = (group) => dispatch => {
-    return (
-        GroupAPIUtil.updateGroup(group).then(group => dispatch(receiveGroup(group)))
-    );
-};
+export const updateGroup = (group) => dispatch => (
+    GroupAPIUtil.updateGroup(group).then(group => dispatch(receiveGroup(group)))
+);
 
-export const updateGroupPhoto = (formData, groupId) => dispatch => {
-    return (
-        GroupAPIUtil.updateGroupPhoto(formData, groupId).then(group => dispatch(receiveGroup(group)))
-    );
-};
+export const updateGroupPhoto = (formData, groupId) => dispatch => (
+    GroupAPIUtil.updateGroupPhoto(formData, groupId).then(group => dispatch(receiveGroup(group)))
+);
 
-export const deleteGroup = (id) => dispatch => {
-    return (
-        GroupAPIUtil.deleteGroup(id).then((group) => dispatch(removeGroup(group)))
-    );
-};
+export const deleteGroup = (id) => dispatch => (
+    GroupAPIUtil.deleteGroup(id).then(group => dispatch(removeGroup(group)))
+);
 
 // Memberships
-export const addMembership = (id) => dispatch => {
-    return (
-        MembershipApiUtil.addMembership(id).then(group => dispatch(receiveGroup(group)))
-    );
-};
+export const addMembership = (id) => dispatch => (
+    MembershipApiUtil.addMembership(id).then(group => dispatch(receiveGroup(group)))
+);
 
-export const deleteMembership = (id) => dispatch => {
-    return (
-        MembershipApiUtil.deleteMembership(id).then(group => dispatch(receiveGroup(group)))
-    );
-};
+export const deleteMembership = (id) => dispatch => (
+    MembershipApiUtil.deleteMembership(id).then(group => dispatch(receiveGroup(group)))
+);
 
 

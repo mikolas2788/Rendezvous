@@ -28,48 +28,34 @@ const removeEvent = (event) => {
 };
 
 
-export const fetchEvents = () => dispatch => {
-    return (
-        EventAPIUtil.fetchEvents().then(events => dispatch(receiveEvents(events)))
-    );
-};
+export const fetchEvents = () => dispatch => (
+    EventAPIUtil.fetchEvents().then(events => dispatch(receiveEvents(events)))
+);
 
-export const fetchEvent = (id) => dispatch => {
-    return (
-        EventAPIUtil.fetchEvent(id).then(event => dispatch(receiveEvent(event)))
-    );
-};
+export const fetchEvent = (id) => dispatch => (
+    EventAPIUtil.fetchEvent(id).then(event => dispatch(receiveEvent(event)))
+);
 
-export const createEvent = (event) => dispatch => {
-    return (
-        EventAPIUtil.createEvent(event).then(event => dispatch(receiveEvent(event)))
-    );
-};
+export const createEvent = (event) => dispatch => (
+    EventAPIUtil.createEvent(event).then(event => dispatch(receiveEvent(event)))
+);
 
-export const updateEvent = (event) => dispatch => {
-    return (
-        EventAPIUtil.updateEvent(event).then(event => dispatch(receiveEvent(event)))
-    );
-};
+export const updateEvent = (event) => dispatch => (
+    EventAPIUtil.updateEvent(event).then(event => dispatch(receiveEvent(event)))
+);
 
-export const deleteEvent = (id) => dispatch => {
-    return (
-        EventAPIUtil.deleteEvent(id).then(event => dispatch(removeEvent(event)))
-    );
-};
+export const deleteEvent = (id) => dispatch => (
+    EventAPIUtil.deleteEvent(id).then(event => dispatch(removeEvent(event)))
+);
 
 //rsvps
 
-export const addRSVP = (id) => dispatch => {
-    return (
+export const addRSVP = (id) => dispatch => (
         RSVPApiUtil.addRSVP(id).then(event => dispatch(receiveEvent(event)))
-    );
-};
+);
 
-export const deleteRSVP = (id) => dispatch => {
-    return (
+export const deleteRSVP = (id) => dispatch => (
         RSVPApiUtil.deleteRSVP(id).then(event => dispatch(receiveEvent(event)))
-    );
-};
+);
 
 
