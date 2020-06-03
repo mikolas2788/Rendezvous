@@ -5,7 +5,7 @@ export const RECEIVE_EVENTS = "RECEIVE_EVENTS";
 export const RECEIVE_EVENT = "RECEIVE_EVENT";
 export const REMOVE_EVENT = "REMOVE_EVENT";
 
-const receiveEvents = (events) => {
+const receiveEvents = ( events ) => {
     return ({
         type: RECEIVE_EVENTS,
         events
@@ -20,7 +20,7 @@ const receiveEvent = ({ event, users }) => {
     });
 };
 
-const removeEvent = (event) => {
+const removeEvent = ( event ) => {
     return ({
         type: REMOVE_EVENT,
         eventId: event.id
@@ -28,23 +28,23 @@ const removeEvent = (event) => {
 };
 
 
-export const fetchEvents = () => dispatch => (
+export const fetchEvents = () => (dispatch) => (
     EventAPIUtil.fetchEvents().then(events => dispatch(receiveEvents(events)))
 );
 
-export const fetchEvent = (id) => dispatch => (
+export const fetchEvent = (id) => (dispatch) => (
     EventAPIUtil.fetchEvent(id).then(event => dispatch(receiveEvent(event)))
 );
 
-export const createEvent = (event) => dispatch => (
+export const createEvent = (event) => (dispatch) => (
     EventAPIUtil.createEvent(event).then(event => dispatch(receiveEvent(event)))
 );
 
-export const updateEvent = (event) => dispatch => (
+export const updateEvent = (event) => (dispatch) => (
     EventAPIUtil.updateEvent(event).then(event => dispatch(receiveEvent(event)))
 );
 
-export const deleteEvent = (id) => dispatch => (
+export const deleteEvent = (id) => (dispatch) => (
     EventAPIUtil.deleteEvent(id).then(event => dispatch(removeEvent(event)))
 );
 
