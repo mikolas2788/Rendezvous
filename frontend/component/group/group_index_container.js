@@ -1,4 +1,5 @@
-import GroupIndex from './group_index';
+// import GroupIndex from './group_index';
+import GroupIndex from './group_index2';
 import { connect } from 'react-redux';
 import { fetchGroups, deleteGroup } from '../../action/group_actions';
 

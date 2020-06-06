@@ -11,7 +11,7 @@ const eventsReducer = (state = {}, action) => {
     let newState;
     switch (action.type) {
         case RECEIVE_EVENTS:
-            return action.groups;
+            return action.events;
         case RECEIVE_EVENT:
             newState = Object.assign({}, state, { [action.event.id]: action.event });
             return newState;

@@ -12,7 +12,7 @@ const groupsReducer = (state = {}, action) => {
         case RECEIVE_GROUPS:
             return action.groups; 
         case RECEIVE_GROUP:
-            newState = Object.assign({}, state, {[action.group.id]: action.group}); 
+            newState = Object.assign({}, state, { [action.group.id]: action.group }); 
             return newState; 
         case REMOVE_GROUP:
             newState = Object.assign({}, state)
