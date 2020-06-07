@@ -10,7 +10,6 @@ import Footer from './footer/footer_container';
 import GroupCreateFormContainer from '../component/group/group_create_form_container';
 import GroupEditFormContainer from '../component/group/group_edit_form_container';
 import GroupShowContainer from "../component/group/group_show_container";
-import GroupIndexContainer from '../component/group/group_index_container'; 
 import EventCreateFormContainer from '../component/event/event_create_form_container'; 
 import {
     Route, Redirect, Switch, Link, HashRouter

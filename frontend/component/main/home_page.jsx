@@ -1,8 +1,6 @@
 import React from 'react';
-// import GroupIndex from '../group/group_index';
 import GroupIndex from '../group/group_index_container'; 
 import EventIndex from '../event/event_index';
-// import GroupIndex from '../group/group_index2';
 
 class HomePage extends React.Component {
 

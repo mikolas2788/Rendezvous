@@ -1,90 +1,57 @@
-// import React from 'react';
-// import GroupIndexItem from './group_index_item'; 
+import React from 'react';
+import GroupIndexItem from './group_index_item';
 
-// class GroupIndex extends React.Component {
+class GroupIndex extends React.Component {
 
-//     constructor (props) {
-//         super (props);
+    constructor (props) {
+        super (props);
 
-//         this.state = {
-//             searchValue: "cat"
-//         }
+        this.handleGroups = this.handleGroups.bind(this);
+    }
 
-//         this.handleChange = this.handleChange.bind(this)
-//         this.handleGroups = this.handleGroups.bind(this)
-//     }
+    componentDidMount () {
+        this.props.fetchGroups();
+    }
 
-//     componentDidMount () {
-//         window.scrollTo(0, 0)
-//         this.props.fetchGroups()
-//     }
+    handleGroups () {
+        const searchValue = this.props.searchValue;
+        const groups = this.props.groups; 
+        const filteredGroups = groups.filter(group => {
+            let title = group.title.toLowerCase()
+            if ( searchValue === "" || title.includes(searchValue) ) {
+                return true;
+            } else {
+                return false; 
+            }
+        })
 
-//     handleChange (event) {
-//         event.preventDefault()
-//         const searchValue = event.target.value
-//         this.setState({ searchValue })
-//     }
+        return filteredGroups.map(group => (
+            <GroupIndexItem 
+                key={group.id}
+                group={group} 
+                currentUser={this.props.currentUser} 
+            />
+        ))
+    }
 
-//     handleGroups () {
-//         const searchValue = this.state.searchValue.toLowerCase()
-//         let filteredGroups = this.props.groups.filter(group => {
-//             let title = group.title.toLowerCase()
-//             if (searchValue === "" || title.includes(searchValue)) {
-//                 return true
-//             } else {
-//                 return false
-//             }
-//         });
+    render () {
+        let groups; 
+        if ( this.props.groups ) {
+            groups = this.handleGroups();
+        }
+        
+        return (
+            <div className='homepage-main'>
+                <div className='homepage-buffer'>
+                    <h1>AVAILABLE GROUPS</h1>
+                    <div className='homepage-groups-index'>
+                        {groups} 
+                    </div>
+                </div>
+            </div>            
+        )
+    }
 
-//         return filteredGroups.map(group => {
-//             return <GroupIndexItem key={group.id} group={group} currentUser={this.props.currentUser} />
-//         })
+}
 
-//     }
- 
-//     render () {
-//         let groups = this.handleGroups()
-
-//         return (
-//             <div className='homepage-strip'>
-//                 <div className='homepage-banner'>
-//                     <h1>Find your next event</h1>
-//                     <p> 4 events in your groups • 4,639 events near you</p>
-//                 </div>
-//                 <div className='homepage-search-strip'>
-//                     <div className='homepage-search-filter'>
-//                         <div className='homepage-search-bar'>
-//                             <input
-//                                 className='homepage-search-input'
-//                                 type='text'
-//                                 onChange={this.handleChange}
-//                                 placeholder="Search"
-//                             />
-//                             <p>
-//                                 within 10 miles of Elmhurst, NY
-//                             </p>
-//                         </div>
-//                         {/* Optional Feature
-//                         <div className='homepage-filter-tabs'>
-//                             <button className='homepage-group-button'>Groups</button>
-//                             <button className='homepage-group-button'>Calendar</button>
-//                         </div> */}
-//                     </div>
-//                 </div>
-//                 <div className='homepage-main'>
-//                     <div className='homepage-buffer'>
-//                         <h1>AVAILABLE GROUPS</h1>
-//                         <div className='homepage-groups-index'>
-//                             {groups}
-//                         </div>
-//                         <div className='homepage-calendar'>
-
-//                         </div>
-//                     </div>
-//                 </div>
-//             </div>
-//         )
-//     }
-// }
-
-// export default GroupIndex; 
+export default GroupIndex; 
