@@ -1,5 +1,5 @@
 import React from 'react';
-import GroupIndexItem from './group_index_container'
+import GroupIndexItem from './group_index_item';
 
 class GroupIndex extends React.Component {
 
@@ -27,7 +27,7 @@ class GroupIndex extends React.Component {
 
         return filteredGroups.map(group => (
             <GroupIndexItem 
-                key={group.id} 
+                key={group.id}
                 group={group} 
                 currentUser={this.props.currentUser} 
             />
@@ -35,7 +35,11 @@ class GroupIndex extends React.Component {
     }
 
     render () {
-        const groups = this.handleGroups();
+        let groups; 
+        if ( this.props.groups ) {
+            groups = this.handleGroups();
+        }
+        
         return (
             <div className='homepage-main'>
                 <div className='homepage-buffer'>

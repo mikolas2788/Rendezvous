@@ -1,8 +1,8 @@
 import React from 'react';
 // import GroupIndex from '../group/group_index';
-import GroupIndexContainer from '../group/group_index_container'; 
+import GroupIndex from '../group/group_index_container'; 
 import EventIndex from '../event/event_index';
-import GroupIndex from '../group/group_index2';
+// import GroupIndex from '../group/group_index2';
 
 class HomePage extends React.Component {
 
@@ -45,7 +45,7 @@ class HomePage extends React.Component {
                             />
                             <p>
                                 within 10 miles of Elmhurst, NY
-                                    </p>
+                            </p>
                         </div>
                         <div className='homepage-filter-tabs'>
                             <button className='homepage-group-button'>Groups</button>

@@ -10,6 +10,7 @@ import Footer from './footer/footer_container';
 import GroupCreateFormContainer from '../component/group/group_create_form_container';
 import GroupEditFormContainer from '../component/group/group_edit_form_container';
 import GroupShowContainer from "../component/group/group_show_container";
+import GroupIndexContainer from '../component/group/group_index_container'; 
 import EventCreateFormContainer from '../component/event/event_create_form_container'; 
 import {
     Route, Redirect, Switch, Link, HashRouter
@@ -18,7 +19,7 @@ import {
 const App = () => (
     <div>
         <NavBarContainer /> 
-        <ProtectedRoute exact path='/home' component={ HomePage } />
+        <ProtectedRoute exact path='/home' component={HomePage} />
         <AuthRoute exact path='/' component={Video}/> 
         <AuthRoute exact path='/login' component={LoginFormContainer} />
         <AuthRoute exact path='/signup' component={SignupFormContainer} />
