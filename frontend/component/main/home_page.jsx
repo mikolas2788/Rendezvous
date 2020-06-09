@@ -43,8 +43,7 @@ class HomePage extends React.Component {
         let onGroups = this.state.onGroups; 
         let childComponent = onGroups ? 
             <GroupIndex searchValue={searchValue} /> : 
-            "Hello World"
-            // <EventIndex searchValue={searchValue} />
+            <EventIndex searchValue={searchValue} />
         return (
             <div className='homepage-strip'>
                 <div className='homepage-banner'>

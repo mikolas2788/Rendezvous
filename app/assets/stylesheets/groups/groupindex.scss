@@ -1,16 +1,16 @@
-    .groupindex-main {
-        width: 930px; 
-        padding-left: 15px; 
-        box-sizing: border-box; 
-        
-        h1 {
-            font-size: 18px; 
-            font-weight: 600; 
-            margin-bottom: 20px; 
-        }
+.groupindex-main {
+    width: 930px; 
+    padding-left: 15px; 
+    box-sizing: border-box; 
+    
+    h1 {
+        font-size: 18px; 
+        font-weight: 600; 
+        margin-bottom: 20px; 
     }
+}
 
-    .groupindex-strip { 
+.groupindex-strip { 
     display: flex; 
     flex-wrap: wrap; 
     flex-direction: row; 
