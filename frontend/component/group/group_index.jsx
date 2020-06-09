@@ -36,19 +36,15 @@ class GroupIndex extends React.Component {
 
     render () {
         let groups; 
-        if ( this.props.groups ) {
-            groups = this.handleGroups();
-        }
-        
+        if ( this.props.groups ) groups = this.handleGroups()
+
         return (
-            <div className='homepage-main'>
-                <div className='homepage-buffer'>
-                    <h1>AVAILABLE GROUPS</h1>
-                    <div className='homepage-groups-index'>
-                        {groups} 
-                    </div>
+            <div className='groupindex-main'>
+                <h1>AVAILABLE GROUPS</h1>
+                <div className='groupindex-strip'>
+                    { groups } 
                 </div>
-            </div>            
+            </div>         
         )
     }
 

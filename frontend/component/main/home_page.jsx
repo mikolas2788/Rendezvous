@@ -67,6 +67,7 @@ class HomePage extends React.Component {
                         <div className='homepage-filter-tabs'>
                             <div className='homepage-selectors'>
                                 <button 
+                                    autoFocus
                                     className='homepage-group-button'
                                     onClick={this.handleGroups}
                                 > Groups 
@@ -80,7 +81,9 @@ class HomePage extends React.Component {
                         </div>
                     </div>
                 </div>
-                {childComponent}
+                <div className='homepage-main' >
+                    { childComponent }
+                </div>
             </div>
         )
     }

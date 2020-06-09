@@ -90,8 +90,6 @@
 }
 
 .homepage-group-button {
-    color: white; 
-    background: rgba(255,255,255,.2); 
     font-size: 16px; 
     font-weight: 600; 
     padding: 0px 16px;
@@ -100,18 +98,37 @@
     width: 50%; 
     height: 43px; 
     text-decoration: none; 
+
+    &:focus {
+        color: white; 
+        background: rgba(255,255,255,.2); 
+    }
+
+    &:not(.homepage-group-button):focus {
+        color: rgba(255,255,255,.7); 
+        background: #0f1721;   
+    }
 }
 
 .homepage-event-button {
-    color: rgba(255,255,255,.7); 
-    background: #0f1721; 
     font-size: 16px; 
     font-weight: 600; 
     padding: 0px 16px;
     box-sizing: border-box; 
+    box-shadow: inset -1px 1px 2px 0 rgba(0,0,0,.54);
     width: 50%; 
     height: 43px; 
     text-decoration: none; 
+
+    &:focus {
+        color: white; 
+        background: rgba(255,255,255,.2); 
+    }
+
+    &:not(.homepage-event-button):focus {
+        color: rgba(255,255,255,.7); 
+        background: #0f1721;   
+    }
 }
 
 .homepage-main {
@@ -122,30 +139,4 @@
     justify-content: center; 
     align-items: center; 
     margin-top: 60px; 
-
-    .homepage-buffer {
-        width: 930px; 
-        padding-left: 15px; 
-        box-sizing: border-box; 
-        
-        h1 {
-            font-size: 18px; 
-            font-weight: 600; 
-            margin-bottom: 20px; 
-        }
-    }
-
 }
-
-.homepage-groups-index { 
-    display: flex; 
-    flex-wrap: wrap; 
-    flex-direction: row; 
-    align-items: center; 
-    border-radius: 3px; 
-}
-
-// To Be Implemented with Calendar MVP
-// .homepage-calendar {
-
-// }
