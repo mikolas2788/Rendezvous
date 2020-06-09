@@ -28,23 +28,24 @@ class GroupShow extends React.Component {
         }
     }
 
-    deleteGroup (e) {
-        e.preventDefault();
-        this.props.deleteGroup(this.props.group.id).then(() => this.props.history.push('/home')); 
+    deleteGroup (event) {
+        event.preventDefault();
+        this.props.deleteGroup(this.props.group.id)
+            .then(() => this.props.history.push('/home')); 
     }
 
-    joinGroup (e) {
-        e.preventDefault(); 
+    joinGroup (event) {
+        event.preventDefault(); 
         this.props.joinGroup(this.props.group.id); 
     }
 
-    leaveGroup (e) {
-        e.preventDefault(); 
+    leaveGroup (event) {
+        event.preventDefault(); 
         this.props.leaveGroup(this.props.group.id); 
     }
  
-    showDropdown (e) {
-        e.preventDefault(); 
+    showDropdown (event) {
+        event.preventDefault(); 
         this.setState({ dropdownMenu: true });
         document.getElementById('dropdown-button').addEventListener('mouseleave', this.hideDropdown); 
     }
@@ -57,7 +58,7 @@ class GroupShow extends React.Component {
     }
     
     displayDropdown () {
-        if (this.state.dropdownMenu) {
+        if ( this.state.dropdownMenu ) {
             return (
                 <div className='dropdown-content'>
                     <Link
@@ -153,7 +154,7 @@ class GroupShow extends React.Component {
 
     render () {
         let photoUrl; 
-        if (!this.props.group) {
+        if ( !this.props.group ) {
             return null;
         } else {
             photoUrl = this.props.group.photoUrl || 'https://s3.amazonaws.com/rendezvous-meetup-dev/mxCCsykrJvfv7ucfX3f99Yh4'

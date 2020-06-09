@@ -65,16 +65,18 @@ class HomePage extends React.Component {
                             </p>
                         </div>
                         <div className='homepage-filter-tabs'>
-                            <button 
-                                className='homepage-group-button'
-                                onClick={this.handleGroups}
-                            > Groups 
-                            </button>
-                            <button 
-                                className='homepage-group-button'
-                                onClick={this.handleEvents}
-                            > Calendar 
-                            </button>
+                            <div className='homepage-selectors'>
+                                <button 
+                                    className='homepage-group-button'
+                                    onClick={this.handleGroups}
+                                > Groups 
+                                </button>
+                                <button 
+                                    className='homepage-event-button'
+                                    onClick={this.handleEvents}
+                                > Calendar 
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
