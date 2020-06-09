@@ -8,24 +8,43 @@ class HomePage extends React.Component {
         super (props);
 
         this.state = {
-            searchValue: ""
+            searchValue: "",
+            onGroups: true
         }
 
-        this.handleChange = this.handleChange.bind(this);
+        this.handleChange = this.handleChange.bind(this)
+        this.handleGroups = this.handleGroups.bind(this)
+        this.handleEvents = this.handleEvents.bind(this)
 
     }
 
-    componentDidMount() {
+    componentDidMount () {
         window.scrollTo(0, 0)
     }
 
-    handleChange(event) {
+    handleChange (event) {
         event.preventDefault()
         const searchValue = event.target.value
         this.setState({ searchValue })
     }
 
+    handleGroups (event) {
+        event.preventDefault()
+        this.setState({ onGroups: true })
+    }
+
+    handleEvents (event) {
+        event.preventDefault()
+        this.setState({ onGroups: false })
+    }
+
     render () {
+        let searchValue = this.state.searchValue; 
+        let onGroups = this.state.onGroups; 
+        let childComponent = onGroups ? 
+            <GroupIndex searchValue={searchValue} /> : 
+            "Hello World"
+            // <EventIndex searchValue={searchValue} />
         return (
             <div className='homepage-strip'>
                 <div className='homepage-banner'>
@@ -46,12 +65,20 @@ class HomePage extends React.Component {
                             </p>
                         </div>
                         <div className='homepage-filter-tabs'>
-                            <button className='homepage-group-button'>Groups</button>
-                            <button className='homepage-group-button'>Calendar</button>
+                            <button 
+                                className='homepage-group-button'
+                                onClick={this.handleGroups}
+                            > Groups 
+                            </button>
+                            <button 
+                                className='homepage-group-button'
+                                onClick={this.handleEvents}
+                            > Calendar 
+                            </button>
                         </div>
                     </div>
                 </div>
-                <GroupIndex searchValue={this.state.searchValue}/>
+                {childComponent}
             </div>
         )
     }
