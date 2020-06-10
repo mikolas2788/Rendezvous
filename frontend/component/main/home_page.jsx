@@ -13,9 +13,7 @@ class HomePage extends React.Component {
         }
 
         this.handleChange = this.handleChange.bind(this)
-        this.handleGroups = this.handleGroups.bind(this)
-        this.handleEvents = this.handleEvents.bind(this)
-
+        this.handleButtons = this.handleButtons.bind(this)
     }
 
     componentDidMount () {
@@ -28,23 +26,31 @@ class HomePage extends React.Component {
         this.setState({ searchValue })
     }
 
-    handleGroups (event) {
+    handleButtons (event) {
         event.preventDefault()
-        this.setState({ onGroups: true })
-    }
+        let button = event.target.id
+        let groupButton = document.getElementById("group-button")
+        let eventButton = document.getElementById("event-button")
 
-    handleEvents (event) {
-        event.preventDefault()
-        this.setState({ onGroups: false })
+        if ( button === groupButton.id ) {
+            this.setState({ onGroups: true })
+            groupButton.classList = "homepage-button-on"
+            eventButton.classList = "homepage-button-off"
+        } else if ( button === eventButton.id ) {
+            this.setState({ onGroups: false })
+            groupButton.classList = "homepage-button-off"
+            eventButton.classList = "homepage-button-on"
+        }
     }
 
     render () {
-        let searchValue = this.state.searchValue; 
-        let onGroups = this.state.onGroups; 
+        let searchValue = this.state.searchValue
+        let onGroups = this.state.onGroups
         let childComponent = onGroups ? 
             <GroupIndex searchValue={searchValue} /> : 
             <EventIndex searchValue={searchValue} />
-        return (
+        
+            return (
             <div className='homepage-strip'>
                 <div className='homepage-banner'>
                     <h1>Find your next event</h1>
@@ -66,14 +72,15 @@ class HomePage extends React.Component {
                         <div className='homepage-filter-tabs'>
                             <div className='homepage-selectors'>
                                 <button 
-                                    autoFocus
-                                    className='homepage-group-button'
-                                    onClick={this.handleGroups}
+                                    className='homepage-button-on'
+                                    id='group-button'
+                                    onClick={this.handleButtons}
                                 > Groups 
                                 </button>
                                 <button 
-                                    className='homepage-event-button'
-                                    onClick={this.handleEvents}
+                                    className='homepage-button-off'
+                                    id='event-button'
+                                    onClick={this.handleButtons}
                                 > Calendar 
                                 </button>
                             </div>

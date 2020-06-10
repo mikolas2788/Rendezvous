@@ -7,7 +7,6 @@ class EventIndex extends React.Component {
     constructor (props) {
         super (props) 
 
-
     }
 
     render () {

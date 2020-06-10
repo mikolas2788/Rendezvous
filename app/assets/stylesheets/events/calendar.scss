@@ -1,0 +1,90 @@
+.react-calendar {
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 13;
+    height: 221px; 
+    width: 262px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .react-calendar__navigation {
+
+
+        .react-calendar__navigation__arrow {
+
+        }
+        
+        .react-calendar__navigation__prev2-button {
+
+        }
+
+        .react-calendar__navigation__arrow {
+
+        }
+
+        .react-calendar__navigation__prev-button {
+
+        }
+
+        .react-calendar__navigation__label {
+
+            .react-calendar__navigation__label__labelText {
+
+            }
+            
+            .react-calendar__navigation__label__labelText--from {
+
+            }
+
+        }
+
+        .react-calendar__navigation__arrow {
+
+        }
+        
+        .react-calendar__navigation__next-button {
+
+        }
+
+        .react-calendar__navigation__arrow {
+
+        }
+
+        .react-calendar__navigation__next2-button {
+
+        }
+
+    }
+
+    .react-calendar__viewContainer {
+        
+        .react-calendar__month-view {
+            
+            .react-calendar__month-view__weekdays {
+
+                .react-calendar__month-view__weekdays__weekday {
+
+                }
+    
+            }
+
+            .react-calendar__month-view__days {
+
+                .react-calendar__tile {
+                    // display: flex;
+                    // justify-content: center;
+                    // align-items: center;
+                    // border: 1px solid;
+                    // height: 33px; 
+                    // width: 36px; 
+                }
+
+                .react-calendar__month-view__days__day {
+
+                }
+            }
+        }
+    }
+}
