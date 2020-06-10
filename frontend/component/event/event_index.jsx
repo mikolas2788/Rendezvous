@@ -1,6 +1,6 @@
-import React from 'react'
-import Calendar from 'react-calendar'
-import 'react-calendar/dist/Calendar.css'
+import React, { useState } from 'react'
+import 'react-modern-calendar-datepicker/lib/DatePicker.css';
+import { Calendar } from 'react-modern-calendar-datepicker';
 
 class EventIndex extends React.Component {
 
@@ -16,6 +16,7 @@ class EventIndex extends React.Component {
                 <h1> Available Events </h1>
                 <div className='eventindex-strip'>
                     <Calendar />
+    
                 </div>
             </div>
         )

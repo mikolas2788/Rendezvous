@@ -1,4 +1,5 @@
 .eventindex-main {
+    height: 1000px; 
     width: 930px; 
     padding-left: 15px; 
     box-sizing: border-box; 
@@ -11,6 +12,7 @@
 }
 
 .eventindex-strip { 
+    height: 500px; 
     display: flex; 
     flex-wrap: wrap; 
     flex-direction: row; 
