@@ -9,7 +9,7 @@ const GroupIndexItem = ({ group, currentUser }) => {
     
     return (
         <Link
-            className='group-single-item'
+            className='group-item-link'
             to={route}
         >
             <img src={photoUrl} />

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import EventIndexItem from './event_index_item'
 import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 import { Calendar, utils } from 'react-modern-calendar-datepicker';
 
@@ -21,7 +22,8 @@ const EventIndex = () => {
     return (
         <div className='eventindex-container'>
             <div className='eventindex-left'>
-                <h1 id="date"> { formattedDate } </h1>
+                <h1 className="eventindex-date"> { formattedDate } </h1>
+                <EventIndexItem />
             </div>
             <div className='eventindex-right'>
                 <Calendar 

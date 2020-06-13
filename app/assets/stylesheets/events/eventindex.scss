@@ -1,25 +1,23 @@
 .eventindex-container {
     height: 1000px; 
     width: 900px; 
-    box-sizing: border-box; 
-    border: 1px solid;
     display: flex;
     flex-direction: row;
 
-    h1 {
-        font-size: 18px; 
+    .eventindex-date {
+        font-size: 16px; 
         font-weight: 600; 
+        padding-left: 16px; 
         margin-bottom: 20px; 
     }
 
     .eventindex-left {
-        width: 70%; 
-        border: 1px solid; 
+        width: 80%; 
         padding-right: 15px;
     }
 
     .eventindex-right {
-        width: 30%; 
+        width: 20%; 
         min-width: 330px; 
     }
 

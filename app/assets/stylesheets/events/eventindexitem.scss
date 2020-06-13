@@ -1,0 +1,39 @@
+.event-item-link {
+    width: 90%;
+    .event-item {
+        min-height: 116px;
+        font-family: sans-serif;
+        border: 1px solid rgba(0,0,0,.12);
+        border-radius: 3px;
+        display: flex;
+        flex-direction: row;
+        padding: 16px; 
+        line-height: 1.6;
+
+        .event-item-left {
+            color: rgba(0,0,0,.54);
+            font-size: 16px;
+        }
+
+        .event-item-right {
+            padding-left: 16px;
+            display: flex;
+            flex-direction: column;
+            h1 {
+                font-size: 20px;
+                font-weight: 600;
+            }
+
+            h2 {
+                color: rgba(0,0,0,.54);
+                font-size: 16px;
+            }
+
+            .event-item-group-name {
+                font-weight: 700; 
+            }
+        }
+    }
+}
+
+
