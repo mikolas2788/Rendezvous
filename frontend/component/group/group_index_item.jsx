@@ -8,9 +8,10 @@ const GroupIndexItem = ({ group, currentUser }) => {
     let route = currentUser ? `/groups/${group.id}` : '/login'
     
     return (
-        <Link 
+        <Link
             className='group-single-item'
-            to={route}>
+            to={route}
+        >
             <img src={photoUrl} />
             <div className='group-item-transparency'>
                 <h2>{group.title}</h2>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 import { Calendar, utils } from 'react-modern-calendar-datepicker';
 
@@ -11,11 +11,6 @@ const EventIndex = () => {
         return today.month + " " + today.day
     }
 
-    // function handleChange () {
-    //     dateFormatter(selectedDay)
-    //     this.setSelectedDay()
-    // }
-
     function dateformatter(date) {
         let splitDate = date.toDateString().split(" ")
         let month = date.toLocaleString('default', { month: 'long' })
@@ -26,7 +21,7 @@ const EventIndex = () => {
     return (
         <div className='eventindex-container'>
             <div className='eventindex-left'>
-                <h1> { dateFormatter(selectedDay) } </h1>
+                <h1 id="date"> { formattedDate } </h1>
             </div>
             <div className='eventindex-right'>
                 <Calendar 

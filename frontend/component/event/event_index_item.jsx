@@ -1,19 +1,27 @@
 import React from 'react'; 
+import { Link } from 'react-router-dom'
 
-class EventIndex extends React.Component {
+const EventIndexItem = ({ group, event, currentUser }) => {
 
-    constructor (props) {
-        super (props);
-        this.state = {
+    return (
+        <Link 
+            className='event-item-link'
+            to={route}
+        >
+        <div className='event-item'>
+            <div className='event-item-left'>
+                <h2> Time </h2>
+            </div>
+            <div className='event-item-right'>
+                <h2> Group Name </h2>
+                <h1> Event Name </h1>
+                <h3> People Attending </h3>
+            </div>
+        </div>
 
-        }
-    }
-
-    render () {
-        return (
-
-        )
-    }
+        </Link>
+    )
 }
 
-export default EventIndex;
+export default EventIndexItem
+
