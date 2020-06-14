@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :groups do 
       resources :memberships, only: [ :create ]
       resource :memberships, only: [ :destroy ]
+      resources :events 
+
     end 
 
     resources :events do 
