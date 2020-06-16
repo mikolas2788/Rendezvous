@@ -1,6 +1,6 @@
 import React from 'react';
 import GroupIndex from '../group/group_index_container'; 
-import EventIndex from '../event/event_index';
+import EventIndex from '../event/event_index_container';
 
 class HomePage extends React.Component {
 

@@ -4,24 +4,24 @@ import GroupIndexItem from './group_index_item';
 class GroupIndex extends React.Component {
 
     constructor (props) {
-        super (props);
+        super (props)
 
-        this.handleGroups = this.handleGroups.bind(this);
+        this.handleGroups = this.handleGroups.bind(this)
     }
 
     componentDidMount () {
-        this.props.fetchGroups();
+        this.props.fetchGroups()
     }
 
     handleGroups () {
-        const searchValue = this.props.searchValue;
-        const groups = this.props.groups; 
+        const searchValue = this.props.searchValue
+        const groups = this.props.groups 
         const filteredGroups = groups.filter(group => {
             let title = group.title.toLowerCase()
             if ( searchValue === "" || title.includes(searchValue) ) {
-                return true;
+                return true
             } else {
-                return false; 
+                return false
             }
         })
 
@@ -50,4 +50,4 @@ class GroupIndex extends React.Component {
 
 }
 
-export default GroupIndex; 
+export default GroupIndex

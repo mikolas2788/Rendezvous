@@ -3,7 +3,7 @@ import GroupIndex from './group_index';
 import { fetchGroups, deleteGroup } from '../../action/group_actions';
 
 const msp = (state, ownProps) => {
-    let searchValue = ownProps.searchValue;
+    let searchValue = ownProps.searchValue
     return ({
         groups: Object.values(state.entities.groups),
         searchValue,
