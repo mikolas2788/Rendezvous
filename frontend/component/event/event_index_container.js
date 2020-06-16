@@ -5,7 +5,7 @@ import { fetchEvents } from '../../action/event_actions'
 const msp = (state, ownProps) => {
     let searchValue = ownProps.searchValue
     return ({
-        // group: Object.values(state.entities.groups[state.entities.events.group_id]),
+        groups: Object.values(state.entities.groups),
         events: Object.values(state.entities.events),
         searchValue,
         currentUser: state.entities.users[state.session.id]
