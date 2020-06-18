@@ -28,6 +28,7 @@ const EventIndex = ({ searchValue, groups, events, fetchEvents }) => {
     function handleEvents () {
 
         const filterEvents = events.filter(event => {
+            let eventTitle = event.title
             if ( searchValue === "" || eventTitle.includes(searchValue) ) {
                 return true
             } else {
