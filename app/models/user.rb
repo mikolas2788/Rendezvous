@@ -35,6 +35,10 @@ class User < ApplicationRecord
         class_name: :Group, 
         foreign_key: :creator_id
 
+    has_many :rsvps,
+        class_name: :Rsvp,
+        foreign_key: :user_id
+
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)
         user && user.is_password?(password) ? user : nil
