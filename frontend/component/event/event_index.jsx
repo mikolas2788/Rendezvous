@@ -7,25 +7,16 @@ import moment from 'moment'
 const EventIndex = ({ searchValue, groups, events, fetchEvents }) => {
     let today = utils().getToday()
     const [ selectedDay, setSelectedDay ] = useState(today)
+    let formattedDate = calendarDateFormatter(selectedDay)
+    let displayedDate = moment(formattedDate).format("dddd, MMMM D")
     
-    function dateFormatter (selectedDay) {
-        return selectedDay.month + " " + selectedDay.day
-    }
-
-    let formattedDate = dateFormatter(selectedDay)
-    console.log(moment("2020-11-19T15:00:00.000Z").format("HH:mm A"))
-
-    // function dateformatter(date) {
-        // let formattedDate = dateformatter(new Date())
-    //     let splitDate = date.toDateString().split(" ")
-    //     let month = date.toLocaleString('default', { month: 'long' })
-    //     let [day, unused, num] = splitDate;
-    //     return day + ", " + month + " " + num
-    // }
-
     useEffect (() => {
         fetchEvents()
     }, [] )
+
+    function calendarDateFormatter (selectedDay) {
+        return selectedDay.year + "-" + selectedDay.month + "-" + selectedDay.day
+    }
 
     function handleEvents () {
 
@@ -61,7 +52,7 @@ const EventIndex = ({ searchValue, groups, events, fetchEvents }) => {
 
         <div className='event-index-container'>
             <div className='event-index-left'>
-                <h1 className="event-index-date"> { formattedDate } </h1>
+                <h1 className="event-index-date"> { displayedDate } </h1>
                 { handleEvents() }
             </div>
             <div className='event-index-right'>
