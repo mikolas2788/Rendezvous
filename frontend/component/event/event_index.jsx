@@ -19,10 +19,14 @@ const EventIndex = ({ searchValue, groups, events, fetchEvents }) => {
     }
 
     function handleEvents () {
-
         const filterEvents = events.filter(event => {
             let eventTitle = event.title
-            if ( searchValue === "" || eventTitle.includes(searchValue) ) {
+            let eventDate = event.start_date
+            let formattedEventDate = moment(eventDate)
+            let formattedSelectedDate = moment(formattedDate)
+            debugger 
+            if ( (searchValue === "" || eventTitle.includes(searchValue))
+                && formattedEventDate.isAfter(formattedSelectedDate) ) {
                 return true
             } else {
                 return false
@@ -49,7 +53,6 @@ const EventIndex = ({ searchValue, groups, events, fetchEvents }) => {
     }
 
     return (
-
         <div className='event-index-container'>
             <div className='event-index-left'>
                 <h1 className="event-index-date"> { displayedDate } </h1>
