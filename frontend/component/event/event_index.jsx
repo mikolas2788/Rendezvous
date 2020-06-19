@@ -7,8 +7,8 @@ import moment from 'moment'
 const EventIndex = ({ searchValue, groups, events, fetchEvents }) => {
     let today = utils().getToday()
     const [ selectedDay, setSelectedDay ] = useState(today)
-    let formattedDate = calendarDateFormatter(selectedDay)
-    let displayedDate = moment(formattedDate).format("dddd, MMMM D")
+    let fixedDate = calendarDateFormatter(selectedDay)
+    let displayDate = moment(fixedDate).format("dddd, MMMM D")
     
     useEffect (() => {
         fetchEvents()
@@ -20,20 +20,29 @@ const EventIndex = ({ searchValue, groups, events, fetchEvents }) => {
 
     function handleEvents () {
         const filterEvents = events.filter(event => {
-            let eventTitle = event.title
-            let eventDate = event.start_date
-            let formattedEventDate = moment(eventDate)
-            let formattedSelectedDate = moment(formattedDate)
-            debugger 
+            let eventTitle, eventDate, fixedEventDate, fixedSelectedDate
+            eventTitle = event.title
+            eventDate = event.start_date
+            fixedEventDate = moment(eventDate)
+            fixedSelectedDate = moment(fixedDate)
             if ( (searchValue === "" || eventTitle.includes(searchValue))
-                && formattedEventDate.isAfter(formattedSelectedDate) ) {
+                && fixedEventDate.isAfter(fixedSelectedDate) ) {
                 return true
             } else {
                 return false
             }
         })
 
-        return filterEvents.map(event => (
+        const dateComparer = (event1, event2) => {
+            let eventOneDate, eventTwoDate
+            eventOneDate = moment(event1.start_date)
+            eventTwoDate = moment(event2.start_date)
+            return eventOneDate.isAfter(eventTwoDate) ? 1 : -1
+        }
+
+        const dateSortedEvents = filterEvents.sort((a, b) => dateComparer(a, b))
+
+        return dateSortedEvents.map(event => (
             <EventIndexItem 
                 key={event.id}
                 event={event}
@@ -55,7 +64,7 @@ const EventIndex = ({ searchValue, groups, events, fetchEvents }) => {
     return (
         <div className='event-index-container'>
             <div className='event-index-left'>
-                <h1 className="event-index-date"> { displayedDate } </h1>
+                <h1 className="event-index-date"> { displayDate } </h1>
                 { handleEvents() }
             </div>
             <div className='event-index-right'>

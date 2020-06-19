@@ -1,8 +1,9 @@
 .event-index-container {
-    height: 1000px; 
+    min-height: auto; 
     width: 900px; 
     display: flex;
     flex-direction: row;
+    padding-bottom: 40px; 
 
     .event-index-left {
         min-width: 590px;
