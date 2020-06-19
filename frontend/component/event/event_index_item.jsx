@@ -1,8 +1,10 @@
 import React from 'react'; 
 import { Link } from 'react-router-dom'
+import moment from 'moment'
 
 const EventIndexItem = ({ groupTitle, event, currentUser }) => {
-
+    let eventDateTime = event.start_date
+    let eventStartTime = moment(eventDateTime).format("hh:mm A")
     let route = `/test`
     return (
         <Link 
@@ -11,7 +13,7 @@ const EventIndexItem = ({ groupTitle, event, currentUser }) => {
         >
             <div className='event-item'>
                 <div className='event-item-left'>
-                    <h2> {event.start_time} </h2>
+                    <h2> {eventStartTime} </h2>
                 </div>
                 <div className='event-item-right'>
                     <h2 className='event-item-group-name'> {groupTitle} </h2>

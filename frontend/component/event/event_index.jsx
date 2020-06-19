@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import EventIndexItem from './event_index_item'
 import 'react-modern-calendar-datepicker/lib/DatePicker.css'
 import { Calendar, utils } from 'react-modern-calendar-datepicker'
+import moment from 'moment'
 
 const EventIndex = ({ searchValue, groups, events, fetchEvents }) => {
     let today = utils().getToday()
@@ -12,7 +13,8 @@ const EventIndex = ({ searchValue, groups, events, fetchEvents }) => {
     }
 
     let formattedDate = dateFormatter(selectedDay)
-    
+    console.log(moment("2020-11-19T15:00:00.000Z").format("HH:mm A"))
+
     // function dateformatter(date) {
         // let formattedDate = dateformatter(new Date())
     //     let splitDate = date.toDateString().split(" ")
