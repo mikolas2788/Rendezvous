@@ -20,12 +20,13 @@ const EventIndex = ({ searchValue, groups, events, fetchEvents }) => {
 
     function handleEvents () {
         const filterEvents = events.filter(event => {
-            let eventTitle, eventDate, fixedEventDate, fixedSelectedDate
-            eventTitle = event.title
+            let fixedSearchValue, eventTitle, eventDate, fixedEventDate, fixedSelectedDate
+            fixedSearchValue = searchValue.toLowerCase()
+            eventTitle = event.title.toLowerCase()
             eventDate = event.start_date
             fixedEventDate = moment(eventDate)
             fixedSelectedDate = moment(fixedDate)
-            if ( (searchValue === "" || eventTitle.includes(searchValue))
+            if ( ( searchValue === "" || eventTitle.includes(fixedSearchValue) ) 
                 && fixedEventDate.isAfter(fixedSelectedDate) ) {
                 return true
             } else {
@@ -40,7 +41,9 @@ const EventIndex = ({ searchValue, groups, events, fetchEvents }) => {
             return eventOneDate.isAfter(eventTwoDate) ? 1 : -1
         }
 
-        const dateSortedEvents = filterEvents.sort((a, b) => dateComparer(a, b))
+        const dateSortedEvents = filterEvents.sort((event1, event2) => (
+            dateComparer(event1, event2))
+        )
 
         return dateSortedEvents.map(event => (
             <EventIndexItem 

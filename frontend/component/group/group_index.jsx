@@ -14,11 +14,11 @@ class GroupIndex extends React.Component {
     }
 
     handleGroups () {
-        const searchValue = this.props.searchValue
+        const fixedsearchValue = this.props.searchValue.toLowerCase()
         const groups = this.props.groups 
         const filteredGroups = groups.filter(group => {
             let title = group.title.toLowerCase()
-            if ( searchValue === "" || title.includes(searchValue) ) {
+            if ( fixedsearchValue === "" || title.includes(fixedsearchValue) ) {
                 return true
             } else {
                 return false
