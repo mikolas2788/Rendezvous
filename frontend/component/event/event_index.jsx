@@ -1,74 +1,37 @@
 import React, { useState, useEffect } from 'react'
-import EventIndexItem from './event_index_item'
+import { connect } from 'react-redux'
+import { fetchEvents } from '../../action/event_actions'
+import EventIndexSet from './event_index_set'
 import 'react-modern-calendar-datepicker/lib/DatePicker.css'
 import { Calendar, utils } from 'react-modern-calendar-datepicker'
 import moment from 'moment'
+import { calendarDateFormatter, filterEvents } from './event_index_selectors'
 
+/* TODOS 6/19/2020 
+    - separate sets of events per day
+    - include group title search functionality to filter
+    - partition logic functionality to separate file
+    - set index limit and create button to show more
+*/
+
+// EventIndex Component
 const EventIndex = ({ searchValue, groups, events, fetchEvents }) => {
     let today = utils().getToday()
     const [ selectedDay, setSelectedDay ] = useState(today)
-    let fixedDate = calendarDateFormatter(selectedDay)
-    let displayDate = moment(fixedDate).format("dddd, MMMM D")
+    // let fixedDate = calendarDateFormatter(selectedDay)
+    // let displayDate = moment(fixedDate).format("dddd, MMMM D")
     
     useEffect (() => {
         fetchEvents()
     }, [] )
 
-    function calendarDateFormatter (selectedDay) {
-        return selectedDay.year + "-" + selectedDay.month + "-" + selectedDay.day
-    }
-
-    function handleEvents () {
-        const filterEvents = events.filter(event => {
-            let fixedSearchValue, eventTitle, eventDate, fixedEventDate, fixedSelectedDate
-            fixedSearchValue = searchValue.toLowerCase()
-            eventTitle = event.title.toLowerCase()
-            eventDate = event.start_date
-            fixedEventDate = moment(eventDate)
-            fixedSelectedDate = moment(fixedDate)
-            if ( ( searchValue === "" || eventTitle.includes(fixedSearchValue) ) 
-                && fixedEventDate.isAfter(fixedSelectedDate) ) {
-                return true
-            } else {
-                return false
-            }
-        })
-
-        const dateComparer = (event1, event2) => {
-            let eventOneDate, eventTwoDate
-            eventOneDate = moment(event1.start_date)
-            eventTwoDate = moment(event2.start_date)
-            return eventOneDate.isAfter(eventTwoDate) ? 1 : -1
-        }
-
-        const dateSortedEvents = filterEvents.sort((event1, event2) => (
-            dateComparer(event1, event2))
-        )
-
-        return dateSortedEvents.map(event => (
-            <EventIndexItem 
-                key={event.id}
-                event={event}
-                groupTitle={findGroupTitle(event)}
-            />
-        ))
-    }
-
-    function findGroupTitle(event) {
-        let eventGroupId = event.group_id
-        for ( let i = 0; i < groups.length; i++ ) {
-            let group = groups[i]
-            if ( group.id === eventGroupId) {
-                return group.title
-            }
-        }
-    }
-
+    console.log(filterEvents(events, searchValue, selectedDay))
+    
     return (
         <div className='event-index-container'>
             <div className='event-index-left'>
-                <h1 className="event-index-date"> { displayDate } </h1>
-                { handleEvents() }
+                {/* <EventIndexSet date={displayDate} /> */}
+                {/* { handleEvents(events, groups, searchValue, fixedDate) } */}
             </div>
             <div className='event-index-right'>
                 <Calendar 
@@ -82,4 +45,21 @@ const EventIndex = ({ searchValue, groups, events, fetchEvents }) => {
     )
 }
 
-export default EventIndex
+//EventIndex State/Props
+const msp = (state, ownProps) => {
+    let searchValue = ownProps.searchValue
+    return ({
+        groups: Object.values(state.entities.groups),
+        events: Object.values(state.entities.events),
+        searchValue,
+        currentUser: state.entities.users[state.session.id]
+    })
+}
+
+const mdp = dispatch => {
+    return ({
+        fetchEvents: () => dispatch(fetchEvents())
+    })
+}
+
+export default connect ( msp, mdp) (EventIndex);
