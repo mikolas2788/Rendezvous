@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { fetchEvents } from '../../action/event_actions'
-import EventIndexSet from './event_index_set'
-import 'react-modern-calendar-datepicker/lib/DatePicker.css'
+import { handleEvents } from './event_index_selectors'
 import { Calendar, utils } from 'react-modern-calendar-datepicker'
-import moment from 'moment'
-import { calendarDateFormatter, filterEvents } from './event_index_selectors'
+import 'react-modern-calendar-datepicker/lib/DatePicker.css'
 
 /* TODOS 6/19/2020 
     - separate sets of events per day
@@ -18,20 +16,15 @@ import { calendarDateFormatter, filterEvents } from './event_index_selectors'
 const EventIndex = ({ searchValue, groups, events, fetchEvents }) => {
     let today = utils().getToday()
     const [ selectedDay, setSelectedDay ] = useState(today)
-    // let fixedDate = calendarDateFormatter(selectedDay)
-    // let displayDate = moment(fixedDate).format("dddd, MMMM D")
-    
+
     useEffect (() => {
         fetchEvents()
     }, [] )
-
-    console.log(filterEvents(events, searchValue, selectedDay))
     
     return (
         <div className='event-index-container'>
             <div className='event-index-left'>
-                {/* <EventIndexSet date={displayDate} /> */}
-                {/* { handleEvents(events, groups, searchValue, fixedDate) } */}
+                {handleEvents(events, groups, searchValue, selectedDay)}
             </div>
             <div className='event-index-right'>
                 <Calendar 

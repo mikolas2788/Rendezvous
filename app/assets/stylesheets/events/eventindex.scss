@@ -9,11 +9,15 @@
         min-width: 590px;
         padding-right: 15px;
 
-        .event-index-date {
-            font-size: 16px; 
-            font-weight: 600; 
-            padding-left: 16px; 
-            margin-bottom: 20px; 
+        .event-index-set {
+            padding-bottom: 20px; 
+
+            .event-index-date {
+                font-size: 16px; 
+                font-weight: 600; 
+                padding-left: 16px; 
+                margin-bottom: 20px; 
+            }
         }
     }
 
