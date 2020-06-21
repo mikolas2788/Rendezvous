@@ -71,6 +71,12 @@ class GroupShow extends React.Component {
                         onClick={this.deleteGroup}>
                         Delete your group
                     </button>
+                    <Link 
+                        className='group-button'
+                        to={`/groups/${this.props.group.id}/events/create`}
+                    >
+                    Create an event
+                    </Link>
                 </div>
             )
         }
