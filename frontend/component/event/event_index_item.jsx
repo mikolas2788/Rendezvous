@@ -1,11 +1,19 @@
 import React from 'react'; 
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { findGroupTitle } from './event_index_selectors'
 import moment from 'moment'
 
-const EventIndexItem = ({ groupTitle, event, currentUser }) => {
+/* TODOS
+    - refactor to collect group association and delete findGroupTitle
+*/
+
+const EventIndexItem = ({ event, groups }) => {
     let eventDateTime = event.start_date
     let eventStartTime = moment(eventDateTime).format("hh:mm A")
     let route = `/test`
+    let groupTitle = findGroupTitle(event, groups)
+
     return (
         <Link 
             className='event-item-link'
@@ -22,10 +30,14 @@ const EventIndexItem = ({ groupTitle, event, currentUser }) => {
                     <h2> People Attending </h2>
                 </div>
             </div>
-
         </Link>
     )
 }
 
-export default EventIndexItem
+const msp = (state) => {
+    return ({
+        groups: Object.values(state.entities.groups)
+    })
+}
 
+export default connect ( msp ) (EventIndexItem)

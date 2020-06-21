@@ -3,13 +3,12 @@ import EventIndexItem from './event_index_item'
 import EventIndexSet from './event_index_set'
 import moment from 'moment'
 
-
-function handleEvents (events, groups, searchValue, selectedDay) {
+function handleEvents (events, searchValue, selectedDay) {
     let filteredEvents, sortedEvents, separatedEvents, eventSets
     filteredEvents = filterEvents(events, searchValue, selectedDay)
     sortedEvents = sortEventsByDate(filteredEvents)
     separatedEvents = separateEventsByDate(sortedEvents)
-    eventSets = indexSetCreator(separatedEvents, groups)
+    eventSets = indexSetCreator(separatedEvents)
     return eventSets
 }
 
@@ -44,36 +43,31 @@ function separateEventsByDate (sortedEvents) {
     for ( let i = 0; i < sortedEvents.length; i++ ) {
         let event = sortedEvents[i]
         let displayDate = event.displayDate
+        let eventComponent = <EventIndexItem key={event.id} event={event}/>
         if ( separatedEvents.has(displayDate) ) {
-            separatedEvents.get(displayDate).push(event) 
+            separatedEvents.get(displayDate).push(eventComponent) 
         } else {
             separatedEvents.set(displayDate, [])
-            separatedEvents.get(displayDate).push(event) 
+            separatedEvents.get(displayDate).push(eventComponent) 
         }
     } 
     return separatedEvents
 }
 
-function indexSetCreator (separatedEvents, groups) {
+function indexSetCreator (separatedEvents) {
     let indexSets = []
     for ( let [date, events] of separatedEvents ) {
-        let indexItemSet = <EventIndexSet key={indexSets.length} date={date} events={events} groups={groups}/>
+        let indexItemSet = <EventIndexSet key={indexSets.length} date={date} events={events} />
         indexSets.push(indexItemSet)
     }
     return indexSets
-}
-
-function indexItemCreator (events, groups) {
-    return events.map(event => {
-        return <EventIndexItem key={event.id} event={event} groupTitle={findGroupTitle(event, groups)} />
-    })
 }
 
 function calendarDateFormatter(selectedDay) {
     return selectedDay.year + "-" + selectedDay.month + "-" + selectedDay.day
 }
 
-function dateComparer (event1, event2) {
+function dateComparer(event1, event2) {
     let eventOneDate, eventTwoDate
     eventOneDate = event1.fixedDate
     eventTwoDate = event2.fixedDate
@@ -90,4 +84,4 @@ function findGroupTitle(event, groups) {
     }
 }
 
-export { handleEvents, indexItemCreator }
+export { handleEvents, findGroupTitle }

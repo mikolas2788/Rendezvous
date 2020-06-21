@@ -13,18 +13,20 @@ import 'react-modern-calendar-datepicker/lib/DatePicker.css'
 */
 
 // EventIndex Component
-const EventIndex = ({ searchValue, groups, events, fetchEvents }) => {
+const EventIndex = ({ searchValue, events, fetchEvents }) => {
     let today = utils().getToday()
     const [ selectedDay, setSelectedDay ] = useState(today)
 
     useEffect (() => {
         fetchEvents()
     }, [] )
+
+    let eventSetComponents = handleEvents(events, searchValue, selectedDay)
     
     return (
         <div className='event-index-container'>
             <div className='event-index-left'>
-                {handleEvents(events, groups, searchValue, selectedDay)}
+                {eventSetComponents}
             </div>
             <div className='event-index-right'>
                 <Calendar 
@@ -39,13 +41,9 @@ const EventIndex = ({ searchValue, groups, events, fetchEvents }) => {
 }
 
 //EventIndex State/Props
-const msp = (state, ownProps) => {
-    let searchValue = ownProps.searchValue
+const msp = (state) => {
     return ({
-        groups: Object.values(state.entities.groups),
-        events: Object.values(state.entities.events),
-        searchValue,
-        currentUser: state.entities.users[state.session.id]
+        events: Object.values(state.entities.events)
     })
 }
 
@@ -55,4 +53,4 @@ const mdp = dispatch => {
     })
 }
 
-export default connect ( msp, mdp) (EventIndex);
+export default connect ( msp, mdp ) (EventIndex);
