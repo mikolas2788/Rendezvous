@@ -8,155 +8,131 @@
     font-family: sans-serif; 
     color: #2e3e48; 
     margin: 0px 40px; 
+
+    .ce-form {
+
+        .ce-main { 
+            display: flex;
+
+            .ce-left {
+                width: 65%;
+                height: 100%; 
+                padding-right: 20px;
+                padding-bottom: 40px; 
+
+                .ce-header {
+                    border-bottom: 1px solid rgba(0,0,0,.12);
+                    h1 {
+                        font-size: 30px; 
+                        font-weight: 600; 
+                        padding-top: 40px;
+                        line-height: 1.4;  
+                    }
+
+                    p {
+                        font-size: 16px; 
+                        margin-bottom: 20px; 
+                    }
+                }
+
+                .ce-input {
+
+                    max-width: 100%;  
+                    margin-top: 40px; 
+                    box-sizing: border-box;
+
+                    h1 {
+                        font-size: 16px; 
+                        font-weight: 600; 
+                        line-height: 1.5;
+                    }
+
+                    p {
+                        color: #a2a2a2;
+                        line-height: 1.4; 
+                        font-size: 14px; 
+                    }
+
+                    .ce-input-box {
+                        width: 100%; 
+                        padding: 16px; 
+                        border: 1px solid #a2a2a2;
+                        border-radius: 3px; 
+                        background-color: white; 
+                    }
+
+                    .ce-input-big-box {
+                        height: 200px; 
+                        width: 100%; 
+                        padding: 16px; 
+                        border: 1px solid #a2a2a2;
+                        border-radius: 3px; 
+                        background-color: white; 
+                    }
+                }
+            }
+
+            .ce-right {
+                width: 35%;
+                box-sizing: border-box;
+                padding-top: 40px; 
+
+                .ce-tips {
+                    position: sticky;
+                    position: -webkit-sticky;
+                    top: 40px; 
+                    background: #fff;
+                    border: 1px solid rgba(46,62,72,.12);
+                    border-radius: 8px;
+                    padding: 16px; 
+
+                    h1 {
+                        font-size: 20px;
+                        font-weight: 600;
+                        padding-bottom: 20px;
+                    }
+                    
+                    p {
+                        font-size: 16px; 
+                        line-height: 1.5;
+                    }
+
+                    .ce-tip-header {
+                        font-weight: 600;
+                    }
+                    
+                    .ce-tip {
+                        padding-bottom: 20px; 
+                    }
+
+                }
+            }
+        }
+    } 
 }
 
-    .ce-footer {
-        display: flex;
-        justify-content: center;
-        border-top: 1px solid rgba(0,0,0,.12);
-        position: sticky;
-        position: -webkit-sticky;
-        bottom: 0; 
-        background: #fff;
-        padding: 20px 0px 20px 0px; 
-        .ce-submit {
-            color: #ffffff;
-            background-color: #f14b67;
-            border-color: #ed1c40;
-            font-size: 16px;
-            font-weight: 600; 
-            font-family: sans-serif;
-            // margin-top: 16px; 
-            padding: 8px 16px;
-            border-radius: 3px;
-        
-            &:hover {
-                background: #e22e4c;
-            }
+.ce-footer {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid rgba(0,0,0,.12);
+    position: sticky;
+    position: -webkit-sticky;
+    bottom: 0; 
+    background: #fff;
+    padding: 20px 0px 20px 0px; 
+
+    .ce-submit {
+        color: #ffffff;
+        background-color: #f14b67;
+        border-color: #ed1c40;
+        font-size: 16px;
+        font-weight: 600; 
+        font-family: sans-serif;
+        padding: 8px 16px;
+        border-radius: 3px;
+    
+        &:hover {
+            background: #e22e4c;
         }
     }
-
-.ce-form {
-
-    .ce-main { 
-        display: flex;
-
-        .ce-left {
-            width: 65%;
-            height: 100%; 
-            padding-right: 20px;
-            padding-bottom: 40px; 
-
-            .ce-header {
-                border-bottom: 1px solid rgba(0,0,0,.12);
-                h1 {
-                    font-size: 30px; 
-                    font-weight: 600; 
-                    padding-top: 40px;
-                    line-height: 1.4;  
-                }
-
-                p {
-                    font-size: 16px; 
-                    margin-bottom: 20px; 
-                }
-            }
-
-            .ce-input {
-
-                max-width: 100%;  
-                margin-top: 40px; 
-                box-sizing: border-box;
-
-                h1 {
-                    font-size: 16px; 
-                    font-weight: 600; 
-                    line-height: 1.5;
-                }
-
-                p {
-                    color: #a2a2a2;
-                    line-height: 1.4; 
-                    font-size: 14px; 
-                }
-
-                .ce-input-box {
-                    width: 100%; 
-                    padding: 16px; 
-                    border: 1px solid #a2a2a2;
-                    border-radius: 3px; 
-                    background-color: white; 
-                }
-
-                .ce-input-big-box {
-                    height: 200px; 
-                    width: 100%; 
-                    padding: 16px; 
-                    border: 1px solid #a2a2a2;
-                    border-radius: 3px; 
-                    background-color: white; 
-                }
-            }
-        }
-
-        .ce-right {
-            width: 35%;
-            box-sizing: border-box;
-            padding-top: 40px; 
-
-            .ce-tips {
-                position: sticky;
-                position: -webkit-sticky;
-                top: 40px; 
-                background: #fff;
-                border: 1px solid rgba(46,62,72,.12);
-                border-radius: 8px;
-                padding: 16px; 
-
-                h1 {
-                    font-size: 20px;
-                    font-weight: 600;
-                    padding-bottom: 20px;
-                }
-                
-                p {
-                    font-size: 16px; 
-                    line-height: 1.5;
-                }
-
-                .ce-tip-header {
-                    font-weight: 600;
-                }
-                .ce-tip {
-                    padding-bottom: 20px; 
-                }
-
-            }
-        }
-    }
-
-    .ce-footer {
-        display: flex;
-        justify-content: center;
-        border: 1px solid #a2a2a2;
-        position: sticky;
-        position: -webkit-sticky;
-        bottom: 0; 
-        padding: 20px 0px 20px 0px; 
-        .ce-submit {
-            color: #ffffff;
-            background-color: #f14b67;
-            border-color: #ed1c40;
-            font-size: 16px;
-            font-weight: 600; 
-            font-family: sans-serif;
-            // margin-top: 16px; 
-            padding: 8px 16px;
-            border-radius: 3px;
-        
-            &:hover {
-                background: #e22e4c;
-            }
-        }
-    }
-} 
+}
