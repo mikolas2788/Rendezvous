@@ -100,22 +100,22 @@ class CreateEventForm extends React.Component {
                                     <h1>
                                         Tips for a great event
                                     </h1>
-                                    <h3>
+                                    <p className='ce-tip-header'>
                                         Be descriptive
-                                    </h3>
-                                    <p>
+                                    </p>
+                                    <p className='ce-tip'>
                                         A good title immediately gives people an idea of what the event is about.
                                     </p>
-                                    <h3>
+                                    <p className='ce-tip-header'>
                                         Get organized
-                                    </h3>
-                                    <p>
+                                    </p>
+                                    <p className='ce-tip'>
                                         Describe things in a clear order so it's easy to digest. Start with an overall description of the event and include a basic agenda, before you move into really specific details.
                                     </p>
-                                    <h3>
+                                    <p className='ce-tip-header'>
                                         Add an image
-                                    </h3>
-                                    <p>
+                                    </p>
+                                    <p className='ce-tip'>
                                         Upload a photo or image to give members a better feel for the event.
                                     </p>
                                 </div>
@@ -125,7 +125,7 @@ class CreateEventForm extends React.Component {
                             <input
                                 className='ce-submit'
                                 type="submit"
-                                value='Agree & Continue' />
+                                value='Publish' />
                             <div className='ce-footer-left'>
 
                             </div>

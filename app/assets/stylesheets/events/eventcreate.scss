@@ -12,13 +12,18 @@
 }
 
 .ce-form {
+
     .ce-main { 
+
         display: flex;
+
         .ce-left {
-            width: 70%;
+            width: 65%;
             height: 100%; 
+            padding-right: 20px;
 
             .ce-header {
+                border-bottom: 1px solid rgba(0,0,0,.12);
 
                 h1 {
                     font-size: 30px; 
@@ -31,14 +36,13 @@
                     font-size: 16px; 
                     margin-bottom: 20px; 
                 }
-
-                border-bottom: 1px solid rgba(0,0,0,.12);
             }
 
             .ce-input {
 
-                max-width: 600px;  
+                max-width: 100%;  
                 margin-top: 40px; 
+                box-sizing: border-box;
 
                 h1 {
                     font-size: 16px; 
@@ -72,8 +76,40 @@
         }
 
         .ce-right {
-            width: 30%;
-            height: 100%; 
+            width: 35%;
+            height: auto; 
+            box-sizing: border-box;
+            padding-top: 40px; 
+
+            .ce-tips {
+                position: sticky;
+                position: -webkit-sticky;
+                top: 40px; 
+                height: auto; 
+                background: #fff;
+                border: 1px solid rgba(46,62,72,.12);
+                border-radius: 8px;
+                padding: 16px; 
+
+                h1 {
+                    font-size: 20px;
+                    font-weight: 600;
+                    padding-bottom: 20px;
+                }
+                
+                p {
+                    font-size: 16px; 
+                    line-height: 1.5;
+                }
+
+                .ce-tip-header {
+                    font-weight: 600;
+                }
+                .ce-tip {
+                    padding-bottom: 20px; 
+                }
+
+            }
         }
     }
 
