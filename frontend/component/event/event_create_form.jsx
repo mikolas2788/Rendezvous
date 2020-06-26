@@ -121,6 +121,9 @@ class CreateEventForm extends React.Component {
                                 </div>
                             </div>
                         </div>
+
+                    </form>
+                </div>
                         <div className='ce-footer'>
                             <input
                                 className='ce-submit'
@@ -134,9 +137,6 @@ class CreateEventForm extends React.Component {
                             </div>
 
                         </div>
-
-                    </form>
-                </div>
             </div>
         ) 
     }

@@ -1,5 +1,5 @@
 .ce-strip {
-    height: 1000px; 
+    height: auto; 
     width: 100%; 
     background-color: #fafafa; 
 }
@@ -7,24 +7,48 @@
 .ce-form-strip {
     font-family: sans-serif; 
     color: #2e3e48; 
-    height: 100%;
     margin: 0px 40px; 
 }
+
+    .ce-footer {
+        display: flex;
+        justify-content: center;
+        border-top: 1px solid rgba(0,0,0,.12);
+        position: sticky;
+        position: -webkit-sticky;
+        bottom: 0; 
+        background: #fff;
+        padding: 20px 0px 20px 0px; 
+        .ce-submit {
+            color: #ffffff;
+            background-color: #f14b67;
+            border-color: #ed1c40;
+            font-size: 16px;
+            font-weight: 600; 
+            font-family: sans-serif;
+            // margin-top: 16px; 
+            padding: 8px 16px;
+            border-radius: 3px;
+        
+            &:hover {
+                background: #e22e4c;
+            }
+        }
+    }
 
 .ce-form {
 
     .ce-main { 
-
         display: flex;
 
         .ce-left {
             width: 65%;
             height: 100%; 
             padding-right: 20px;
+            padding-bottom: 40px; 
 
             .ce-header {
                 border-bottom: 1px solid rgba(0,0,0,.12);
-
                 h1 {
                     font-size: 30px; 
                     font-weight: 600; 
@@ -77,7 +101,6 @@
 
         .ce-right {
             width: 35%;
-            height: auto; 
             box-sizing: border-box;
             padding-top: 40px; 
 
@@ -85,7 +108,6 @@
                 position: sticky;
                 position: -webkit-sticky;
                 top: 40px; 
-                height: auto; 
                 background: #fff;
                 border: 1px solid rgba(46,62,72,.12);
                 border-radius: 8px;
@@ -114,6 +136,13 @@
     }
 
     .ce-footer {
+        display: flex;
+        justify-content: center;
+        border: 1px solid #a2a2a2;
+        position: sticky;
+        position: -webkit-sticky;
+        bottom: 0; 
+        padding: 20px 0px 20px 0px; 
         .ce-submit {
             color: #ffffff;
             background-color: #f14b67;
@@ -121,7 +150,7 @@
             font-size: 16px;
             font-weight: 600; 
             font-family: sans-serif;
-            margin-top: 16px; 
+            // margin-top: 16px; 
             padding: 8px 16px;
             border-radius: 3px;
         
