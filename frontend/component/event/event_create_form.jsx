@@ -13,7 +13,7 @@ const EventCreateForm = ({ groupId }) => {
     const [ title, setTitle ] = useState('')
     const [ selectedDay, setSelectedDay ] = useState(today)
     const [ selectedDay2, setSelectedDay2 ] = useState(selectedDay)
-    const [ duration, setDuration ] = useState('')
+    // const [ duration, setDuration ] = useState('')
     const [ description, setDescription ] = useState('')
     const [ location, setLocation ] = useState('')
 
@@ -103,6 +103,23 @@ const EventCreateForm = ({ groupId }) => {
                                 <TimePicker 
                                 
                                 
+                                />
+                            </div>
+                            <div className='ce-input'>
+                                <h1>Description</h1>
+                                <p>Let your attendees know what to expect, including the agenda, what they need to bring, and how to find the group.</p>
+                                <textarea
+                                    className='ce-input-big-box'
+                                    onChange={ ()=> setDescription(event.target.value)}
+                                    value={description}
+                                />
+                            </div>
+                            <div className='ce-input'>
+                                <h1>Location</h1>
+                                <input
+                                    className='ce-input-box'
+                                    onChange={ ()=> setLocation(event.target.value)}
+                                    value={location}
                                 />
                             </div>
                             {/* <div className='ce-input'>
