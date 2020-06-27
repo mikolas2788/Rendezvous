@@ -136,3 +136,17 @@
         }
     }
 }
+
+.rc-time-picker { 
+    background: #fff !important;
+    border: 1px solid rgba(46,62,72,.12) !important;
+}
+
+.rc-time-picker-input {
+    padding: 25px !important;
+    font-size: 16px !important; 
+    font-family: sans-serif !important; 
+    // color: #2e3e48 !important; 
+    background: #fff !important;
+    border: 1px solid rgba(46,62,72,.12) !important;
+}

@@ -11,9 +11,8 @@ import { displayDate } from './event_create_selectors'
 const EventCreateForm = ({ groupId }) => {
     let today = utils().getToday()
     const [ title, setTitle ] = useState('')
-    const [ selectedDay, setSelectedDay ] = useState(today)
-    const [ selectedDay2, setSelectedDay2 ] = useState(selectedDay)
-    // const [ duration, setDuration ] = useState('')
+    const [ startDate, setstartDate ] = useState(today)
+    const [ endDate, setendDate ] = useState(startDate)
     const [ description, setDescription ] = useState('')
     const [ location, setLocation ] = useState('')
 
@@ -21,7 +20,7 @@ const EventCreateForm = ({ groupId }) => {
         <input
             readOnly
             ref={ref}
-            value={displayDate(selectedDay)}
+            value={displayDate(startDate)}
             style={{
                 minWidth: '250px',
                 padding: '16px',
@@ -42,7 +41,7 @@ const EventCreateForm = ({ groupId }) => {
         <input
             readOnly
             ref={ref}
-            value={displayDate(selectedDay2)}
+            value={displayDate(endDate)}
             style={{
                 minWidth: '250px',
                 padding: '16px',
@@ -80,22 +79,24 @@ const EventCreateForm = ({ groupId }) => {
                             <div className='ce-input'>
                                 <h1> Start Date and Time</h1>
                                 <DatePicker 
-                                    value={selectedDay}
-                                    onChange={setSelectedDay}
+                                    value={startDate}
+                                    onChange={setstartDate}
                                     minimumDate={today}
                                     renderInput={startDateInput}
                                 />
                                 <TimePicker 
-                                
+                                    use12Hours
+                                    inputReadOnly
+                                    showSecond={false}
                                 
                                 />
                             </div>
                             <div className='ce-input'>
                                 <h1> End Date and Time</h1>
                                 <DatePicker
-                                    value={selectedDay2}
-                                    onChange={setSelectedDay2}
-                                    minimumDate={selectedDay}
+                                    value={endDate}
+                                    onChange={setendDate}
+                                    minimumDate={startDate}
                                     renderInput={endDateInput}
                                 />
 
@@ -122,39 +123,6 @@ const EventCreateForm = ({ groupId }) => {
                                     value={location}
                                 />
                             </div>
-                            {/* <div className='ce-input'>
-                                <h1>Date and Time</h1>
-                                <input
-                                    className='ce-input-box'
-                                    onChange={this.handleUpdate('date')}
-                                    value={this.state.date}
-                                />
-                            </div>
-                            <div className='ce-input'>
-                                <h1>Duration</h1>
-                                <input
-                                    className='ce-input-box'
-                                    onChange={this.handleUpdate('time')}
-                                    value={this.state.time}
-                                />
-                            </div>
-                            <div className='ce-input'>
-                                <h1>Description</h1>
-                                <p>Let your attendees know what to expect, including the agenda, what they need to bring, and how to find the group.</p>
-                                <textarea
-                                    className='ce-input-big-box'
-                                    onChange={this.handleUpdate('description')}
-                                    value={this.state.description}
-                                />
-                            </div>
-                            <div className='ce-input'>
-                                <h1>Location</h1>
-                                <input
-                                    className='ce-input-box'
-                                    onChange={this.handleUpdate('location')}
-                                    value={this.state.location}
-                                />
-                            </div> */}
                         </div>
                         <div className='ce-right'>
                             <div className='ce-tips'>
@@ -202,6 +170,10 @@ const EventCreateForm = ({ groupId }) => {
 }
 
 export default withRouter (EventCreateForm)
+
+
+
+
 
 // class CreateEventForm extends React.Component {
 
