@@ -8,11 +8,17 @@ import 'rc-time-picker/assets/index.css';
 import { withRouter } from 'react-router-dom'; 
 import { displayDate } from './event_create_selectors'
 
+/* TODOS
+    - Change start date to be tomorrow instead of today to prevent date/time conflicts
+
+*/
 const EventCreateForm = ({ groupId }) => {
     let today = utils().getToday()
     const [ title, setTitle ] = useState('')
-    const [ startDate, setstartDate ] = useState(today)
-    const [ endDate, setendDate ] = useState(startDate)
+    const [ startDate, setStartDate ] = useState(today)
+    const [ startTime, setStartTime ] = useState(moment())
+    const [ endDate, setEndDate ] = useState(startDate)
+    const [ endTime, setEndTime ] = useState('')
     const [ description, setDescription ] = useState('')
     const [ location, setLocation ] = useState('')
 
@@ -58,6 +64,8 @@ const EventCreateForm = ({ groupId }) => {
         />
     )
 
+    console.log()
+
     return (
         <div className='ce-strip'>
             <div className='ce-form-strip'>
@@ -80,7 +88,7 @@ const EventCreateForm = ({ groupId }) => {
                                 <h1> Start Date and Time</h1>
                                 <DatePicker 
                                     value={startDate}
-                                    onChange={setstartDate}
+                                    onChange={setStartDate}
                                     minimumDate={today}
                                     renderInput={startDateInput}
                                 />
@@ -88,22 +96,28 @@ const EventCreateForm = ({ groupId }) => {
                                     use12Hours
                                     inputReadOnly
                                     showSecond={false}
-                                
+                                    minuteStep={15}
+                                    allowEmpty={false}
+                                    defaultValue={startTime}
+                                    onChange={ ()=> setStartTime(moment(event.target.value))}
                                 />
                             </div>
                             <div className='ce-input'>
                                 <h1> End Date and Time</h1>
                                 <DatePicker
                                     value={endDate}
-                                    onChange={setendDate}
+                                    onChange={setEndDate}
                                     minimumDate={startDate}
                                     renderInput={endDateInput}
                                 />
-
-
                                 <TimePicker 
-                                
-                                
+                                    use12Hours
+                                    inputReadOnly
+                                    showSecond={false}
+                                    minuteStep={15}
+                                    allowEmpty={false}
+                                    defaultValue={startTime}
+                                    onChange={() => setStartTime(moment(event.target.value))}
                                 />
                             </div>
                             <div className='ce-input'>
