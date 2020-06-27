@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux'
+import { createEvent } from '../../action/event_actions'
 import moment from 'moment'
 import DatePicker from "react-modern-calendar-datepicker";
 import { utils } from "react-modern-calendar-datepicker";
@@ -10,23 +12,69 @@ import { displayDate } from './event_create_selectors'
 
 /* TODOS
     - Change start date to be tomorrow instead of today to prevent date/time conflicts
-
 */
-const EventCreateForm = ({ groupId }) => {
+function defaultState (creatorId) {
     let today = utils().getToday()
-    const [ title, setTitle ] = useState('')
-    const [ startDate, setStartDate ] = useState(today)
-    const [ startTime, setStartTime ] = useState(moment())
-    const [ endDate, setEndDate ] = useState(startDate)
-    const [ endTime, setEndTime ] = useState('')
-    const [ description, setDescription ] = useState('')
-    const [ location, setLocation ] = useState('')
 
-    const startDateInput = ({ ref }) => (
+    return ({
+        creatorId: creatorId,
+        title: "",
+        startDate: today,
+        startTime: moment(),
+        endDate: today,
+        endTime: moment(),
+        description: "",
+        location: ""
+    })
+}
+
+
+
+const EventCreateForm = ({ groupId, creatorId }) => {
+    let today = utils().getToday()
+    const [ state, setState ] = useState(defaultState(creatorId))
+
+    const updateState = (key, value) => {
+        setState({...state, [key]: value})
+    }
+
+    const updateDate = (key) => {
+        return (value) => {
+            updateState(key, value)
+        }
+    }
+    // const [ creatorId, setCreatorId ] = useState(creatorId)
+    // const [ title, setTitle ] = useState('')
+    // const [ startDate, setStartDate ] = useState(today)
+    // const [ startTime, setStartTime ] = useState(moment())
+    // const [ endDate, setEndDate ] = useState(startDate)
+    // const [ endTime, setEndTime] = useState(moment())
+    // const [ description, setDescription ] = useState('')
+    // const [ location, setLocation ] = useState('')
+    // 
+    console.log(state)
+    // console.log(title)
+    // console.log(startDate)
+    // console.log(startTime)
+    // console.log(endDate)
+    // console.log(endTime)
+    // console.log(description)
+    // console.log(location)
+
+    // function handleSubmit(event) {
+    //     event.preventDefault();
+    //     this.props.createGroup(this.state).then((promise) => {
+    //         return (
+    //             this.props.history.push(`/groups/${promise.group.id}`)
+    //         );
+    //     });
+    // }
+
+const startDateInput = ({ ref }) => (
         <input
             readOnly
             ref={ref}
-            value={displayDate(startDate)}
+            value={displayDate(state.startDate)}
             style={{
                 minWidth: '250px',
                 padding: '16px',
@@ -47,7 +95,7 @@ const EventCreateForm = ({ groupId }) => {
         <input
             readOnly
             ref={ref}
-            value={displayDate(endDate)}
+            value={displayDate(state.endDate)}
             style={{
                 minWidth: '250px',
                 padding: '16px',
@@ -80,16 +128,16 @@ const EventCreateForm = ({ groupId }) => {
                                 <h1>Title (required)</h1>
                                 <input
                                     className='ce-input-box'
-                                    onChange={ ()=> setTitle(event.target.value)}
-                                    value={ title }
+                                    onChange={ ()=> updateState('title', event.target.value)}
+                                    value={ state.title }
                                 />
                             </div>
                             <div className='ce-input'>
                                 <h1> Start Date and Time</h1>
                                 <DatePicker 
-                                    value={startDate}
-                                    onChange={setStartDate}
-                                    minimumDate={today}
+                                    value={state.startDate}
+                                    onChange={updateDate('startDate')}
+                                    minimumDate={state.startDate}
                                     renderInput={startDateInput}
                                 />
                                 <TimePicker 
@@ -98,16 +146,16 @@ const EventCreateForm = ({ groupId }) => {
                                     showSecond={false}
                                     minuteStep={15}
                                     allowEmpty={false}
-                                    defaultValue={startTime}
-                                    onChange={ ()=> setStartTime(moment(event.target.value))}
+                                    defaultValue={state.startTime}
+                                    onChange={() => updateState('startTime', moment(event.target.value))}
                                 />
                             </div>
                             <div className='ce-input'>
                                 <h1> End Date and Time</h1>
                                 <DatePicker
-                                    value={endDate}
-                                    onChange={setEndDate}
-                                    minimumDate={startDate}
+                                    value={state.endDate}
+                                    onChange={updateDate('endDate')}
+                                    minimumDate={state.startDate}
                                     renderInput={endDateInput}
                                 />
                                 <TimePicker 
@@ -116,8 +164,8 @@ const EventCreateForm = ({ groupId }) => {
                                     showSecond={false}
                                     minuteStep={15}
                                     allowEmpty={false}
-                                    defaultValue={startTime}
-                                    onChange={() => setStartTime(moment(event.target.value))}
+                                    defaultValue={state.endTime}
+                                    onChange={() => updateState('endTime', moment(event.target.value))}
                                 />
                             </div>
                             <div className='ce-input'>
@@ -125,16 +173,16 @@ const EventCreateForm = ({ groupId }) => {
                                 <p>Let your attendees know what to expect, including the agenda, what they need to bring, and how to find the group.</p>
                                 <textarea
                                     className='ce-input-big-box'
-                                    onChange={ ()=> setDescription(event.target.value)}
-                                    value={description}
+                                    onChange={ ()=> updateState('description', event.target.value)}
+                                    value={state.description}
                                 />
                             </div>
                             <div className='ce-input'>
                                 <h1>Location</h1>
                                 <input
                                     className='ce-input-box'
-                                    onChange={ ()=> setLocation(event.target.value)}
-                                    value={location}
+                                    onChange={ ()=> updateState('location', event.target.value)}
+                                    value={state.location}
                                 />
                             </div>
                         </div>
@@ -171,7 +219,9 @@ const EventCreateForm = ({ groupId }) => {
                 <input
                     className='ce-submit'
                     type="submit"
-                    value='Publish' />
+                    value='Publish' 
+                    // onSubmit={}
+                />
 
                 {/* For Possible Cancel, Preview button features
                     <div className='ce-footer-left'>
@@ -183,9 +233,19 @@ const EventCreateForm = ({ groupId }) => {
     ) 
 }
 
-export default withRouter (EventCreateForm)
+const msp = (state) => {
+    return {
+        creatorId: state.session.id
+    }
+}
 
+const mdp = (dispatch) => {
+    return {
+        createEvent: (event) => dispatch(createEvent(event))
+    }
+}
 
+export default withRouter (connect (msp, mdp) (EventCreateForm))
 
 
 
