@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import moment from 'moment'
 import DatePicker from "react-modern-calendar-datepicker";
 import { utils } from "react-modern-calendar-datepicker";
 import "react-modern-calendar-datepicker/lib/DatePicker.css";
 import TimePicker from 'rc-time-picker'
 import 'rc-time-picker/assets/index.css';
 import { withRouter } from 'react-router-dom'; 
-import { displayDate, startDateInput, endDateInput } from './event_create_selectors'
+import { displayDate } from './event_create_selectors'
+
 const EventCreateForm = ({ groupId }) => {
     let today = utils().getToday()
     const [ title, setTitle ] = useState('')
@@ -14,7 +16,49 @@ const EventCreateForm = ({ groupId }) => {
     const [ duration, setDuration ] = useState('')
     const [ description, setDescription ] = useState('')
     const [ location, setLocation ] = useState('')
-    
+
+    const startDateInput = ({ ref }) => (
+        <input
+            readOnly
+            ref={ref}
+            value={displayDate(selectedDay)}
+            style={{
+                minWidth: '250px',
+                padding: '16px',
+                fontSize: '1.5rem',
+                border: '1px solid #a2a2a2',
+                borderRadius: '3px',
+                backgroundColor: 'white',
+                fontFamily: 'sans-serif',
+                fontSize: '16px', 
+                color: '#2e3e48',
+                textAlign: 'center',
+                marginRight: '20px'
+            }}
+        />
+    )
+
+    const endDateInput = ({ ref }) => (
+        <input
+            readOnly
+            ref={ref}
+            value={displayDate(selectedDay2)}
+            style={{
+                minWidth: '250px',
+                padding: '16px',
+                fontSize: '1.5rem',
+                border: '1px solid #a2a2a2',
+                borderRadius: '3px',
+                backgroundColor: 'white',
+                fontFamily: 'sans-serif',
+                fontSize: '16px', 
+                color: '#2e3e48',
+                textAlign: 'center',
+                marginRight: '20px'
+            }}
+        />
+    )
+
     return (
         <div className='ce-strip'>
             <div className='ce-form-strip'>
@@ -39,7 +83,7 @@ const EventCreateForm = ({ groupId }) => {
                                     value={selectedDay}
                                     onChange={setSelectedDay}
                                     minimumDate={today}
-                                    renderInput={startDateInput(selectedDay)}
+                                    renderInput={startDateInput}
                                 />
                                 <TimePicker 
                                 
@@ -49,10 +93,10 @@ const EventCreateForm = ({ groupId }) => {
                             <div className='ce-input'>
                                 <h1> End Date and Time</h1>
                                 <DatePicker
-                                    value={selectedDay}
+                                    value={selectedDay2}
                                     onChange={setSelectedDay2}
                                     minimumDate={selectedDay}
-                                    renderInput={endDateInput(selectedDay2)}
+                                    renderInput={endDateInput}
                                 />
 
 

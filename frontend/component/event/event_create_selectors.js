@@ -3,7 +3,6 @@ import { calendarDateFormatter } from './event_index_selectors'
 import moment from 'moment'
 
 function displayDate(date) {
-    debugger
     let formattedDate = calendarDateFormatter(date)
     return moment(formattedDate).format('dddd, MMMM D Y')
 }
