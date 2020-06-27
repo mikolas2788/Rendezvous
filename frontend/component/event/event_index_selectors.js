@@ -84,4 +84,4 @@ function findGroupTitle(event, groups) {
     }
 }
 
-export { handleEvents, findGroupTitle }
+export { handleEvents, findGroupTitle, calendarDateFormatter }
