@@ -10,10 +10,13 @@ import Footer from './footer/footer_container';
 import GroupCreateFormContainer from '../component/group/group_create_form_container';
 import GroupEditFormContainer from '../component/group/group_edit_form_container';
 import GroupShowContainer from "../component/group/group_show_container";
-import EventCreateFormContainer from '../component/event/event_create_form_container'; 
+import EventCreateForm from '../component/event/event_create_form'; 
 import {
     Route, Redirect, Switch, Link, HashRouter
 } from 'react-router-dom'; 
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+
 
 const App = () => (
     <div>
@@ -26,7 +29,7 @@ const App = () => (
         <Switch>
             <ProtectedRoute path="/groups/:groupId/edit" component={GroupEditFormContainer} />
             <ProtectedRoute exact path='/groups/create' component={GroupCreateFormContainer}/>
-            <ProtectedRoute exact path="/groups/:groupId/events/create" component={EventCreateFormContainer} />
+            <ProtectedRoute exact path="/groups/:groupId/events/create" component={EventCreateForm} />
             <ProtectedRoute path='/groups/:groupId' component={GroupShowContainer}/>
         </Switch>
         <Footer />

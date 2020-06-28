@@ -21,7 +21,7 @@ function filterEvents (events, searchValue, selectedDay) {
         eventDate = event.start_date
         fixedEventDate = moment(eventDate)
         displayEventDate = fixedEventDate.format("dddd, MMMM D")
-        if ((searchValue === "" || eventTitle.includes(fixedSearchValue))
+        if ((fixedSearchValue === "" || eventTitle.includes(fixedSearchValue))
             && fixedEventDate.isAfter(fixedSelectedDate)) {
             event["fixedDate"] = fixedEventDate
             event["displayDate"] = displayEventDate
@@ -40,6 +40,8 @@ function sortEventsByDate (filteredEvents) {
 
 function separateEventsByDate (sortedEvents) {
     let separatedEvents = new Map()
+    //track previous displaydate to pregroup index sets
+    //build out indexSetCreator here
     for ( let i = 0; i < sortedEvents.length; i++ ) {
         let event = sortedEvents[i]
         let displayDate = event.displayDate

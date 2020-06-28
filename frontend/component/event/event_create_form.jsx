@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { useHistory, useParams } from 'react-router-dom'
 import { createEvent } from '../../action/event_actions'
 import moment from 'moment'
 import DatePicker from "react-modern-calendar-datepicker";
@@ -12,27 +13,36 @@ import { displayDate } from './event_create_selectors'
 
 /* TODOS
     - Change start date to be tomorrow instead of today to prevent date/time conflicts
+    - Set endDate to match with startDate changes
+    - Fix Time Picker styling
 */
-function defaultState (creatorId) {
+
+const EventCreateForm = () => {
     let today = utils().getToday()
+    const creator_id = useSelector(state => state.session.id);
+    const [ state, setState ] = useState(defaultState())
+    const dispatch = useDispatch()
+    const params = useParams()
+    const history = useHistory()
+    debugger
+    function defaultState () {
+        return ({
+            creator_id,
+            group_id: null,
+            title: "",
+            startDate: today,
+            startTime: moment(),
+            endDate: today,
+            endTime: moment(),
+            details: "",
+            location: ""
+        })
+    }
 
-    return ({
-        creatorId: creatorId,
-        title: "",
-        startDate: today,
-        startTime: moment(),
-        endDate: today,
-        endTime: moment(),
-        description: "",
-        location: ""
-    })
-}
+    useEffect (() => {
+        updateState('group_id', Number(params.groupId))
+    }, [params])
 
-
-
-const EventCreateForm = ({ groupId, creatorId }) => {
-    let today = utils().getToday()
-    const [ state, setState ] = useState(defaultState(creatorId))
 
     const updateState = (key, value) => {
         setState({...state, [key]: value})
@@ -43,6 +53,7 @@ const EventCreateForm = ({ groupId, creatorId }) => {
             updateState(key, value)
         }
     }
+
     // const [ creatorId, setCreatorId ] = useState(creatorId)
     // const [ title, setTitle ] = useState('')
     // const [ startDate, setStartDate ] = useState(today)
@@ -51,24 +62,52 @@ const EventCreateForm = ({ groupId, creatorId }) => {
     // const [ endTime, setEndTime] = useState(moment())
     // const [ description, setDescription ] = useState('')
     // const [ location, setLocation ] = useState('')
-    // 
+    
     console.log(state)
-    // console.log(title)
-    // console.log(startDate)
-    // console.log(startTime)
-    // console.log(endDate)
-    // console.log(endTime)
-    // console.log(description)
-    // console.log(location)
 
-    // function handleSubmit(event) {
-    //     event.preventDefault();
-    //     this.props.createGroup(this.state).then((promise) => {
-    //         return (
-    //             this.props.history.push(`/groups/${promise.group.id}`)
-    //         );
-    //     });
-    // }
+    
+    async function handleSubmit(event) {
+        event.preventDefault();
+        let formattedStartDateTime = formatDateTime(state.startDate, state.startTime)
+        let formattedEndDateTime = formatDateTime(state.endDate, state.endTime)
+        let formattedEvent = {...state}
+        formattedEvent['start_date'] = formattedStartDateTime
+        formattedEvent['end_date'] = formattedEndDateTime
+        delete formattedEvent['startDate']
+        delete formattedEvent['startTime']
+        delete formattedEvent['endDate']
+        delete formattedEvent['endTime']
+        console.log(formattedEvent)
+        // debugger
+        const createdEvent = await dispatch(createEvent(formattedEvent))
+        if ( Boolean(createdEvent) ) {
+            history.push(`/groups/${createdEvent.group.id}`)
+        }
+        // debugger
+
+
+        // .then((promise) => { 
+        //     console.log(promise)
+        //     debugger
+        //     return (
+        //         console.log('success')
+        //         // history.push(`/groups/${promise.group.id}`)
+        //     );
+        // }).catch((error) => {
+        //     debugger
+        // }));
+    }
+
+
+    function formatDateTime (date, time) {
+        let momentDate = moment(date).format('YYYY-MM-DD')
+        let momentTime = moment(time).format('hh:mm A')
+        // let newDate = displayDate(date)
+        // let newTime = time.format('hh:mm A')
+        let formattedDateTime = moment(`${momentDate} ${momentTime}`).format('YYYY-MM-DDTHH:mm:ssZ')
+        console.log(formattedDateTime)
+        return formattedDateTime
+    }
 
 const startDateInput = ({ ref }) => (
         <input
@@ -112,8 +151,6 @@ const startDateInput = ({ ref }) => (
         />
     )
 
-    console.log()
-
     return (
         <div className='ce-strip'>
             <div className='ce-form-strip'>
@@ -137,7 +174,7 @@ const startDateInput = ({ ref }) => (
                                 <DatePicker 
                                     value={state.startDate}
                                     onChange={updateDate('startDate')}
-                                    minimumDate={state.startDate}
+                                    minimumDate={today}
                                     renderInput={startDateInput}
                                 />
                                 <TimePicker 
@@ -173,7 +210,7 @@ const startDateInput = ({ ref }) => (
                                 <p>Let your attendees know what to expect, including the agenda, what they need to bring, and how to find the group.</p>
                                 <textarea
                                     className='ce-input-big-box'
-                                    onChange={ ()=> updateState('description', event.target.value)}
+                                    onChange={ ()=> updateState('details', event.target.value)}
                                     value={state.description}
                                 />
                             </div>
@@ -220,10 +257,10 @@ const startDateInput = ({ ref }) => (
                     className='ce-submit'
                     type="submit"
                     value='Publish' 
-                    // onSubmit={}
+                    onClick={handleSubmit}
                 />
 
-                {/* For Possible Cancel, Preview button features
+                {/* For Cancel, Preview button features
                     <div className='ce-footer-left'>
                     </div>
                     <div className='ce-footer-right'>
@@ -233,157 +270,20 @@ const startDateInput = ({ ref }) => (
     ) 
 }
 
-const msp = (state) => {
-    return {
-        creatorId: state.session.id
-    }
-}
+export default EventCreateForm
 
-const mdp = (dispatch) => {
-    return {
-        createEvent: (event) => dispatch(createEvent(event))
-    }
-}
-
-export default withRouter (connect (msp, mdp) (EventCreateForm))
-
-
-
-// class CreateEventForm extends React.Component {
-
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             creator_id: this.props.creatorId, 
-//             title: '',
-//             start_time: '',
-//             end_time: '',
-//             description: '',
-//             location: ''
-//         }
-
-//         this.handleSubmit = this.handleSubmit.bind(this); 
-//         this.handleDayClick = this.handleDayClick.bind(this); 
-//     }
-
-//     handleSubmit(event) {
-//         event.preventDefault();
-//         this.props.createEvent(this.state).then((promise) => {
-//             return (
-//                 this.props.history.push(`/groups/${promise.group.id}/events`)
-//             );
-//         });
-//     }
-
-//     handleUpdate(field) {
-//         return (event) => {
-//             this.setState({ [field]: event.target.value });
-//         };
-//     }
-
-//     handleDayClick(day, { selected }) {
-//         this.setState({
-//             start_time: selected ? undefined : day,
-//         });
-//     }
-
-//     render () {
-//         return (
-//             <div className='ce-strip'>
-//                 <div className='ce-form-strip'>
-//                     <form className='ce-form' onSubmit={this.handleSubmit}>
-//                         <div className='ce-main'>
-//                             <div className='ce-left'>
-//                                 <div className='ce-header'>
-//                                     <h1>Create an Event</h1>
-//                                     <p>Group Name Goes Here</p>
-//                                 </div>
-//                                 <div className='ce-input'>
-//                                     <h1>Title (required)</h1>
-//                                     <input
-//                                         className='ce-input-box'
-//                                         onChange={this.handleUpdate('title')}
-//                                         value={this.state.title}
-//                                     />
-//                                 </div>
-//                                 <div className='ce-input'>
-//                                     <h1>Date and Time</h1>
-//                                     <input
-//                                         className='ce-input-box'
-//                                         onChange={this.handleUpdate('date')}
-//                                         value={this.state.date}
-//                                     />
-//                                 </div>
-//                                 <div className='ce-input'>
-//                                     <h1>Duration</h1>
-//                                     <input
-//                                         className='ce-input-box'
-//                                         onChange={this.handleUpdate('time')}
-//                                         value={this.state.time}
-//                                     />
-//                                 </div>
-//                                 <div className='ce-input'>
-//                                     <h1>Description</h1>
-//                                     <p>Let your attendees know what to expect, including the agenda, what they need to bring, and how to find the group.</p>
-//                                     <textarea
-//                                         className='ce-input-big-box'
-//                                         onChange={this.handleUpdate('description')}
-//                                         value={this.state.description}
-//                                     />
-//                                 </div>
-//                                 <div className='ce-input'>
-//                                     <h1>Location</h1>
-//                                     <input
-//                                         className='ce-input-box'
-//                                         onChange={this.handleUpdate('location')}
-//                                         value={this.state.location}
-//                                     />
-//                                 </div>
-//                             </div>
-//                             <div className='ce-right'>
-//                                 <div className='ce-tips'>
-//                                     <h1>
-//                                         Tips for a great event
-//                                     </h1>
-//                                     <p className='ce-tip-header'>
-//                                         Be descriptive
-//                                     </p>
-//                                     <p className='ce-tip'>
-//                                         A good title immediately gives people an idea of what the event is about.
-//                                     </p>
-//                                     <p className='ce-tip-header'>
-//                                         Get organized
-//                                     </p>
-//                                     <p className='ce-tip'>
-//                                         Describe things in a clear order so it's easy to digest. Start with an overall description of the event and include a basic agenda, before you move into really specific details.
-//                                     </p>
-//                                     <p className='ce-tip-header'>
-//                                         Add an image
-//                                     </p>
-//                                     <p className='ce-tip'>
-//                                         Upload a photo or image to give members a better feel for the event.
-//                                     </p>
-//                                 </div>
-//                             </div>
-//                         </div>
-
-//                     </form>
-//                 </div>
-//                 <div className='ce-footer'>
-//                     <input
-//                         className='ce-submit'
-//                         type="submit"
-//                         value='Publish' />
-
-//                     {/* For Possible Cancel, Preview button features
-//                     <div className='ce-footer-left'>
-//                     </div>
-//                     <div className='ce-footer-right'>
-//                     </div> */}
-//                 </div>
-//             </div>
-//         ) 
+// const msp = (state) => {
+//     return {
+//         creatorId: state.session.id
 //     }
 // }
 
-// export default withRouter (CreateEventForm); 
+// const mdp = (dispatch) => {
+//     debugger
+//     return {
+//         createEvent: (event) => dispatch(createEvent(event))
+//     }
+// }
+
+// export default withRouter (connect (msp, mdp) (EventCreateForm))
+
