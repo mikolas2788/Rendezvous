@@ -8,7 +8,6 @@ import { utils } from "react-modern-calendar-datepicker";
 import "react-modern-calendar-datepicker/lib/DatePicker.css";
 import TimePicker from 'rc-time-picker'
 import 'rc-time-picker/assets/index.css';
-import { withRouter } from 'react-router-dom'; 
 import { displayDate } from './event_create_selectors'
 
 /* TODOS
@@ -24,9 +23,9 @@ const EventCreateForm = () => {
     const dispatch = useDispatch()
     const params = useParams()
     const history = useHistory()
-    debugger
+
     function defaultState () {
-        return ({
+        return {
             creator_id,
             group_id: null,
             title: "",
@@ -36,7 +35,7 @@ const EventCreateForm = () => {
             endTime: moment(),
             details: "",
             location: ""
-        })
+        }
     }
 
     useEffect (() => {
@@ -53,18 +52,6 @@ const EventCreateForm = () => {
             updateState(key, value)
         }
     }
-
-    // const [ creatorId, setCreatorId ] = useState(creatorId)
-    // const [ title, setTitle ] = useState('')
-    // const [ startDate, setStartDate ] = useState(today)
-    // const [ startTime, setStartTime ] = useState(moment())
-    // const [ endDate, setEndDate ] = useState(startDate)
-    // const [ endTime, setEndTime] = useState(moment())
-    // const [ description, setDescription ] = useState('')
-    // const [ location, setLocation ] = useState('')
-    
-    console.log(state)
-
     
     async function handleSubmit(event) {
         event.preventDefault();
@@ -77,33 +64,15 @@ const EventCreateForm = () => {
         delete formattedEvent['startTime']
         delete formattedEvent['endDate']
         delete formattedEvent['endTime']
-        console.log(formattedEvent)
-        // debugger
         const createdEvent = await dispatch(createEvent(formattedEvent))
         if ( Boolean(createdEvent) ) {
             history.push(`/groups/${createdEvent.group.id}`)
         }
-        // debugger
-
-
-        // .then((promise) => { 
-        //     console.log(promise)
-        //     debugger
-        //     return (
-        //         console.log('success')
-        //         // history.push(`/groups/${promise.group.id}`)
-        //     );
-        // }).catch((error) => {
-        //     debugger
-        // }));
     }
-
 
     function formatDateTime (date, time) {
         let momentDate = moment(date).format('YYYY-MM-DD')
         let momentTime = moment(time).format('hh:mm A')
-        // let newDate = displayDate(date)
-        // let newTime = time.format('hh:mm A')
         let formattedDateTime = moment(`${momentDate} ${momentTime}`).format('YYYY-MM-DDTHH:mm:ssZ')
         console.log(formattedDateTime)
         return formattedDateTime
@@ -271,19 +240,3 @@ const startDateInput = ({ ref }) => (
 }
 
 export default EventCreateForm
-
-// const msp = (state) => {
-//     return {
-//         creatorId: state.session.id
-//     }
-// }
-
-// const mdp = (dispatch) => {
-//     debugger
-//     return {
-//         createEvent: (event) => dispatch(createEvent(event))
-//     }
-// }
-
-// export default withRouter (connect (msp, mdp) (EventCreateForm))
-
