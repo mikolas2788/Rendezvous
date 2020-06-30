@@ -47,6 +47,7 @@ class Api::EventsController < ApplicationController
             :group_id, 
             :title,
             :details,
+            :location,
             :start_date,
             :end_date, 
         )

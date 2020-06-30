@@ -16,7 +16,7 @@
 #
 
 class Event < ApplicationRecord
-    validates :title, :creator_id, :group_id, :details, 
+    validates :title, :creator_id, :group_id, :details, :location,
     :start_date, :end_date, presence: true
 
     belongs_to :group

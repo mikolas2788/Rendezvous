@@ -26,7 +26,7 @@ const EventIndexItem = ({ event, groups }) => {
                 <div className='event-item-right'>
                     <h2 className='event-item-group-name'> {groupTitle} </h2>
                     <h1> {event.title} </h1>
-                    <h2> Location </h2>
+                    <h2> {event.location} </h2>
                     <h2> People Attending </h2>
                 </div>
             </div>
