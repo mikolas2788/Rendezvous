@@ -17,31 +17,35 @@ import { displayDate } from './event_create_selectors'
 */
 
 const EventCreateForm = () => {
+    // { year: 2020, month: 6, day: 30 }
     let today = utils().getToday()
+    const tomorrow = getTomorrow()
     const creator_id = useSelector(state => state.session.id);
     const [ state, setState ] = useState(defaultState())
     const dispatch = useDispatch()
     const params = useParams()
     const history = useHistory()
     console.log(state)
+
     function defaultState () {
         return {
             creator_id,
             group_id: null,
             title: "",
-            startDate: today,
+            startDate: tomorrow,
             startTime: moment(),
-            endDate: today,
+            endDate: tomorrow,
             endTime: moment(),
             details: "",
             location: ""
         }
     }
 
+    debugger 
+    
     useEffect (() => {
         updateState('group_id', Number(params.groupId))
     }, [params])
-
 
     const updateState = (key, value) => {
         setState({...state, [key]: value})
@@ -53,14 +57,27 @@ const EventCreateForm = () => {
         }
     }
     
+    function getTomorrow () {
+        const tomorrow = moment().add(1, 'days')
+        return { 
+            year: tomorrow.year(), 
+            month: tomorrow.month()+1, 
+            day: tomorrow.date()
+        } 
+    }
+
     async function handleSubmit(event) {
         event.preventDefault();
-        const formattedStartDateTime = momentizeDateTime(state.startDate, state.startTime)
-        const formattedEndDateTime = momentizeDateTime(state.endDate, state.endTime)
-        let newState = {...state}
-        newState['start_date'] = formattedStartDateTime
-        newState['end_date'] = formattedEndDateTime
-        const createdEvent = await dispatch(createEvent(newState))
+        const momentedStartDateTime = momentizeDateTime(state.startDate, state.startTime)
+        const momentedEndDateTime = momentizeDateTime(state.endDate, state.endTime)
+        let formattedEvent = {...state}
+        formattedEvent['start_date'] = momentedStartDateTime
+        formattedEvent['end_date'] = momentedEndDateTime
+        delete formattedEvent['startDate']
+        delete formattedEvent['startTime']
+        delete formattedEvent['endDate']
+        delete formattedEvent['endTime']
+        const createdEvent = await dispatch(createEvent(formattedEvent))
         if ( Boolean(createdEvent) ) {
             history.push(`/groups/${createdEvent.group.id}`)
         }
@@ -137,7 +154,7 @@ const EventCreateForm = () => {
                                 <DatePicker 
                                     value={state.startDate}
                                     onChange={updateDate('startDate')}
-                                    minimumDate={today}
+                                    minimumDate={tomorrow}
                                     renderInput={startDateInput}
                                 />
                                 <TimePicker 
@@ -154,7 +171,7 @@ const EventCreateForm = () => {
                             <div className='ce-input'>
                                 <h1> End Date and Time</h1>
                                 <DatePicker
-                                    value={state.endDate}
+                                    value={state.startDate}
                                     onChange={updateDate('endDate')}
                                     minimumDate={state.startDate}
                                     renderInput={endDateInput}
