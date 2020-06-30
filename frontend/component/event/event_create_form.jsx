@@ -23,7 +23,7 @@ const EventCreateForm = () => {
     const dispatch = useDispatch()
     const params = useParams()
     const history = useHistory()
-
+    console.log(state)
     function defaultState () {
         return {
             creator_id,
@@ -55,30 +55,24 @@ const EventCreateForm = () => {
     
     async function handleSubmit(event) {
         event.preventDefault();
-        let formattedStartDateTime = formatDateTime(state.startDate, state.startTime)
-        let formattedEndDateTime = formatDateTime(state.endDate, state.endTime)
-        let formattedEvent = {...state}
-        formattedEvent['start_date'] = formattedStartDateTime
-        formattedEvent['end_date'] = formattedEndDateTime
-        delete formattedEvent['startDate']
-        delete formattedEvent['startTime']
-        delete formattedEvent['endDate']
-        delete formattedEvent['endTime']
-        const createdEvent = await dispatch(createEvent(formattedEvent))
+        const formattedStartDateTime = momentizeDateTime(state.startDate, state.startTime)
+        const formattedEndDateTime = momentizeDateTime(state.endDate, state.endTime)
+        let newState = {...state}
+        newState['start_date'] = formattedStartDateTime
+        newState['end_date'] = formattedEndDateTime
+        const createdEvent = await dispatch(createEvent(newState))
         if ( Boolean(createdEvent) ) {
             history.push(`/groups/${createdEvent.group.id}`)
         }
     }
 
-    function formatDateTime (date, time) {
-        let momentDate = moment(date).format('YYYY-MM-DD')
-        let momentTime = moment(time).format('hh:mm A')
-        let formattedDateTime = moment(`${momentDate} ${momentTime}`).format('YYYY-MM-DDTHH:mm:ssZ')
-        console.log(formattedDateTime)
-        return formattedDateTime
+    function momentizeDateTime (date, time) {
+        const momentedDateTime = moment(`${date} ${time}`)
+            .format('YYYY-MM-DDTHH:mm:ssZ');
+        return momentedDateTime
     }
 
-const startDateInput = ({ ref }) => (
+    const startDateInput = ({ ref }) => (
         <input
             readOnly
             ref={ref}
@@ -153,7 +147,8 @@ const startDateInput = ({ ref }) => (
                                     minuteStep={15}
                                     allowEmpty={false}
                                     defaultValue={state.startTime}
-                                    onChange={() => updateState('startTime', moment(event.target.value))}
+                                    value={state.startTime}
+                                    onChange={(timeValue) => updateState('startTime', moment(timeValue))}
                                 />
                             </div>
                             <div className='ce-input'>
@@ -171,7 +166,8 @@ const startDateInput = ({ ref }) => (
                                     minuteStep={15}
                                     allowEmpty={false}
                                     defaultValue={state.endTime}
-                                    onChange={() => updateState('endTime', moment(event.target.value))}
+                                    value={state.endTime}
+                                    onChange={(timeValue) => updateState('endTime', moment(timeValue))}
                                 />
                             </div>
                             <div className='ce-input'>
