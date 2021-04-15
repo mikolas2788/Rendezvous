@@ -5,6 +5,17 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta property="og:title" content="Rendezvous" />
+    <meta property="og:image" content="<%= image_url('rendezvous.gif') %>" />
+    <meta 
+        property="og:description" 
+        content="A Fullstack clone of Meetup, a social platform used to network people of similar interests and hobbies." 
+    />
+    <meta 
+        property="og:url" 
+        content="http://rendezvous-meetup.herokuapp.com/#/" 
+    />
+
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
 <link 

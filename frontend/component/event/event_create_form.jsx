@@ -17,8 +17,6 @@ import { displayDate } from './event_create_selectors'
 */
 
 const EventCreateForm = () => {
-    // { year: 2020, month: 6, day: 30 }
-    let today = utils().getToday()
     const tomorrow = getTomorrow()
     const creator_id = useSelector(state => state.session.id);
     const [ state, setState ] = useState(defaultState())
@@ -41,27 +39,32 @@ const EventCreateForm = () => {
         }
     }
 
-    debugger 
-    
     useEffect (() => {
         updateState('group_id', Number(params.groupId))
     }, [params])
 
     const updateState = (key, value) => {
+        // debugger
         setState({...state, [key]: value})
     }
 
     const updateDate = (key) => {
         return (value) => {
+            // debugger
             updateState(key, value)
         }
     }
-    
+
+    // const updateAll = (key) => {
+    //     updateDate('startDate')
+    //     updateDate('endDate')
+    // }
+
     function getTomorrow () {
         const tomorrow = moment().add(1, 'days')
         return { 
             year: tomorrow.year(), 
-            month: tomorrow.month()+1, 
+            month: tomorrow.month() + 1, 
             day: tomorrow.date()
         } 
     }
