@@ -12,7 +12,7 @@
     "core-js": "^3.6.5",
     "css-loader": "^2.1.1",
     "lodash": "^4.17.15",
-    "moment": "^2.27.0",
+    "moment": "^2.29.2",
     "rc-time-picker": "^3.7.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
